@@ -128,7 +128,7 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 # Auto start
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id synclient TapButton1=1
-#exec --no-startup-id compton
+exec --no-startup-id compton
 
 
 # resize window (you can also use the mouse for that)
