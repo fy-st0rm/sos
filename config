@@ -122,7 +122,7 @@ bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/screenshots/$(date
 bindsym $mod+Shift+Return exec --no-startup-id nautilus
 
 bindsym $mod+Return exec alacritty 
-bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+d exec --no-startup-id dmenu_run -nb '#282A36' -sf '#282A36' -sb '#89CFF0' -nf '#ffffff' 
 
 
 # Auto start
