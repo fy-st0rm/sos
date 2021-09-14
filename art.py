@@ -62,5 +62,15 @@ hacker_man = f"""
 {colors.RED}  ▄████▄  ▐▌  ▄████▄ {colors.DEFAULT}   {colors.DEFAULT}  ▄████▄  ▐{colors.BLACK}▌  ▄████▄ {colors.DEFAULT}   {colors.PURPLE}  ▄████▄  ▐▌  ▄████▄ {colors.DEFAULT}
 """
 
-patterns = [block, pacman, knight, alien, hacker_man]
+terminal = f"""
+{colors.DEFAULT} _____                   _             _ 
+{colors.DEFAULT}|_   _|                 (_)           | |
+{colors.DEFAULT}  | | ___ _ __ _ __ ___  _ _ __   __ _| |
+{colors.DEFAULT}  | |/ _ \ '__| '_ ` _ \| | '_ \ / _` | |
+{colors.DEFAULT}  | |  __/ |  | | | | | | | | | | (_| | |
+{colors.DEFAULT}  \_/\___|_|  |_| |_| |_|_|_| |_|\__,_|_|
+                                        
+"""
+
+patterns = [block, pacman, knight, alien, hacker_man, terminal]
 print(random.choice(patterns))
