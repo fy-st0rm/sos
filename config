@@ -11,7 +11,7 @@
 set $mod Mod1
 
 # Setting up font
-font pango:TerminessTTF Nerd Font Mono 10
+font pango: TerminessTTF Nerd Font Mono 10 
 
 # Network and something autostarts
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
@@ -167,13 +167,16 @@ bar {
 		#i3bar_command i3bar --transparency	
 		#separator_symbol "<"
 
+		position top
+
 		status_command ~/.config/bumblebee-status/bumblebee-status\
 		-t dracula-powerline \
 		-m nic cpu memory amixer battery datetime\
 		-p datetime.format="%a %e %b %Y - %I:%M %p"		# 12 hr format
 	
 		colors {
-			background #282A36AA 
+			background #282A36AA
+			focused_workspace #89CFF0 #89CFF0 #000000
 		}
 }
 
