@@ -176,7 +176,7 @@ bar {
 	
 		colors {
 			background #282A36AA
-			focused_workspace #89CFF0 #89CFF0 #000000
+			focused_workspace #6272a4 #6272a4 #FFFFFF
 		}
 }
 
