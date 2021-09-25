@@ -42,13 +42,12 @@ for frame in range(0,gif.n_frames):
 # Displaying the frames
 frames = os.listdir()
 pos = 0
-while True:	
+while True:
 	if build == "Linux":
 		os.system(f"feh --bg-fill {frames[pos]}")
 	elif build == "Windows":
-		SPI_SETDESKWALLPAPER = 20 
-		ctypes.windll.user32.SystemParametersInfoA(SPI_SETDESKWALLPAPER, 0, frames[pos] , 0)
-
+		ctypes.windll.user32.SystemParametersInfoW(20, 0, frames[pos] , 0)
+	
 	pos += 1
 	if pos >= len(frames): pos = 0
 	
