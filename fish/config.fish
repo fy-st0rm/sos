@@ -9,5 +9,6 @@ set fish_greeting
 starship init fish | source
 
 # Using pattern
-pattern
+# pattern
+sfetch
 
