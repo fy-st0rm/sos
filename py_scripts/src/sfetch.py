@@ -1,6 +1,7 @@
 #-- Imports
 import platform
 import os
+import random
 
 # Colors for terminal
 class colors:
@@ -18,9 +19,28 @@ class colors:
 border = colors.CYAN
 info_name = colors.BLUE
 info = colors.YELLOW
+logo_color = random.choice([colors.PURPLE, colors.BLUE, colors.CYAN, colors.GREEN, colors.RED, colors.YELLOW, colors.DEFAULT])
 
 #-- Info holders
 infos = {}
+
+#logo = [
+#"░██████╗░█████╗░░██████╗",
+#"██╔════╝██╔══██╗██╔════╝",
+#"╚█████╗░██║░░██║╚█████╗░",
+#"░╚═══██╗██║░░██║░╚═══██╗",
+#"██████╔╝╚█████╔╝██████╔╝",
+#"╚═════╝░░╚════╝░╚═════╝░"
+#]
+
+logo = [
+"╋╋╋┏━━━┓   ",
+"╋╋╋┃┏━┓┃   ",
+"┏━━┫┃┃┃┣━━┓",
+"┃━━┫┃┃┃┃━━┫",
+"┣━━┃┗━┛┣━━┃",
+"┗━━┻━━━┻━━┛"
+]
 
 #-- Collecting system information
 infos.update({"User": platform.node()})
@@ -48,9 +68,24 @@ top    = border + "╭" + "─" * longest_line + "╮" + colors.DEFAULT
 bottom = border + "╰" + "─" * longest_line + "╯" + colors.DEFAULT
 
 #-- Printing the final info
-print(top)
-for i in infos:
+offset = 0
+logo_gap = len(infos) + 2 - len(logo)
+
+print(" " * len(logo[0]) + " " + top)
+
+for line, i in enumerate(infos):
     format = info_name + i + colors.DEFAULT + " " * (longest_name - len(i)) + ": " + info + infos[i] + colors.DEFAULT + " " * (longest_info - len(infos[i]))
-    print(border + "│" + colors.DEFAULT, format, border + "│" + colors.DEFAULT)
-print(bottom)
+    
+    #-- Printing logo
+    if line + 1 >= logo_gap:
+        print(logo_color + logo[offset] + " " + colors.DEFAULT, end="")
+        offset += 1
+
+        print(border + "│" + colors.DEFAULT, format, border + "│" + colors.DEFAULT)
+    else:
+        print(" " * len(logo[0]) + " " + border + "│" + colors.DEFAULT, format, border + "│" + colors.DEFAULT)
+
+print(logo_color + logo[-1] + colors.DEFAULT + " " + bottom)
+
+
 
