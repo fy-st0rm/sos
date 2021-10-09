@@ -118,19 +118,17 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # Keybindings
-bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/screenshots/$(date).png"	# Screenshot bind
-bindsym $mod+Shift+Return exec --no-startup-id nautilus
-
-bindsym $mod+Return exec alacritty 
-bindsym $mod+d exec --no-startup-id dmenu_run -nb '#282A36' -sf '#282A36' -sb '#89CFF0' -nf '#ffffff' 
-
+bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/screenshots/$(date).png"						# Screenshot bind
+bindsym $mod+Shift+Return exec --no-startup-id nautilus														# FileManager
+bindsym $mod+Return exec alacritty																			# Terminal
+bindsym $mod+d exec --no-startup-id dmenu_run -nb '#282A36' -sf '#282A36' -sb '#89CFF0' -nf '#ffffff' 		# Dmenu
+bindsym $mod+b exec --no-startup-id sbrowser																# sbrowser
 
 # Auto start
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id synclient TapButton1=1
 exec --no-startup-id compton
-#exec --no-startup-id ./back4.sh auto ~/Pictures/gif/train.gif
-exec --no-startup-id ./wallpaper 0.05 ~/Pictures/gif/train.gif
+#exec --no-startup-id ./wallpaper 0.05 ~/Pictures/gif/city2.gif
 
 
 # resize window (you can also use the mouse for that)
@@ -160,7 +158,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 				
 # Colors
-client.focused #000000 #000000 #00000 #ffffff #ffffff
+client.focused   #000000 #000000 #00000 #bd93f9 #bd93f9
 client.unfocused #000000 #000000 #00000 #000000 #000000
 
 # I3 bar
@@ -186,5 +184,4 @@ bar {
 for_window [class="^.*"] border pixel 2
 gaps inner 8
 gaps outer 8
-
-
+border_radius 0
