@@ -8,7 +8,5 @@ set fish_greeting
 # Enabling starship prompt
 starship init fish | source
 
-# Using pattern
-# pattern
 sfetch
 

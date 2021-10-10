@@ -117,9 +117,11 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
+
+#-- CUSTOM
 # Keybindings
 bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/screenshots/$(date).png"						# Screenshot bind
-bindsym $mod+Shift+Return exec --no-startup-id nautilus														# FileManager
+# bindsym $mod+Shift+Return exec --no-startup-id nautilus														# FileManager
 bindsym $mod+Return exec alacritty																			# Terminal
 bindsym $mod+d exec --no-startup-id dmenu_run -nb '#282A36' -sf '#282A36' -sb '#89CFF0' -nf '#ffffff' 		# Dmenu
 bindsym $mod+b exec --no-startup-id sbrowser																# sbrowser
@@ -128,7 +130,7 @@ bindsym $mod+b exec --no-startup-id sbrowser																# sbrowser
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id synclient TapButton1=1
 exec --no-startup-id compton
-#exec --no-startup-id ./wallpaper 0.05 ~/Pictures/gif/city2.gif
+# exec --no-startup-id wallpaper 0.05 ~/Pictures/gif/city2.gif
 
 
 # resize window (you can also use the mouse for that)
@@ -163,16 +165,16 @@ client.unfocused #000000 #000000 #00000 #000000 #000000
 
 # I3 bar
 bar {
-        #status_command i3status
-		#i3bar_command i3bar --transparency	
-		#separator_symbol "<"
+        status_command i3status
+		i3bar_command i3bar --transparency	
+		separator_symbol "<"
 
 		position top
 
-		status_command ~/.config/bumblebee-status/bumblebee-status\
-		-t dracula-powerline \
-		-m nic cpu memory amixer battery datetime\
-		-p datetime.format="%a %e %b %Y - %I:%M %p"  memory.format="{used}" nic.format="{intf} {state}"
+		# status_command ~/.config/bumblebee-status/bumblebee-status\
+		# -t dracula-powerline \
+		# -m nic cpu memory amixer battery datetime\
+		# -p datetime.format="%a %e %b %Y - %I:%M %p"  memory.format="{used}" nic.format="{intf} {state}"
 
 		colors {
 			background #282A36AA
