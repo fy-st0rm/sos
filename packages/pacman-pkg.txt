@@ -4,7 +4,6 @@ maim
 fish
 vim
 python
-picom
 starship
 ranger
 bash
