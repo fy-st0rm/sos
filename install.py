@@ -24,6 +24,17 @@ cmd = "yay -S - < packages/aur-pkg.txt"
 os.system(cmd)
 
 #----
+# Installing bumblebee status
+#----
+print("###############################")
+print("# INSTALLING BUMBLEBEE-STATUS #")
+print("###############################")
+
+cmd = "git clone git://github.com/tobi-wan-kenobi/bumblebee-status.git"
+os.system(cmd)
+os.system("cp -a bumblebee-status/ ~/.config/"
+
+#----
 # Copying the custom py_scripts binary to /usr/bin
 #----
 

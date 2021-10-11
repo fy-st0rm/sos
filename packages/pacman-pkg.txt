@@ -11,3 +11,4 @@ bash
 nitrogen
 yay
 git
+dmenu

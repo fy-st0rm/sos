@@ -165,16 +165,16 @@ client.unfocused #000000 #000000 #00000 #000000 #000000
 
 # I3 bar
 bar {
-        status_command i3status
-		i3bar_command i3bar --transparency	
-		separator_symbol "<"
+        # status_command i3status
+		# i3bar_command i3bar --transparency	
+		# separator_symbol "<"
 
 		position top
 
-		# status_command ~/.config/bumblebee-status/bumblebee-status\
-		# -t dracula-powerline \
-		# -m nic cpu memory amixer battery datetime\
-		# -p datetime.format="%a %e %b %Y - %I:%M %p"  memory.format="{used}" nic.format="{intf} {state}"
+		status_command ~/.config/bumblebee-status/bumblebee-status\
+		-t dracula-powerline \
+		-m nic cpu memory amixer battery datetime\
+		-p datetime.format="%a %e %b %Y - %I:%M %p"  memory.format="{used}" nic.format="{intf} {state}"
 
 		colors {
 			background #282A36AA
