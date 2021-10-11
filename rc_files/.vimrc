@@ -3,6 +3,7 @@ syntax on
 "-- Plugins
 call plug#begin('~/.vim/plugged')
 
+Plug 'arcticicestudio/nord-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'itchyny/vim-gitbranch'
@@ -36,8 +37,8 @@ autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
 
 "-- Lighline color
 let g:lightline = {
-      \ 'colorscheme': 'dracula',
-      \ 'active': {
+      \ 'colorscheme': 'dracula', 
+	  \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'filename', 'readonly', 'modified' ],
       \             [ 'gitdiff' ] ],
@@ -54,3 +55,4 @@ let g:lightline = {
 
 "-- Enalbing lightline color
 set laststatus=2
+
