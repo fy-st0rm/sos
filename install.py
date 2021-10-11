@@ -86,9 +86,9 @@ if selection.lower() == "y":
     cmd = "cp -r configs/* ~/.config"
     os.system(cmd)
 else:
-    print("#######################################")
-    print("# SKIPPING REPLACING BASHRC AND VIMRC #")
-    print("#######################################")
+    print("##############################")
+    print("# SKIPPING REPLACING Configs #")
+    print("##############################")
 
 
 print("Thank you for installing...")
