@@ -49,7 +49,7 @@ if selection.lower() == "y":
     print("# REPLACING BASHRC AND VIMRC #")
     print("##############################")
     
-    cmd = "cp rc_files/* ~/"
+    cmd = "cp -r rc_files/ ~"
     os.system(cmd)
 else: 
     print("#######################################")
