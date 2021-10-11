@@ -11,4 +11,3 @@ bash
 nitrogen
 yay
 git
-terminus-font

@@ -1,0 +1,26 @@
+add_newline = false
+
+
+# Battery 
+[battery]
+full_symbol = "🔋"
+charging_symbol = "🔌"
+discharging_symbol = "⚡"
+
+[[battery.display]]
+threshold = 30
+style = "bold red"
+
+
+# Default thingy
+[line_break]
+disabled = true
+
+[character]
+success_symbol = "[➜](green)"
+error_symbol = "[✗](bold red)"
+
+[package]
+disabled = true
+
+
