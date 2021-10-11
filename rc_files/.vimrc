@@ -8,6 +8,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'itchyny/vim-gitbranch'
 Plug 'niklaas/lightline-gitdiff'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 call plug#end()
 
@@ -29,8 +30,6 @@ set cursorline
 "set cursorlineopt=number
 
 "-- Enabling dracula color scheme
-packadd! dracula
-syntax enable
 colorscheme dracula
 
 autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
