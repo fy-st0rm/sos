@@ -8,3 +8,5 @@ picom
 starship
 ranger
 bash
+nitrogen
+yay
