@@ -2,6 +2,8 @@ import os
 
 print("Welcome to the SOS installer!")
 
+os.system("sudo pacman -Syu")
+
 #----
 # Installing pacman and AUR packages
 #----
