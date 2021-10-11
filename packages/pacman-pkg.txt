@@ -10,3 +10,4 @@ ranger
 bash
 nitrogen
 yay
+git
