@@ -15,11 +15,13 @@ call plug#end()
 
 "-- Basic settings
 set belloff=all
-set shiftwidth=4
 set number
 set backspace=indent,eol,start " more powerfull backspacing
-set autoindent
+set smartindent
+set shiftwidth=4
 set tabstop=4
+set expandtab
+set softtabstop=0
 set nowrap
 set clipboard=unnamedplus
 set mouse=a
@@ -30,9 +32,9 @@ set cursorline
 "set cursorlineopt=number
 
 "-- Enabling dracula color scheme
-colorscheme dracula
+colorscheme nord
 
-autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
+" autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
 
 "-- Lighline color
 let g:lightline = {
@@ -54,4 +56,7 @@ let g:lightline = {
 
 "-- Enalbing lightline color
 set laststatus=2
+
+"-- Enabling the tabs in python files
+:autocmd FileType python setlocal noexpandtab
 
