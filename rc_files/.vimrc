@@ -58,5 +58,4 @@ let g:lightline = {
 set laststatus=2
 
 "-- Enabling the tabs in python files
-:autocmd FileType python setlocal noexpandtab
-
+:autocmd FileType * setlocal noexpandtab
