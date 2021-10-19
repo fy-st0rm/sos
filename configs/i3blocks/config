@@ -1,0 +1,109 @@
+# Global properties
+separator=false
+separator_block_width=0
+
+
+# Network section
+[seperator]
+command=echo "["
+interval=once
+
+[ethernet]
+label= 
+command=nmcli | awk '/enp1s0:/ { print $2 }'
+interval=5
+
+[seperator]
+command=echo "]──["
+interval=once
+
+[wifi]
+label= 
+command=nmcli | awk '/wlp2s0:/ { print $2 }'
+interval=5
+
+[seperator]
+command=echo "]─"
+interval=once
+
+
+# CPU section
+[seperator]
+command=echo "─["
+interval=once
+
+[cpu_temp]
+label= 
+command=sensors | awk '/Package id 0:/ { print $4 }'
+interval=5
+
+[seperator]
+command=echo "]──["
+interval=once
+
+[cpu_usage]
+label= 
+command=i3_cpu.sh
+interval=5
+
+[seperator]
+command=echo "]─"
+interval=once
+
+# RAM section
+[seperator]
+command=echo "─["
+interval=once
+
+[ram]
+label= 
+command=i3_mem.sh
+interval=5
+
+[seperator]
+command=echo "]─"
+interval=once
+
+
+# Volume section
+[seperator]
+command=echo "─["
+interval=once
+
+[volume]
+label= 
+command=i3_volume.sh
+interval=5
+
+[seperator]
+command=echo "]─"
+interval=once
+
+# Battery section
+[seperator]
+command=echo "─["
+interval=once
+
+[battery]
+label= 
+command=upower -i /org/freedesktop/UPower/devices/battery_BAT0 | awk '/percentage:/ {print $2}'
+interval=5
+
+[seperator]
+command=echo "]─"
+interval=once
+
+# Time section
+[seperator]
+command=echo "─["
+interval=once
+
+[time]
+label= 
+command=date '+%Y-%m-%d %I:%M %p'
+interval=1
+
+[seperator]
+command=echo "]"
+interval=once
+
