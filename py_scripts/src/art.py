@@ -20,16 +20,6 @@ block = f"""
     {colors.PURPLE}██ ████{colors.DEFAULT}  {colors.BLUE}██ ████{colors.DEFAULT}  {colors.YELLOW}██ ████{colors.DEFAULT}  {colors.CYAN}██ ████{colors.DEFAULT}
     """
 
-heart = f"""
-{colors.RED}  ██    ██  {colors.DEFAULT} {colors.PURPLE}  ██    ██  {colors.DEFAULT} {colors.GREEN}  ██    ██  {colors.DEFAULT} {colors.CYAN}  ██    ██  {colors.DEFAULT}
-{colors.RED} ████  ████ {colors.DEFAULT} {colors.PURPLE} ████  ████ {colors.DEFAULT} {colors.GREEN} ████  ████ {colors.DEFAULT} {colors.CYAN} ████  ████ {colors.DEFAULT}
-{colors.RED} ██████████ {colors.DEFAULT} {colors.PURPLE} ██████████ {colors.DEFAULT} {colors.GREEN} ██████████ {colors.DEFAULT} {colors.CYAN} ██████████ {colors.DEFAULT}
-{colors.RED}  ████████  {colors.DEFAULT} {colors.PURPLE}  ████████  {colors.DEFAULT} {colors.GREEN}  ████████  {colors.DEFAULT} {colors.CYAN}  ████████  {colors.DEFAULT}
-{colors.RED}   ██████   {colors.DEFAULT} {colors.PURPLE}   ██████   {colors.DEFAULT} {colors.GREEN}   ██████   {colors.DEFAULT} {colors.CYAN}   ██████   {colors.DEFAULT}
-{colors.RED}    ████    {colors.DEFAULT} {colors.PURPLE}    ████    {colors.DEFAULT} {colors.GREEN}    ████    {colors.DEFAULT} {colors.CYAN}    ████    {colors.DEFAULT}
-{colors.RED}     ██     {colors.DEFAULT} {colors.PURPLE}     ██     {colors.DEFAULT} {colors.GREEN}     ██     {colors.DEFAULT} {colors.CYAN}     ██     {colors.DEFAULT}
-        """
-
 pacman = f"""
 {colors.YELLOW}   ▄████▄ {colors.DEFAULT}   {colors.GREEN}   ▄████▄ {colors.DEFAULT}   {colors.RED}   ▄████▄ {colors.DEFAULT}   {colors.BLUE}   ▄████▄ {colors.DEFAULT}
 {colors.YELLOW}  ███▄█▀  {colors.DEFAULT}   {colors.GREEN}  ███▄█▀  {colors.DEFAULT}   {colors.RED}  ███▄█▀  {colors.DEFAULT}   {colors.BLUE}  ███▄█▀  {colors.DEFAULT}

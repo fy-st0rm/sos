@@ -11,7 +11,8 @@
 set $mod Mod1
 
 # Setting up font
-font pango: TerminessTTF Nerd Font Mono 10 
+# font pango: TerminessTTF Nerd Font Mono 10 
+font pango: monospace 9
 
 # Network and something autostarts
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
@@ -76,6 +77,14 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
+# terminal:  
+# home: 
+# internet : 
+# discord: 
+# file: 
+# 
+
+
 # Workspaces
 set $ws1 "1"
 set $ws2 "2"
@@ -105,7 +114,7 @@ bindsym $mod+Shift+1 move container to workspace number $ws1
 bindsym $mod+Shift+2 move container to workspace number $ws2
 bindsym $mod+Shift+3 move container to workspace number $ws3
 bindsym $mod+Shift+4 move container to workspace number $ws4
-bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+5 move container to workspace number $ws5 
 bindsym $mod+Shift+6 move container to workspace number $ws6
 bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
@@ -117,20 +126,23 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
-
-#-- CUSTOM
 # Keybindings
 bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/screenshots/$(date).png"						# Screenshot bind
-# bindsym $mod+Shift+Return exec --no-startup-id nautilus														# FileManager
+bindsym $mod+Shift+Return exec --no-startup-id nautilus														# FileManager
 bindsym $mod+Return exec alacritty																			# Terminal
-bindsym $mod+d exec --no-startup-id dmenu_run -nb '#282A36' -sf '#282A36' -sb '#89CFF0' -nf '#ffffff' 		# Dmenu
 bindsym $mod+b exec --no-startup-id sbrowser																# sbrowser
+
+# Dracula/nord color								 none bg		none fg		 sel fg        sel bg
+# bindsym $mod+d exec --no-startup-id dmenu_run -nb '#282A36' -nf '#ffffff' -sf '#282A36' -sb '#89CFF0'  	# Dmenu
+
+# Gruvbox color
+bindsym $mod+d exec --no-startup-id dmenu_run -nb '#282828' -nf '#ebdbb2' -sf '#282828' -sb '#98971a'  		# Dmenu
 
 # Auto start
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id synclient TapButton1=1
 exec --no-startup-id compton
-# exec --no-startup-id wallpaper 0.05 ~/Pictures/gif/city2.gif
+#exec --no-startup-id wallpaper 0.05 ~/Pictures/gif/city2.gif
 
 
 # resize window (you can also use the mouse for that)
@@ -165,14 +177,14 @@ client.unfocused #000000 #000000 #00000 #000000 #000000
 
 # I3 bar
 bar {
-        # status_command i3status
-		# i3bar_command i3bar --transparency	
-		# separator_symbol "<"
+        #status_command i3status
+		#i3bar_command i3bar --transparency	
+		#separator_symbol "<"
 
 		position top
 
 		status_command ~/.config/bumblebee-status/bumblebee-status\
-		-t dracula-powerline \
+		-t gruvbox-powerline \
 		-m nic cpu memory amixer battery datetime\
 		-p datetime.format="%a %e %b %Y - %I:%M %p"  memory.format="{used}" nic.format="{intf} {state}"
 
@@ -183,7 +195,7 @@ bar {
 }
 
 # Adding gaps
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 0 
 gaps inner 8
 gaps outer 8
-border_radius 0
+border_radius 5 
