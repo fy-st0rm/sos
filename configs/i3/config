@@ -12,7 +12,9 @@ set $mod Mod1
 
 # Setting up font
 # font pango: TerminessTTF Nerd Font Mono 10 
-font pango: monospace 9
+# font pango: monospace 9
+font pango: Mx437 IBM BIOS-2y 10
+# font pango: Ac437 IBM EGA 8x8 9
 
 # Network and something autostarts
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
@@ -142,6 +144,7 @@ bindsym $mod+d exec --no-startup-id dmenu_run -nb '#282828' -nf '#ebdbb2' -sf '#
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id synclient TapButton1=1
 exec --no-startup-id compton
+exec --no-startup-id dunst
 #exec --no-startup-id wallpaper 0.05 ~/Pictures/gif/city2.gif
 
 
@@ -172,30 +175,35 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 				
 # Colors
-client.focused   #000000 #000000 #00000 #bd93f9 #bd93f9
+
+#-- Purple
+# client.focused   #000000 #000000 #00000 #bd93f9 #bd93f9
+
+#-- red
+client.focused   #000000 #000000 #00000 #cc241d #cc241d
 client.unfocused #000000 #000000 #00000 #000000 #000000
 
 # I3 bar
 bar {
-        #status_command i3status
+        status_command i3blocks
 		#i3bar_command i3bar --transparency	
 		#separator_symbol "<"
 
 		position top
 
-		status_command ~/.config/bumblebee-status/bumblebee-status\
-		-t gruvbox-powerline \
-		-m nic cpu memory amixer battery datetime\
-		-p datetime.format="%a %e %b %Y - %I:%M %p"  memory.format="{used}" nic.format="{intf} {state}"
+		#status_command ~/.config/bumblebee-status/bumblebee-status\
+		#-t gruvbox-powerline \
+		#-m nic cpu memory amixer battery datetime\
+		#-p datetime.format="%a %e %b %Y - %I:%M %p"  memory.format="{used}" nic.format="{intf} {state}"
 
-		colors {
-			background #282A36AA
-			focused_workspace #6272a4 #6272a4 #FFFFFF
-		}
+		#colors {
+		#	background #282A36AA
+		#	focused_workspace #6272a4 #6272a4 #FFFFFF
+		#}
 }
 
 # Adding gaps
 for_window [class="^.*"] border pixel 0 
 gaps inner 8
 gaps outer 8
-border_radius 5 
+border_radius 5
