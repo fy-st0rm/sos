@@ -2,9 +2,9 @@
 separator=false
 separator_block_width=0
 
-
 # Network section
 [seperator]
+color=#458588
 command=echo "["
 interval=once
 
@@ -14,6 +14,7 @@ command=nmcli | awk '/enp1s0:/ { print $2 }'
 interval=5
 
 [seperator]
+color=#458588
 command=echo "]──["
 interval=once
 
@@ -23,12 +24,13 @@ command=nmcli | awk '/wlp2s0:/ { print $2 }'
 interval=5
 
 [seperator]
+color=#458588
 command=echo "]─"
 interval=once
 
-
 # CPU section
 [seperator]
+color=#458588
 command=echo "─["
 interval=once
 
@@ -38,6 +40,7 @@ command=sensors | awk '/Package id 0:/ { print $4 }'
 interval=5
 
 [seperator]
+color=#458588
 command=echo "]──["
 interval=once
 
@@ -47,11 +50,13 @@ command=i3_cpu.sh
 interval=5
 
 [seperator]
+color=#458588
 command=echo "]─"
 interval=once
 
 # RAM section
 [seperator]
+color=#458588
 command=echo "─["
 interval=once
 
@@ -61,12 +66,13 @@ command=i3_mem.sh
 interval=5
 
 [seperator]
+color=#458588
 command=echo "]─"
 interval=once
 
-
 # Volume section
 [seperator]
+color=#458588
 command=echo "─["
 interval=once
 
@@ -76,11 +82,13 @@ command=i3_volume.sh
 interval=5
 
 [seperator]
+color=#458588
 command=echo "]─"
 interval=once
 
 # Battery section
 [seperator]
+color=#458588
 command=echo "─["
 interval=once
 
@@ -90,11 +98,13 @@ command=upower -i /org/freedesktop/UPower/devices/battery_BAT0 | awk '/percentag
 interval=5
 
 [seperator]
+color=#458588
 command=echo "]─"
 interval=once
 
 # Time section
 [seperator]
+color=#458588
 command=echo "─["
 interval=once
 
@@ -104,6 +114,7 @@ command=date '+%Y-%m-%d %I:%M %p'
 interval=1
 
 [seperator]
+color=#458588
 command=echo "]"
 interval=once
 
