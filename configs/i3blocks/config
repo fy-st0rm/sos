@@ -9,6 +9,7 @@ command=echo "["
 interval=once
 
 [ethernet]
+color=#fb4934
 label= 
 command=nmcli | awk '/enp1s0:/ { print $2 }'
 interval=5
@@ -19,6 +20,7 @@ command=echo "]──["
 interval=once
 
 [wifi]
+color=#b8bb26
 label= 
 command=nmcli | awk '/wlp2s0:/ { print $2 }'
 interval=5
@@ -35,6 +37,7 @@ command=echo "─["
 interval=once
 
 [cpu_temp]
+color=#83a598
 label= 
 command=sensors | awk '/Package id 0:/ { print $4 }'
 interval=5
@@ -45,6 +48,7 @@ command=echo "]──["
 interval=once
 
 [cpu_usage]
+color=#689d6a
 label= 
 command=i3_cpu.sh
 interval=5
@@ -61,6 +65,7 @@ command=echo "─["
 interval=once
 
 [ram]
+color=#ebdbb2
 label= 
 command=i3_mem.sh
 interval=5
@@ -77,6 +82,7 @@ command=echo "─["
 interval=once
 
 [volume]
+color=#928374
 label= 
 command=i3_volume.sh
 interval=5
@@ -93,6 +99,7 @@ command=echo "─["
 interval=once
 
 [battery]
+color=#98971a
 label= 
 command=upower -i /org/freedesktop/UPower/devices/battery_BAT0 | awk '/percentage:/ {print $2}'
 interval=5
@@ -109,6 +116,7 @@ command=echo "─["
 interval=once
 
 [time]
+color=#d79921
 label= 
 command=date '+%Y-%m-%d %I:%M %p'
 interval=1
