@@ -41,7 +41,7 @@ function fish_prompt
 	printf '%s ' "$hostname"
 
 	set_color brgreen
-	printf '%s' (prompt_pwd)
+	printf '%s' (basename $PWD)
 	
 	set_color brred
 	printf ']'
