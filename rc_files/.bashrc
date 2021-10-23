@@ -140,22 +140,74 @@ ex ()
 
 # Custom cmd line
 
-export PURPLE='\033[95m'
-export BLUE='\033[94m'
-export CYAN='\033[96m'
-export GREEN='\033[92m'
-export YELLOW='\033[93m'
-export RED='\033[91m'
-export DEFAULT='\033[0m'
-export BOLD='\033[1m'
-export UNDERLINE='\033[4m'
+export PURPLE='\[\[\033[95m\]'
+export BLUE='\[\033[94m\]'
+export CYAN='\[\033[96m\]'
+export GREEN='\[\033[92m\]'
+export YELLOW='\[\033[93m\]'
+export RED='\[\033[91m\]'
+export DEFAULT='\[\033[0m\]'
+export BOLD='\[\033[1m\]'
+export UNDERLINE='\[p\033[4m\]'
+
+function git_branch
+{
+	local purple='\033[95m'
+	local blue='\033[94m'
+	local red='\033[91m'
+	local yellow='\033[93m'
+	local green='\033[92m'
+
+	local branch=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1/")
+
+	local modified=$(git status 2> /dev/null | grep "Changes not staged for commit:")
+	local untracked=$(git status 2> /dev/null | grep "Untracked files:")
+	local added=$(git status 2> /dev/null | grep "Changes to be committed:")
+	local ahead=$(git status 2> /dev/null | grep "ahead")
+	local behind=$(git status 2> /dev/null | grep "behind")
+
+	if [ "$branch" != "" ]
+	then
+		branch+=" "
+		if [ "$modified" != "" ]
+		then
+			branch+="$red!"
+		fi
+
+		if [ "$untracked" != "" ]
+		then
+			branch+="$red?"
+		fi
+		
+		if [ "$added" != "" ]
+		then
+			branch+="$yellow+"
+		fi
+
+		if [ "$ahead" != "" ]
+		then
+			branch+="$green"
+		fi
+
+		if [ "$behind" != "" ]
+		then
+			branch+="$red"
+		fi
+
+		echo -e "-$blue($purple $branch$blue)"
+	fi
+}
 
 # My cmd line style
-#PS1="$PURPLE┌$RED[$YELLOW\d$RED]$PURPLE--$RED[$GREEN\w$RED]$PURPLE\n└-$RED>$DEFAULT "
-PS1='\[\033[94m\][\[\033[93m\]\d\[\033[94m\]]\[\033[95m\]--\[\033[94m\][\[\033[92m\]\w\[\033[94m\]]$\[\033[0m\] '
-#PS1='\w >'
+# PS1="$PURPLE┌$RED[$YELLOW\d$RED]$PURPLE--$RED[$GREEN\w$RED]$PURPLE\n└-$RED>$DEFAULT "
+# PS1='\[\033[94m\][\[\033[93m\]\d\[\033[94m\]]\[\033[95m\]--\[\033[94m\][\[\033[92m\]\W\[\033[94m\]]$\[\033[0m\] '
+# PS1='\[\033[91m\][\[\033[93m\]\u@\[\033[94m\]\h \[\033[92m\]\W\[\033[91m\]]\[\033[96m\]$\[\033[0m\] '
+PS1="$RED[$YELLOW\u@$BLUE\h $GREEN\W$RED]\$(git_branch)$CYAN$ $DEFAULT"
 
 alias ls='exa -la'
 alias neofetch='neofetch --ascii_colors 4 --colors 0 0 0 4 0 7'
-eval "$(starship init bash)"
+# eval "$(starship init bash)"
 
+# Auto Starts
+#sfetch
+colorscript -e panes
