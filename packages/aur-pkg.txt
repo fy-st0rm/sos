@@ -1,3 +1,4 @@
 i3-gaps-rounded-git
 nerd-fonts-terminus
 compton-tryone-git
+shell-color-scripts
