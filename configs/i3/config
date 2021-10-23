@@ -79,14 +79,6 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
-# terminal:  
-# home: 
-# internet : 
-# discord: 
-# file: 
-# 
-
-
 # Workspaces
 set $ws1 "1"
 set $ws2 "2"
@@ -129,16 +121,25 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # Keybindings
-bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/screenshots/$(date).png"						# Screenshot bind
-bindsym $mod+Shift+Return exec --no-startup-id nautilus														# FileManager
-bindsym $mod+Return exec alacritty																			# Terminal
-bindsym $mod+b exec --no-startup-id sbrowser																# sbrowser
+bindsym Print 				exec --no-startup-id maim "/home/$USER/Pictures/screenshots/$(date).png"			# Screenshot bind
+bindsym $mod+Shift+Return 	exec --no-startup-id nautilus														# FileManager
+bindsym $mod+Return 		exec alacritty																		# Terminal
+bindsym $mod+Shift+b 		exec --no-startup-id sbrowser														# sbrowser
+bindsym $mod+Shift+p		exec alacritty -e smp																# smp
+
+# Colors
+set $pannel_bg #282828
+set $border #689d6a 	
+set $menu_nb #282828
+set $menu_nf #ebdbb2
+set $menu_sb #98971a
+set $menu_sf #282828
 
 # Dracula/nord color								 none bg		none fg		 sel fg        sel bg
 # bindsym $mod+d exec --no-startup-id dmenu_run -nb '#282A36' -nf '#ffffff' -sf '#282A36' -sb '#89CFF0'  	# Dmenu
 
 # Gruvbox color
-bindsym $mod+d exec --no-startup-id dmenu_run -nb '#282828' -nf '#ebdbb2' -sf '#282828' -sb '#98971a'  		# Dmenu
+bindsym $mod+d exec --no-startup-id dmenu_run -nb $menu_nb -nf $menu_nf -sf $menu_sf -sb $menu_sf  		# Dmenu
 
 # Auto start
 exec --no-startup-id nitrogen --restore
@@ -150,12 +151,6 @@ exec --no-startup-id syndaemon -d -i 0.5
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
         bindsym j resize shrink width 10 px or 10 ppt
         bindsym k resize grow height 10 px or 10 ppt
         bindsym l resize shrink height 10 px or 10 ppt
@@ -179,16 +174,13 @@ bindsym $mod+r mode "resize"
 #-- Purple
 # client.focused   #000000 #000000 #00000 #bd93f9 #bd93f9
 
-#-- red
-client.focused   #000000 #000000 #00000 #cc241d #cc241d
-client.unfocused #000000 #000000 #00000 #000000 #000000
+client.focused   #000000 #000000 #00000 $border	$border
+client.unfocused #000000 #000000 #00000 $border $border
+
 
 # I3 bar
 bar {
         status_command i3blocks
-		#i3bar_command i3bar --transparency	
-		#separator_symbol "<"
-
 		position top
 
 		#status_command ~/.config/bumblebee-status/bumblebee-status\
@@ -196,14 +188,14 @@ bar {
 		#-m nic cpu memory amixer battery datetime\
 		#-p datetime.format="%a %e %b %Y - %I:%M %p"  memory.format="{used}" nic.format="{intf} {state}"
 
-		#colors {
-		#	background #282A36AA
-		#	focused_workspace #6272a4 #6272a4 #FFFFFF
-		#}
+		colors {
+			background $pannel_bg
+		}
 }
 
 # Adding gaps
-for_window [class="^.*"] border pixel 0 
+for_window [class="^.*"] border pixel 2 
 gaps inner 8
 gaps outer 8
-border_radius 5
+border_radius 0
+
