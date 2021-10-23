@@ -140,7 +140,7 @@ ex ()
 
 # Custom cmd line
 
-export PURPLE='\[\[\033[95m\]'
+export PURPLE='\[\033[95m\]'
 export BLUE='\[\033[94m\]'
 export CYAN='\[\033[96m\]'
 export GREEN='\[\033[92m\]'
@@ -152,13 +152,14 @@ export UNDERLINE='\[p\033[4m\]'
 
 function git_branch
 {
-	local purple='\033[95m'
-	local blue='\033[94m'
-	local red='\033[91m'
-	local yellow='\033[93m'
-	local green='\033[92m'
+	local PURPLE='\001\033[95m\002'
+	local BLUE='\001\033[94m\002'
+	local CYAN='\001\033[96m\002'
+	local GREEN='\001\033[92m\002'
+	local YELLOW='\001\033[93m\002'
+	local RED='\001\033[91m\002'
 
-	local branch=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1/")
+	branch=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1/")
 
 	local modified=$(git status 2> /dev/null | grep "Changes not staged for commit:")
 	local untracked=$(git status 2> /dev/null | grep "Untracked files:")
@@ -171,38 +172,39 @@ function git_branch
 		branch+=" "
 		if [ "$modified" != "" ]
 		then
-			branch+="$red!"
+			branch+="$RED!"
 		fi
 
 		if [ "$untracked" != "" ]
 		then
-			branch+="$red?"
+			branch+="$RED?"
 		fi
 		
 		if [ "$added" != "" ]
 		then
-			branch+="$yellow+"
+			branch+="$YELLOW+"
 		fi
 
 		if [ "$ahead" != "" ]
 		then
-			branch+="$green"
+			branch+="$GREEN"
 		fi
 
 		if [ "$behind" != "" ]
 		then
-			branch+="$red"
+			branch+="$RED"
 		fi
 
-		echo -e "-$blue($purple $branch$blue)"
+		echo -e "-$BLUE($PURPLE $branch$BLUE)"
 	fi
+
 }
 
 # My cmd line style
 # PS1="$PURPLE┌$RED[$YELLOW\d$RED]$PURPLE--$RED[$GREEN\w$RED]$PURPLE\n└-$RED>$DEFAULT "
 # PS1='\[\033[94m\][\[\033[93m\]\d\[\033[94m\]]\[\033[95m\]--\[\033[94m\][\[\033[92m\]\W\[\033[94m\]]$\[\033[0m\] '
 # PS1='\[\033[91m\][\[\033[93m\]\u@\[\033[94m\]\h \[\033[92m\]\W\[\033[91m\]]\[\033[96m\]$\[\033[0m\] '
-PS1="$RED[$YELLOW\u@$BLUE\h $GREEN\W$RED]\$(git_branch)$CYAN$ $DEFAULT"
+PS1="$RED[$YELLOW\u@$BLUE\h $GREEN\W$RED]$NORMAL\$(git_branch)$CYAN$ $DEFAULT"
 
 alias ls='exa -la'
 alias neofetch='neofetch --ascii_colors 4 --colors 0 0 0 4 0 7'
