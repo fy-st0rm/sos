@@ -139,7 +139,7 @@ set $menu_sf #282828
 # bindsym $mod+d exec --no-startup-id dmenu_run -nb '#282A36' -nf '#ffffff' -sf '#282A36' -sb '#89CFF0'  	# Dmenu
 
 # Gruvbox color
-bindsym $mod+d exec --no-startup-id dmenu_run -nb $menu_nb -nf $menu_nf -sf $menu_sf -sb $menu_sf  		# Dmenu
+bindsym $mod+d exec --no-startup-id dmenu_run -p "Run:" -nb '$menu_nb' -nf '$menu_nf' -sf '$menu_sf' -sb '$menu_sb'  		# Dmenu
 
 # Auto start
 exec --no-startup-id nitrogen --restore
