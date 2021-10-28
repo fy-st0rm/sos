@@ -11,10 +11,11 @@
 set $mod Mod1
 
 # Setting up font
-# font pango: TerminessTTF Nerd Font Mono 10 
+# font pango: TerminessTTF Nerd Font Mono 10
 # font pango: monospace 9
-font pango: Mx437 IBM BIOS-2y 10
+# font pango: Mx437 IBM BIOS-2y 10
 # font pango: Ac437 IBM EGA 8x8 9
+font pango: Jetbrains Mono 9
 
 # Network and something autostarts
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
@@ -122,10 +123,10 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # Colors
 set $pannel_bg #282a36
-set $border #bd93f9
+set $border #81a1c1
 set $menu_nb #282a36
 set $menu_nf #ffffff
-set $menu_sb #89cff0
+set $menu_sb #51afef
 set $menu_sf #282a36
 
 # Keybindings
@@ -177,7 +178,7 @@ client.focused_inactive	#000000 #000000 #00000 $border $border
 bar {
         status_command i3blocks
 		position top
-		i3bar_command i3bar --transparency
+		# i3bar_command i3bar --transparency
 
 		#status_command ~/.config/bumblebee-status/bumblebee-status\
 		#-t gruvbox-powerline \
@@ -191,7 +192,7 @@ bar {
 
 # Adding gaps
 for_window [class="^.*"] border pixel 2 
-gaps inner 8
-gaps outer 8
-border_radius 0
+gaps inner 5
+gaps outer 5
+border_radius 3
 
