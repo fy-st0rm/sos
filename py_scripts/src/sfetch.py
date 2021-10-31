@@ -33,18 +33,32 @@ infos = {}
 #"╚═════╝░░╚════╝░╚═════╝░"
 #]
 
+#logo = [
+#"╋╋╋┏━━━┓   ",
+#"╋╋╋┃┏━┓┃   ",
+#"┏━━┫┃┃┃┣━━┓",
+#"┃━━┫┃┃┃┃━━┫",
+#"┣━━┃┗━┛┣━━┃",
+#"┗━━┻━━━┻━━┛"
+#]
+
+
 logo = [
-"╋╋╋┏━━━┓   ",
-"╋╋╋┃┏━┓┃   ",
-"┏━━┫┃┃┃┣━━┓",
-"┃━━┫┃┃┃┃━━┫",
-"┣━━┃┗━┛┣━━┃",
-"┗━━┻━━━┻━━┛"
+"	⠀⠀⠀⠀⠀ ＿＿		",
+"　　　　　／＞　　フ	",
+"　　　　　| 　_　 _| 	",
+"　 　　　／` ミ＿xノ	",
+"　　 　 /　　　 　 |	",
+"　　　 /　 ヽ　　 ﾉ	",
+"　 　 │　　|　|　|	",
+"　／￣|　　 |　|　|	",
+"　| (￣ヽ＿_ヽ_)__)	",
+"  ＼二つ	        "
 ]
 
 #-- Collecting system information
 infos.update({"User": platform.node()})
-infos.update({"Os": platform.system()})
+infos.update({"Os": platform.system() + "  "})
 infos.update({"Kernel": platform.release()})
 infos.update({"Machine": platform.machine()})
 infos.update({"DE": os.environ.get("DESKTOP_SESSION")})
@@ -67,24 +81,47 @@ for i in infos:
 top    = border + "╭" + "─" * longest_line + "╮" + colors.DEFAULT
 bottom = border + "╰" + "─" * longest_line + "╯" + colors.DEFAULT
 
-#-- Printing the final info
-offset = 0
-logo_gap = len(infos) + 2 - len(logo)
 
-print(" " * len(logo[0]) + " " + top)
+#-- Checking if the logo is bigger or the box
+if len(infos) + 2 > len(logo):
+    gap = len(infos) + 2 - len(logo)
+    first_to_draw = "box"
+    offset = 0
+else:
+    gap = len(logo) - (len(infos) + 2)
+    first_to_draw = "logo"
+    offset = gap + 1
 
-for line, i in enumerate(infos):
+#-- Drawing the top part of the fetch according to the order
+if first_to_draw == "box":
+    # If box needs to be drawn at first
+    print(" " * len(logo[0]) + " " + top)
+
+    keys = []
+    for j, i in enumerate(infos, 1):
+        if j >= gap:
+            break
+        format = info_name + i + colors.DEFAULT + " " * (longest_name - len(i)) + ": " + info + infos[i] + colors.DEFAULT + " " * (longest_info - len(infos[i]))
+        print(" " * len(logo[0]) + " " + "│" + colors.DEFAULT, format, border + "│" + colors.DEFAULT)
+        keys.append(i)
+
+    for j in range(gap-1):
+        infos.pop(keys[j])
+else:
+    # If logo needs to be drawn at first
+    for i in range(gap):
+        print(logo_color + logo[i] + colors.DEFAULT)
+    print(logo_color + logo[gap] + " " + top)
+
+
+for i in infos:
+    #-- Drawing the rest of the part including logo
     format = info_name + i + colors.DEFAULT + " " * (longest_name - len(i)) + ": " + info + infos[i] + colors.DEFAULT + " " * (longest_info - len(infos[i]))
-    
-    #-- Printing logo
-    if line + 1 >= logo_gap:
-        print(logo_color + logo[offset] + " " + colors.DEFAULT, end="")
-        offset += 1
+    print(logo_color + logo[offset] + " " + colors.DEFAULT, end="")
+    offset += 1
+    print(border + "│" + colors.DEFAULT, format, border + "│" + colors.DEFAULT)
 
-        print(border + "│" + colors.DEFAULT, format, border + "│" + colors.DEFAULT)
-    else:
-        print(" " * len(logo[0]) + " " + border + "│" + colors.DEFAULT, format, border + "│" + colors.DEFAULT)
-
+#-- Rendering the last part
 print(logo_color + logo[-1] + colors.DEFAULT + " " + bottom)
 
 
