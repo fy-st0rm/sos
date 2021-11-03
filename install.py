@@ -23,6 +23,7 @@ print("##############################")
 cmd = "yay -S - < packages/aur-pkg.txt"
 os.system(cmd)
 
+"""
 #----
 # Installing bumblebee status
 #----
@@ -33,24 +34,7 @@ print("###############################")
 cmd = "git clone git://github.com/tobi-wan-kenobi/bumblebee-status.git"
 os.system(cmd)
 os.system("cp -a bumblebee-status/ ~/.config/")
-
-#----
-# Copying the custom py_scripts binary to /usr/bin
-#----
-
-selection = input("Do you want to copy python scripts binary to /usr/bin? (y/n)")
-if selection.lower() == "y":
-    print("##########################################")
-    print("# COPYING THE SCRIPTS BINARY TO /usr/bin #")
-    print("##########################################")
-    
-    cmd = "sudo cp py_scripts/bin/* /usr/bin"
-    os.system(cmd)
-else:
-    print("###############$###################################")
-    print("# SKIPPING COPYING THE SCRIPTS BINARY TO /usr/bin #")
-    print("###################################################")
-    
+"""
 
 #----
 # Replacing bashrc and vimrc
@@ -101,6 +85,12 @@ else:
     print("# SKIPPING REPLACING Configs #")
     print("##############################")
 
+
+#----
+# Copying the i3blocks script to bins folder
+#----
+cmd = "sudo cp -r scripts/i3blocks/* /usr/bin"
+os.system(cmd)
 
 print("Thank you for installing...")
 

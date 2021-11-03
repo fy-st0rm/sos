@@ -3,13 +3,17 @@ syntax on
 "-- Plugins
 call plug#begin('~/.vim/plugged')
 
-Plug 'arcticicestudio/nord-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'itchyny/vim-gitbranch'
 Plug 'niklaas/lightline-gitdiff'
+
+"-- Colorschemes
+Plug 'arcticicestudio/nord-vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'lifepillar/vim-gruvbox8'
+Plug 'joshdick/onedark.vim'
+Plug 'shinchu/lightline-gruvbox.vim'
 
 call plug#end()
 
@@ -27,13 +31,14 @@ set clipboard=unnamedplus
 set mouse=a
 
 "-- Highlighting cursor line
-"hi CursorLineNr guifg=#af00af
+hi CursorLineNr guifg=#af00af
 set cursorline
-"set cursorlineopt=number
+set cursorlineopt=number
 
 "-- Lighline config
+
 let g:lightline = {
-      \ 'colorscheme': 'Tomorrow_Night', 
+	\ 'colorscheme': 'gruvbox',
 	  \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'filename', 'readonly', 'modified' ],
@@ -51,11 +56,11 @@ let g:lightline = {
 
 "-- lightline vars
 set laststatus=2
+set background=dark
 set noshowmode
 
 "-- Enabling color scheme
 colorscheme gruvbox8
-
 
 "-- Enabling the tabs in python files
 autocmd FileType * setlocal noexpandtab
@@ -64,3 +69,11 @@ autocmd FileType * setlocal noexpandtab
 autocmd SourcePost * highlight Normal     ctermbg=NONE guibg=NONE
             \ |    highlight LineNr       ctermbg=NONE guibg=NONE
             \ |    highlight SignColumn   ctermbg=NONE guibg=NONE
+
+
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+let g:cpp_posix_standard = 1
+
+

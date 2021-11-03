@@ -106,32 +106,32 @@ font:
   # Normal (roman) font face
   normal:
     # family: Perfect DOS VGA 437 
-    # family: TerminessTTF Nerd Font Mono
-    family: JetBrains Mono
+    family: TerminessTTF Nerd Font Mono
+	# family: JetBrains Mono
 
     style: Regular
 
   # Bold font face
   bold:  
     # family: Perfect DOS VGA 437
-    # family: TerminessTTF Nerd Font Mono
-    family: JetBrains Mono
+    family: TerminessTTF Nerd Font Mono
+	# family: JetBrains Mono
 
     style: Bold
 
   # Italic font face
   italic:    
     # family: Perfect DOS VGA 437
-    # family: TerminessTTF Nerd Font Mono
-    family: JetBrains Mono
+    family: TerminessTTF Nerd Font Mono
+	# family: JetBrains Mono
 
     style: Italic
 
   # Bold italic font face
   bold_italic:
     # family: Perfect DOS VGA 437
-    # family: TerminessTTF Nerd Font Mono
-    family: JetBrains Mono
+    family: TerminessTTF Nerd Font Mono
+	# family: JetBrains Mono
 
     style: Bold Italic
 
