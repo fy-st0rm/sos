@@ -122,20 +122,20 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # Colors
-set $pannel_bg #282a36
-set $border #81a1c1
-set $menu_nb #282a36
-set $menu_nf #ffffff
-set $menu_sb #51afef
-set $menu_sf #282a36
+set $pannel_bg #030209
+set $border #555267
+set $menu_nb #030209
+set $menu_nf #ecf2f8
+set $menu_sb #555267
+set $menu_sf #ecf2f8
 
 # Keybindings
 bindsym Print 				exec --no-startup-id maim "/home/$USER/Pictures/screenshots/$(date).png"				# Screenshot bind
 bindsym $mod+Shift+Return 	exec --no-startup-id nautilus															# FileManager
 bindsym $mod+Return 		exec alacritty																			# Terminal
-bindsym $mod+Shift+b 		exec --no-startup-id sbrowser															# sbrowser
+bindsym $mod+Shift+b 		exec --no-startup-id qutebrowser														# browser
 bindsym $mod+Shift+p		exec alacritty -e smp																	# smp
-bindsym $mod+d exec --no-startup-id dmenu_run -p "Run:" -nb '$menu_nb' -nf '$menu_nf' -sf '$menu_sf' -sb '$menu_sb' # Dmenu
+bindsym $mod+d exec --no-startup-id dmenu_run -c -l 15 -h 21 -fn 'JetBrains Mono-10' -nb '$menu_nb' -nf '$menu_nf' -sf '$menu_sf' -sb '$menu_sb' # Dmenu
 
 # Auto start
 exec --no-startup-id nitrogen --restore
@@ -178,15 +178,17 @@ client.focused_inactive	#000000 #000000 #00000 $border $border
 bar {
         status_command i3blocks
 		position top
-		# i3bar_command i3bar --transparency
+		i3bar_command i3bar --transparency
 
 		#status_command ~/.config/bumblebee-status/bumblebee-status\
-		#-t gruvbox-powerline \
+		#-t onedark-powerline \
 		#-m nic cpu memory amixer battery datetime\
 		#-p datetime.format="%a %e %b %Y - %I:%M %p"  memory.format="{used}" nic.format="{intf} {state}"
 
 		colors {
 			background $pannel_bg
+			focused_workspace	 $menu_sb $menu_sb $menu_nf
+			inactive_workspace	 $pannel_bg $pannel_bg $menu_nf
 		}
 }
 

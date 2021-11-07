@@ -106,37 +106,45 @@ font:
   # Normal (roman) font face
   normal:
     # family: Perfect DOS VGA 437 
-    family: TerminessTTF Nerd Font Mono
-	# family: JetBrains Mono
-
+    # family: TerminessTTF Nerd Font Mono
+    # family: JetBrains Mono
+    # family: Mononoki Nerd Font Mono
+    family: consolas
+    
     style: Regular
 
   # Bold font face
   bold:  
     # family: Perfect DOS VGA 437
-    family: TerminessTTF Nerd Font Mono
-	# family: JetBrains Mono
+    # family: TerminessTTF Nerd Font Mono
+    # family: JetBrains Mono
+    # family: Mononoki Nerd Font Mono
+    family: consolas
 
     style: Bold
 
   # Italic font face
   italic:    
     # family: Perfect DOS VGA 437
-    family: TerminessTTF Nerd Font Mono
-	# family: JetBrains Mono
+    # family: TerminessTTF Nerd Font Mono
+    # family: JetBrains Mono
+    # family: Mononoki Nerd Font Mono
+    family: consolas
 
     style: Italic
 
   # Bold italic font face
   bold_italic:
     # family: Perfect DOS VGA 437
-    family: TerminessTTF Nerd Font Mono
-	# family: JetBrains Mono
+    # family: TerminessTTF Nerd Font Mono
+    # family: JetBrains Mono
+    # family: Mononoki Nerd Font Mono
+    family: consolas
 
     style: Bold Italic
 
   # Point size
-  size: 10.0
+  size: 9.5
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -461,6 +469,10 @@ schemes:
       # soft contrast: background = '0x32302f'
       foreground: '0xebdbb2'
 
+    cursor:
+      text: CellBackground
+      cursor: '0xebdbb2'
+
     # Normal colors
     normal:
       black:   '0x282828'
@@ -515,7 +527,38 @@ schemes:
       cyan:    '0x93a1a1'
       white:   '0xfdf6e3'
 
-colors: *doom-one
+  #----
+  # sdark
+  #----
+  sdark: &sdark
+    # Default colors
+    primary:
+      background: '#030209'
+      foreground: '#ecf2f8'
+
+    # Normal colors
+    normal:
+      black:   '#121212'
+      red:     '#fa7970'
+      green:   '#7ce38b'
+      yellow:  '#f3cd2d'
+      blue:    '#77bdfb'
+      magenta: '#cea5fb'
+      cyan:    '#a2d2fb'
+      white:   '0xeee8d5'
+
+    # Bright colors
+    bright:
+      black:   '#121212'
+      red:     '#fa7970'
+      green:   '#7ce38b'
+      yellow:  '#f3cd2d'
+      blue:    '#77bdfb'
+      magenta: '#cea5fb'
+      cyan:    '#a2d2fb'
+      white:   '0xeee8d5'
+      
+colors: *sdark
 
 # Bell
 #
@@ -562,8 +605,8 @@ colors: *doom-one
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-#background_opacity: 0.80
-background_opacity: 1
+background_opacity: 0.80
+#background_opacity: 1
 
 selection:
   # This string contains all characters that are used as separators for
