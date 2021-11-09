@@ -11,6 +11,7 @@ if len(sys.argv) == 1:
 # Scheme for i3blocks
 colorschemes = {
 	"gruvbox-dark": {
+			"wallpaper"		: "~/Pictures/Wallpapers/gruvbox_spaceman.jpg",
 			"vim"			: "gruvbox8",
 			"lightline"		: "gruvbox",
 			"[seperator]\n"	: "#458588",
@@ -24,6 +25,7 @@ colorschemes = {
 			"[time]\n"		: "#d79921"
 		},
 	"nord":			{
+			"wallpaper"		: "~/Pictures/Wallpapers/nord_spaceman.jpg",
 			"vim"			: "nord",
 			"lightline"		: "nord",
 			"[seperator]\n"	: "#68809a",
@@ -38,6 +40,7 @@ colorschemes = {
 
 		},
 	"dracula":		{
+			"wallpaper"		: "~/Pictures/Wallpapers/linux.jpg",
 			"vim"			: "dracula",
 			"lightline"		: "dracula",
 			"[seperator]\n"	: "#6272a4",
@@ -51,6 +54,7 @@ colorschemes = {
 			"[time]\n"		: "#f1fa8c"
 		},
 	"doom-one":		{
+			"wallpaper"		: "~/Pictures/Wallpapers/your-name-2.jpg",
 			"vim"			: "onedark",
 			"lightline"		: "onedark",
 			"[seperator]\n"	: "#6272a4",
@@ -63,7 +67,8 @@ colorschemes = {
 			"[battery]\n"	: "#da8548",
 			"[time]\n"		: "#46d9ff"
 		},
-	"sdark":		{	
+	"sdark":		{
+			"wallpaper"		: "~/Pictures/Wallpapers/night-computer.png",
 			"vim"			: "ghdark",
 			"lightline"		: "ghdark",
 			"[seperator]\n"	: "#555267",
@@ -73,6 +78,20 @@ colorschemes = {
 			"[cpu_usage]\n"	: "#ecbe7b",
 			"[ram]\n"		: "#77bdfb",
 			"[volume]\n"	: "#cea5fb",
+			"[battery]\n"	: "#da8548",
+			"[time]\n"		: "#c8c2e1"
+		},
+	"solarized-dark":		{
+			"wallpaper"		: "~/Pictures/Wallpapers/solarized.png",
+			"vim"			: "solarized",
+			"lightline"		: "solarized",
+			"[seperator]\n"	: "#586e75",
+			"[ethernet]\n"	: "#dc3ssf",
+			"[wifi]\n"		: "#859900",
+			"[cpu_temp]\n"	: "#2aa198",
+			"[cpu_usage]\n"	: "#b58900",
+			"[ram]\n"		: "#268bd2",
+			"[volume]\n"	: "#6c71c4",
 			"[battery]\n"	: "#da8548",
 			"[time]\n"		: "#c8c2e1"
 		}
@@ -117,6 +136,14 @@ colorschemes_i3 = {
 			"set $menu_nb"	: "#030209",
 			"set $menu_nf"	: "#ecf2f8",
 			"set $menu_sb"	: "#555267",
+			"set $menu_sf"	: "#ecf2f8"	
+		},
+	"solarized-dark":		{
+			"set $pannel_bg": "#002b36",
+			"set $border"	: "#859900",
+			"set $menu_nb"	: "#073642",
+			"set $menu_nf"	: "#ecf2f8",
+			"set $menu_sb"	: "#859900",
 			"set $menu_sf"	: "#ecf2f8"	
 		}
 }
@@ -199,4 +226,11 @@ for no, line in enumerate(data):
 
 with open(file_path, "w") as w:
 	w.writelines(data)
+
+
+#----
+# Wallpaper
+#----
+
+os.system("nitrogen --set-zoom-fill " + colorschemes[scheme]["wallpaper"])
 

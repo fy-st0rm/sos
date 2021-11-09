@@ -195,7 +195,7 @@ function git_branch
 			branch+="$RED"
 		fi
 
-		echo -e "-$BLUE($PURPLE\uE0A0 $branch$BLUE)"
+		echo -e "$BLUE on ($PURPLE\uE0A0 $branch$BLUE)"
 	fi
 
 }
@@ -206,9 +206,11 @@ function git_branch
 # PS1='\[\033[91m\][\[\033[93m\]\u@\[\033[94m\]\h \[\033[92m\]\W\[\033[91m\]]\[\033[96m\]$\[\033[0m\] '
 
 if [[ ${EUID} == 0 ]] ; then
-	PS1="$YELLOW[$RED\u@$BLUE\h $GREEN\W$YELLOW]$NORMAL\$(git_branch)$RED❯$RED❯$RED❯ $DEFAULT"
+	#PS1="$YELLOW[$RED\u@$BLUE\h $GREEN\W$YELLOW]$NORMAL\$(git_branch)$RED❯$RED❯$RED❯ $DEFAULT"
+	PS1="$GREEN\W$NORMAL\$(git_branch)$RED ➜ $DEFAULT"
 else
-	PS1="$RED[$YELLOW\u@$BLUE\h $GREEN\W$RED]$NORMAL\$(git_branch)$CYAN❯$YELLOW❯$RED❯ $DEFAULT"
+	#PS1="$RED[$YELLOW\u@$BLUE\h $GREEN\W$RED]$NORMAL\$(git_branch)$CYAN❯$YELLOW❯$RED❯ $DEFAULT"
+	PS1="$GREEN\W$NORMAL\$(git_branch)$CYAN ➜ $DEFAULT"
 fi
 
 alias ls='exa -la'
@@ -216,5 +218,5 @@ alias neofetch='neofetch --ascii_colors 4 --colors 0 0 0 4 0 7'
 # eval "$(starship init bash)"
 
 # Auto Starts
-sfetch
+# sfetch
 # neofetch
