@@ -19,7 +19,7 @@ class colors:
 border = colors.CYAN
 info_name = colors.BLUE
 info = colors.YELLOW
-logo_color = random.choice([colors.PURPLE, colors.BLUE, colors.CYAN, colors.GREEN, colors.RED, colors.YELLOW, colors.DEFAULT])
+logo_color = random.choice([colors.PURPLE, colors.BLUE, colors.CYAN, colors.GREEN, colors.RED, colors.YELLOW])
 
 #-- Info holders
 infos = {}
@@ -33,16 +33,16 @@ infos = {}
 #"╚═════╝░░╚════╝░╚═════╝░"
 #]
 
-#logo = [
-#"╋╋╋┏━━━┓   ",
-#"╋╋╋┃┏━┓┃   ",
-#"┏━━┫┃┃┃┣━━┓",
-#"┃━━┫┃┃┃┃━━┫",
-#"┣━━┃┗━┛┣━━┃",
-#"┗━━┻━━━┻━━┛"
-#]
-
-
+"""logo = [
+"╋╋╋┏━━━┓   ",
+"╋╋╋┃┏━┓┃   ",
+"┏━━┫┃┃┃┣━━┓",
+"┃━━┫┃┃┃┃━━┫",
+"┣━━┃┗━┛┣━━┃",
+"┗━━┻━━━┻━━┛"
+]
+"""
+"""
 logo = [
 "	⠀⠀⠀⠀⠀ ＿＿		",
 "　　　　　／＞　　フ	",
@@ -54,6 +54,53 @@ logo = [
 "　／￣|　　 |　|　|	",
 "　| (￣ヽ＿_ヽ_)__)	",
 "  ＼二つ	        "
+]
+"""
+"""
+logo = [
+"               +              ",
+"               #              ",
+"              ###             ",
+"             #####            ",
+"             ######           ",
+"            ; #####;          ",
+"           +##.#####          ",
+"          +##########         ",
+"         #############;       ",
+"        ###############+      ",
+"       #######   #######      ",
+"     .######;     ;####;`.    ",
+"    .#######;     ;#####.     ",
+"    #########.   .########`   ",
+"   ######'           '######  ",
+"  ;####                 ####; ",
+"  ##'                     '## ",
+" #'                         `#"
+]
+"""
+"""logo = [
+"||||||||| ||||",
+"||||||||| ||||",
+"||||      ||||",
+"|||| |||| ||||",
+"|||| |||| ||||",
+"|||| |||| ||||",
+"|||| |||| ||||"
+]"""
+
+logo = [
+"          _   _           ",
+"         .-_; ;_-.        ",
+"        / /     \\ \\       ",
+"       | |       | |      ",
+"        \\ \\.---./ /       ",
+"    .-\"~   .---.   ~\"-.   ",
+"  ,`.-~/ .'`---`'. \\~-.`, ",
+"  '`   | | \\(_)/ | |   `' ",
+"  ,    \\  \\ | | /  /    , ",
+"  ;`'.,_\\  `-'-'  /_,.'`; ",
+"   '-._  _.-'^'-._  _.-'  ",
+"       ``         ``      "
 ]
 
 #-- Collecting system information
@@ -102,7 +149,7 @@ if first_to_draw == "box":
         if j >= gap:
             break
         format = info_name + i + colors.DEFAULT + " " * (longest_name - len(i)) + ": " + info + infos[i] + colors.DEFAULT + " " * (longest_info - len(infos[i]))
-        print(" " * len(logo[0]) + " " + "│" + colors.DEFAULT, format, border + "│" + colors.DEFAULT)
+        print(" " * len(logo[0]) + " " + border + "│" + colors.DEFAULT, format, border + "│" + colors.DEFAULT)
         keys.append(i)
 
     for j in range(gap-1):
@@ -124,5 +171,7 @@ for i in infos:
 #-- Rendering the last part
 print(logo_color + logo[-1] + colors.DEFAULT + " " + bottom)
 
+print(" " * len(logo[0]), end="  ")
+print(colors.PURPLE + " " + colors.BLUE + " " + colors.CYAN + " " + colors.GREEN + " " + colors.YELLOW + " " + colors.RED + " ")
 
 
