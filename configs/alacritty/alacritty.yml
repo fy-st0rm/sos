@@ -109,8 +109,9 @@ font:
     # family: TerminessTTF Nerd Font Mono
     # family: JetBrains Mono
     # family: Mononoki Nerd Font Mono
-    family: consolas
-    
+    # family: consolas
+    family: Fira Code
+
     style: Regular
 
   # Bold font face
@@ -119,7 +120,8 @@ font:
     # family: TerminessTTF Nerd Font Mono
     # family: JetBrains Mono
     # family: Mononoki Nerd Font Mono
-    family: consolas
+    # family: consolas
+    family: Fira Code
 
     style: Bold
 
@@ -129,7 +131,8 @@ font:
     # family: TerminessTTF Nerd Font Mono
     # family: JetBrains Mono
     # family: Mononoki Nerd Font Mono
-    family: consolas
+    # family: consolas
+    family: Fira Code
 
     style: Italic
 
@@ -139,7 +142,8 @@ font:
     # family: TerminessTTF Nerd Font Mono
     # family: JetBrains Mono
     # family: Mononoki Nerd Font Mono
-    family: consolas
+    # family: consolas
+    family: Fira Code
 
     style: Bold Italic
 

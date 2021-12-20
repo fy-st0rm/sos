@@ -139,25 +139,17 @@ ex ()
 }
 
 # Custom cmd line
-
-export PURPLE='\[\033[95m\]'
-export BLUE='\[\033[94m\]'
-export CYAN='\[\033[96m\]'
-export GREEN='\[\033[92m\]'
-export YELLOW='\[\033[93m\]'
-export RED='\[\033[91m\]'
-export DEFAULT='\[\033[0m\]'
-export BOLD='\[\033[1m\]'
-export UNDERLINE='\[p\033[4m\]'
+export PURPLE='\001\033[35m\002'
+export BLUE='\001\033[34m\002'
+export CYAN='\001\033[36m\002'
+export GREEN='\001\033[32m\002'
+export YELLOW='\001\033[33m\002'
+export RED='\001\033[31m\002'
+export DEFAULT='\001\033[0m\002'
 
 function git_branch
 {
-	local PURPLE='\001\033[95m\002'
-	local BLUE='\001\033[94m\002'
-	local CYAN='\001\033[96m\002'
-	local GREEN='\001\033[92m\002'
-	local YELLOW='\001\033[93m\002'
-	local RED='\001\033[91m\002'
+
 
 	branch=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1/")
 
@@ -195,7 +187,8 @@ function git_branch
 			branch+="$RED"
 		fi
 
-		echo -e "$BLUE on ($PURPLE\uE0A0 $branch$BLUE)"
+		# git logo unicodes "\uE0A0" "\uf126"
+		echo -e "$BLUE on ($PURPLE\uf126 $branch$BLUE)"
 	fi
 
 }
@@ -214,9 +207,9 @@ else
 fi
 
 alias ls='exa -la'
-alias neofetch='neofetch --ascii_colors 4 --colors 0 0 0 4 0 7'
+# alias neofetch='neofetch --ascii_colors 4 --colors 0 0 0 4 0 7'
 # eval "$(starship init bash)"
 
 # Auto Starts
-# sfetch
+sfetch
 # neofetch
