@@ -11,11 +11,13 @@
 set $mod Mod1
 
 # Setting up font
-# font pango: TerminessTTF Nerd Font Mono 10
+# font pango: TerminessTTF Nerd Font Mono 12
 # font pango: monospace 9
 # font pango: Mx437 IBM BIOS-2y 10
 # font pango: Ac437 IBM EGA 8x8 9
 font pango: Jetbrains Mono 9
+# font pango: consolas 10
+# font pango: FireCode 9
 
 # Network and something autostarts
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
@@ -122,27 +124,27 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # Colors
-set $pannel_bg #030209
-set $border #555267
-set $menu_nb #030209
-set $menu_nf #ecf2f8
-set $menu_sb #555267
-set $menu_sf #ecf2f8
+set $pannel_bg #2e3440
+set $border #81a1c1
+set $menu_nb #282a36
+set $menu_nf #ffffff
+set $menu_sb #89cff0
+set $menu_sf #282a36
 
 # Keybindings
 bindsym Print 				exec --no-startup-id maim "/home/$USER/Pictures/screenshots/$(date).png"				# Screenshot bind
 bindsym $mod+Shift+Return 	exec --no-startup-id nautilus															# FileManager
 bindsym $mod+Return 		exec alacritty																			# Terminal
-bindsym $mod+Shift+b 		exec --no-startup-id qutebrowser														# browser
+bindsym $mod+Shift+b 		exec --no-startup-id brave																# browser
 bindsym $mod+Shift+p		exec alacritty -e smp																	# smp
-bindsym $mod+d exec --no-startup-id dmenu_run -c -l 15 -h 21 -fn 'JetBrains Mono-10' -nb '$menu_nb' -nf '$menu_nf' -sf '$menu_sf' -sb '$menu_sb' # Dmenu
+bindsym $mod+d exec --no-startup-id dmenu_run -c -l 15 -h 21 -fn 'Jetbrains Mono-11' -nb '$menu_nb' -nf '$menu_nf' -sf '$menu_sf' -sb '$menu_sb' # Dmenu
 
 # Auto start
 exec --no-startup-id nitrogen --restore
+# exec --no-startup-id saw -r
 exec --no-startup-id synclient TapButton1=1
 exec --no-startup-id compton
 exec --no-startup-id dunst
-#exec --no-startup-id wallpaper 0.05 ~/Pictures/gif/city2.gif
 exec --no-startup-id syndaemon -d -i 0.5
 
 # resize window (you can also use the mouse for that)
@@ -170,15 +172,15 @@ bindsym $mod+r mode "resize"
 #-- Purple
 # client.focused   #000000 #000000 #00000 #bd93f9 #bd93f9
 
-client.focused  	 	#000000 #000000 #00000 $border $border
-client.unfocused	 	#000000 #000000 #00000 $border $border
-client.focused_inactive	#000000 #000000 #00000 $border $border
+client.focused  	 	$border $menu_sb $menu_sf $border $border
+client.unfocused	 	$border $menu_nb $menu_nf $border $border
+client.focused_inactive	$border #000000 #00000 $border $border
 
 # I3 bar
 bar {
         status_command i3blocks
 		position top
-		i3bar_command i3bar --transparency
+		#i3bar_command i3bar --transparency
 
 		#status_command ~/.config/bumblebee-status/bumblebee-status\
 		#-t onedark-powerline \
@@ -193,7 +195,7 @@ bar {
 }
 
 # Adding gaps
-for_window [class="^.*"] border pixel 2 
+for_window [class="^.*"] border pixel 2
 gaps inner 5
 gaps outer 5
 border_radius 3
