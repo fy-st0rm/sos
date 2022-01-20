@@ -5,7 +5,7 @@ separator_block_width=0
 # Network section
 [seperator]
 color=#458588
-command=echo "["
+command=echo " ❮"
 interval=once
 
 [ethernet]
@@ -16,7 +16,8 @@ interval=5
 
 [seperator]
 color=#458588
-command=echo "]──["
+# command=echo "]──["
+command=echo "❯  ❮"
 interval=once
 
 [wifi]
@@ -27,13 +28,13 @@ interval=5
 
 [seperator]
 color=#458588
-command=echo "]─"
+command=echo "❯ "
 interval=once
 
 # CPU section
 [seperator]
 color=#458588
-command=echo "─["
+command=echo " ❮"
 interval=once
 
 [cpu_temp]
@@ -44,7 +45,7 @@ interval=5
 
 [seperator]
 color=#458588
-command=echo "]──["
+command=echo "❯  ❮"
 interval=once
 
 [cpu_usage]
@@ -55,13 +56,13 @@ interval=5
 
 [seperator]
 color=#458588
-command=echo "]─"
+command=echo "❯ "
 interval=once
 
 # RAM section
 [seperator]
 color=#458588
-command=echo "─["
+command=echo " ❮"
 interval=once
 
 [ram]
@@ -72,13 +73,13 @@ interval=5
 
 [seperator]
 color=#458588
-command=echo "]─"
+command=echo "❯ "
 interval=once
 
 # Volume section
 [seperator]
 color=#458588
-command=echo "─["
+command=echo " ❮"
 interval=once
 
 [volume]
@@ -89,13 +90,13 @@ interval=5
 
 [seperator]
 color=#458588
-command=echo "]─"
+command=echo "❯ "
 interval=once
 
 # Battery section
 [seperator]
 color=#458588
-command=echo "─["
+command=echo " ❮"
 interval=once
 
 [battery]
@@ -106,13 +107,13 @@ interval=5
 
 [seperator]
 color=#458588
-command=echo "]─"
+command=echo "❯ "
 interval=once
 
 # Time section
 [seperator]
 color=#458588
-command=echo "─["
+command=echo " ❮"
 interval=once
 
 [time]
@@ -123,6 +124,6 @@ interval=1
 
 [seperator]
 color=#458588
-command=echo "]"
+command=echo "❯ "
 interval=once
 
