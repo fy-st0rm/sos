@@ -69,16 +69,16 @@ colorschemes = {
 		},
 	"sdark":		{
 			"wallpaper"		: "~/Pictures/Wallpapers/night-computer.png",
-			"vim"			: "ghdark",
+			"vim"			: "gray",
 			"lightline"		: "ghdark",
 			"[seperator]\n"	: "#555267",
-			"[ethernet]\n"	: "#bf616a",
-			"[wifi]\n"		: "#7ce38b",
-			"[cpu_temp]\n"	: "#a2d2fb",
-			"[cpu_usage]\n"	: "#ecbe7b",
-			"[ram]\n"		: "#77bdfb",
-			"[volume]\n"	: "#cea5fb",
-			"[battery]\n"	: "#da8548",
+			"[ethernet]\n"	: "#839496",
+			"[wifi]\n"		: "#657b83",
+			"[cpu_temp]\n"	: "#c8c2e1",
+			"[cpu_usage]\n"	: "#839496",
+			"[ram]\n"		: "#657b83",
+			"[volume]\n"	: "#93a1a1",
+			"[battery]\n"	: "#586e75",
 			"[time]\n"		: "#c8c2e1"
 		},
 	"solarized-dark":		{
@@ -131,9 +131,9 @@ colorschemes_i3 = {
 			"set $menu_sf"	: "#282a36"	
 		},
 	"sdark":		{
-			"set $pannel_bg": "#030209",
+			"set $pannel_bg": "#070708",
 			"set $border"	: "#555267",
-			"set $menu_nb"	: "#030209",
+			"set $menu_nb"	: "#070708",
 			"set $menu_nf"	: "#ecf2f8",
 			"set $menu_sb"	: "#555267",
 			"set $menu_sf"	: "#ecf2f8"	
