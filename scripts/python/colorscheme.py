@@ -4,8 +4,8 @@ import os
 
 if len(sys.argv) == 1:
 	print("usage: colorscheme [name of scheme]")
-	exit(1)
-
+	print("Colorschemes: gruvbox-dark , nord , dracula , doom-one , sdark , paradise , solarized")
+	exit()
 
 
 # Scheme for i3blocks
@@ -81,6 +81,20 @@ colorschemes = {
 			"[battery]\n"	: "#586e75",
 			"[time]\n"		: "#c8c2e1"
 		},
+	"paradise":		{
+			"wallpaper"		: "~/Pictures/Wallpapers/core_dump.png",
+			"vim"			: "paradise",
+			"lightline"		: "gruvbox",
+			"[seperator]\n"	: "#555267",
+			"[ethernet]\n"	: "#8AA6A2",
+			"[wifi]\n"		: "#657b83",
+			"[cpu_temp]\n"	: "#8DA3B9",
+			"[cpu_usage]\n"	: "#839496",
+			"[ram]\n"		: "#657b83",
+			"[volume]\n"	: "#93a1a1",
+			"[battery]\n"	: "#586e75",
+			"[time]\n"		: "#c8c2e1"
+		},
 	"solarized-dark":		{
 			"wallpaper"		: "~/Pictures/Wallpapers/solarized.png",
 			"vim"			: "solarized",
@@ -136,6 +150,14 @@ colorschemes_i3 = {
 			"set $menu_nb"	: "#070708",
 			"set $menu_nf"	: "#ecf2f8",
 			"set $menu_sb"	: "#555267",
+			"set $menu_sf"	: "#ecf2f8"	
+		},
+	"paradise":		{
+			"set $pannel_bg": "#081112",
+			"set $border"	: "#8C977D",
+			"set $menu_nb"	: "#151515",
+			"set $menu_nf"	: "#E8E3E3",
+			"set $menu_sb"	: "#8C977D",
 			"set $menu_sf"	: "#ecf2f8"	
 		},
 	"solarized-dark":		{
