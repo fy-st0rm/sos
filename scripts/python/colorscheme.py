@@ -1,6 +1,6 @@
 import sys
 import os
-
+import json
 
 if len(sys.argv) == 1:
 	print("usage: colorscheme [name of scheme]")
@@ -9,169 +9,11 @@ if len(sys.argv) == 1:
 
 
 # Scheme for i3blocks
-colorschemes = {
-	"gruvbox-dark": {
-			"wallpaper"		: "~/Pictures/Wallpapers/gruvbox_spaceman.jpg",
-			"vim"			: "gruvbox8",
-			"lightline"		: "gruvbox",
-			"[seperator]\n"	: "#458588",
-			"[ethernet]\n"	: "#fb4934",
-			"[wifi]\n"		: "#b8bb26",
-			"[cpu_temp]\n"	: "#83a598",
-			"[cpu_usage]\n"	: "#689d6a",
-			"[ram]\n"		: "#ebdbb2",
-			"[volume]\n"	: "#928374",
-			"[battery]\n"	: "#98971a",
-			"[time]\n"		: "#d79921"
-		},
-	"nord":			{
-			"wallpaper"		: "~/Pictures/Wallpapers/nord_spaceman.jpg",
-			"vim"			: "nord",
-			"lightline"		: "nord",
-			"[seperator]\n"	: "#68809a",
-			"[ethernet]\n"	: "#bf616a",
-			"[wifi]\n"		: "#a3be8c",
-			"[cpu_temp]\n"	: "#81a1c1",
-			"[cpu_usage]\n"	: "#8fbcbb",
-			"[ram]\n"		: "#D8DEE9",
-			"[volume]\n"	: "#b48ead",
-			"[battery]\n"	: "#a3be8c",
-			"[time]\n"		: "#ebcb8b"
-
-		},
-	"dracula":		{
-			"wallpaper"		: "~/Pictures/Wallpapers/linux.jpg",
-			"vim"			: "dracula",
-			"lightline"		: "dracula",
-			"[seperator]\n"	: "#6272a4",
-			"[ethernet]\n"	: "#bf616a",
-			"[wifi]\n"		: "#5af78e",
-			"[cpu_temp]\n"	: "#8be9fd",
-			"[cpu_usage]\n"	: "#9aedfe",
-			"[ram]\n"		: "#ffb86c",
-			"[volume]\n"	: "#bd93f9",
-			"[battery]\n"	: "#ff92d0",
-			"[time]\n"		: "#f1fa8c"
-		},
-	"doom-one":		{
-			"wallpaper"		: "~/Pictures/Wallpapers/your-name-2.jpg",
-			"vim"			: "onedark",
-			"lightline"		: "onedark",
-			"[seperator]\n"	: "#6272a4",
-			"[ethernet]\n"	: "#bf616a",
-			"[wifi]\n"		: "#98be65",
-			"[cpu_temp]\n"	: "#51afef",
-			"[cpu_usage]\n"	: "#ecbe7b",
-			"[ram]\n"		: "#da8548",
-			"[volume]\n"	: "#bd93f9",
-			"[battery]\n"	: "#da8548",
-			"[time]\n"		: "#46d9ff"
-		},
-	"sdark":		{
-			"wallpaper"		: "~/Pictures/Wallpapers/night-computer.png",
-			"vim"			: "gray",
-			"lightline"		: "ghdark",
-			"[seperator]\n"	: "#555267",
-			"[ethernet]\n"	: "#839496",
-			"[wifi]\n"		: "#657b83",
-			"[cpu_temp]\n"	: "#c8c2e1",
-			"[cpu_usage]\n"	: "#839496",
-			"[ram]\n"		: "#657b83",
-			"[volume]\n"	: "#93a1a1",
-			"[battery]\n"	: "#586e75",
-			"[time]\n"		: "#c8c2e1"
-		},
-	"paradise":		{
-			"wallpaper"		: "~/Pictures/Wallpapers/core_dump.png",
-			"vim"			: "paradise",
-			"lightline"		: "gruvbox",
-			"[seperator]\n"	: "#555267",
-			"[ethernet]\n"	: "#8AA6A2",
-			"[wifi]\n"		: "#657b83",
-			"[cpu_temp]\n"	: "#8DA3B9",
-			"[cpu_usage]\n"	: "#839496",
-			"[ram]\n"		: "#657b83",
-			"[volume]\n"	: "#93a1a1",
-			"[battery]\n"	: "#586e75",
-			"[time]\n"		: "#c8c2e1"
-		},
-	"solarized-dark":		{
-			"wallpaper"		: "~/Pictures/Wallpapers/solarized.png",
-			"vim"			: "solarized",
-			"lightline"		: "solarized",
-			"[seperator]\n"	: "#586e75",
-			"[ethernet]\n"	: "#dc3ssf",
-			"[wifi]\n"		: "#859900",
-			"[cpu_temp]\n"	: "#2aa198",
-			"[cpu_usage]\n"	: "#b58900",
-			"[ram]\n"		: "#268bd2",
-			"[volume]\n"	: "#6c71c4",
-			"[battery]\n"	: "#da8548",
-			"[time]\n"		: "#c8c2e1"
-		}
-}
-
-colorschemes_i3 = {
-	"gruvbox-dark": {
-			"set $pannel_bg": "#282828",
-			"set $border"	: "#689d6a",
-			"set $menu_nb"	: "#282828",
-			"set $menu_nf"	: "#ebdbb2",
-			"set $menu_sb"	: "#98971a",
-			"set $menu_sf"	: "#282828"
-		},
-	"nord":			{	
-			"set $pannel_bg": "#2e3440",
-			"set $border"	: "#81a1c1",
-			"set $menu_nb"	: "#282a36",
-			"set $menu_nf"	: "#ffffff",
-			"set $menu_sb"	: "#89cff0",
-			"set $menu_sf"	: "#282a36"
-		},
-	"dracula":		{
-			"set $pannel_bg": "#282a36",
-			"set $border"	: "#bd93f9",
-			"set $menu_nb"	: "#282a36",
-			"set $menu_nf"	: "#ffffff",
-			"set $menu_sb"	: "#bd93f9",
-			"set $menu_sf"	: "#282a36"	
-		},
-	"doom-one":		{
-			"set $pannel_bg": "#282c34",
-			"set $border"	: "#81a1c1",
-			"set $menu_nb"	: "#282c34",
-			"set $menu_nf"	: "#ffffff",
-			"set $menu_sb"	: "#51afef",
-			"set $menu_sf"	: "#282a36"	
-		},
-	"sdark":		{
-			"set $pannel_bg": "#070708",
-			"set $border"	: "#555267",
-			"set $menu_nb"	: "#070708",
-			"set $menu_nf"	: "#ecf2f8",
-			"set $menu_sb"	: "#555267",
-			"set $menu_sf"	: "#ecf2f8"	
-		},
-	"paradise":		{
-			"set $pannel_bg": "#081112",
-			"set $border"	: "#8C977D",
-			"set $menu_nb"	: "#151515",
-			"set $menu_nf"	: "#E8E3E3",
-			"set $menu_sb"	: "#8C977D",
-			"set $menu_sf"	: "#ecf2f8"	
-		},
-	"solarized-dark":		{
-			"set $pannel_bg": "#002b36",
-			"set $border"	: "#859900",
-			"set $menu_nb"	: "#073642",
-			"set $menu_nf"	: "#ecf2f8",
-			"set $menu_sb"	: "#859900",
-			"set $menu_sf"	: "#ecf2f8"	
-		}
-}
+config_path = os.path.expanduser("~") + "/.config/"
+config = json.load(open(config_path + "colo_conf.json"))
 
 scheme = sys.argv[1]
-if scheme not in colorschemes:
+if scheme not in config["colorscheme"]:
 	print(scheme, "is not a valid colorscheme name.")
 	exit()
 
@@ -189,7 +31,7 @@ with open(file_path, "r") as r:
 tokens = ["[seperator]\n", "[ethernet]\n", "[wifi]\n", "[cpu_temp]\n", "[cpu_usage]\n", "[ram]\n", "[volume]\n", "[battery]\n", "[time]\n"]
 for no, line in enumerate(data):
 	if line in tokens:
-		color = colorschemes[scheme][line]
+		color = config["colorscheme"][scheme][line]
 	if "color" in line:
 		data[no] = f"color={color}\n"
 
@@ -222,10 +64,10 @@ with open(file_path, "r") as r:
 
 for no, line in enumerate(data):
 	if "colorscheme " in line:
-		vim = colorschemes[scheme]["vim"]
+		vim = config["colorscheme"][scheme]["vim"]
 		data[no] = f"colorscheme {vim}\n"
 	elif "\'colorscheme\'" in line:
-		lightline = colorschemes[scheme]["lightline"]
+		lightline = config["colorscheme"][scheme]["lightline"]
 		data[no] = f"	\\ \'colorscheme\': \'{lightline}\',\n"
 
 with open(file_path, "w") as w:
@@ -243,7 +85,7 @@ tokens = ["set $pannel_bg", "set $border", "set $menu_nb", "set $menu_nf", "set 
 for no, line in enumerate(data):
 	for i in tokens:
 		if i in line:
-			color = colorschemes_i3[scheme][i]
+			color = config["colorscheme_i3"][scheme][i]
 			data[no] = f"{i} {color}\n"
 
 with open(file_path, "w") as w:
@@ -254,5 +96,5 @@ with open(file_path, "w") as w:
 # Wallpaper
 #----
 
-os.system("nitrogen --set-zoom-fill " + colorschemes[scheme]["wallpaper"])
+os.system("nitrogen --set-zoom-fill " + config["colorscheme"][scheme]["wallpaper"])
 
