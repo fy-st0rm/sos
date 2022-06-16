@@ -417,6 +417,9 @@ hi! link diffAdded Special
 "}}}
 "
 " This is needed for some reason: {{{
+" Some python syntax
+highlight pythonFunction cterm=italic ctermfg=221
+highlight pythonFunctionCall cterm=italic ctermfg=221
 
 let &background = s:style
 
