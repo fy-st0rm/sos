@@ -9,6 +9,7 @@ Plug 'vim-python/python-syntax'
 Plug 'preservim/nerdtree'
 Plug 'wfxr/minimap.vim'
 Plug 'ryanoasis/vim-devicons'
+Plug 'mhinz/vim-startify'
 
 "-- Colorschemes
 Plug 'arcticicestudio/nord-vim'
@@ -84,6 +85,11 @@ nmap 0 :tabnext 0<CR>
 nnoremap <C-p> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
+"-- Startify Keybindings
+nmap <C-s> :SSave<CR>
+nmap <C-c> :SClose<CR>
+nmap <C-D> :SDelete<CR>
+
 "-- Lighline config
 
 let g:lightline = {
@@ -133,3 +139,30 @@ let g:cpp_member_variable_highlight = 1
 let g:cpp_class_decl_highlight = 1
 let g:cpp_posix_standard = 1
 
+"-- Startify config
+let g:startify_bookmarks = [
+	\ {'v': '~/.vimrc'},
+	\ {'i': '~/.config/i3/config'},
+	\ {'b': '~/.bashrc'}
+	\]
+
+let g:startify_lists = [
+	\ { 'header': ['   Bookmarks:'], 'type':'bookmarks'},
+	\ { 'header': ['   Sessons:'], 'type':'sessions'}
+	\]
+
+let g:startify_custom_header = [
+		\'   ⣴⣶⣤⡤⠦⣤⣀⣤⠆     ⣈⣭⣿⣶⣿⣦⣼⣆          ',
+		\'    ⠉⠻⢿⣿⠿⣿⣿⣶⣦⠤⠄⡠⢾⣿⣿⡿⠋⠉⠉⠻⣿⣿⡛⣦       ',
+    	\'          ⠈⢿⣿⣟⠦ ⣾⣿⣿⣷    ⠻⠿⢿⣿⣧⣄     ',
+    	\'           ⣸⣿⣿⢧ ⢻⠻⣿⣿⣷⣄⣀⠄⠢⣀⡀⠈⠙⠿⠄    ',
+    	\'          ⢠⣿⣿⣿⠈    ⣻⣿⣿⣿⣿⣿⣿⣿⣛⣳⣤⣀⣀   ',
+    	\'   ⢠⣧⣶⣥⡤⢄ ⣸⣿⣿⠘  ⢀⣴⣿⣿⡿⠛⣿⣿⣧⠈⢿⠿⠟⠛⠻⠿⠄  ',
+    	\'  ⣰⣿⣿⠛⠻⣿⣿⡦⢹⣿⣷   ⢊⣿⣿⡏  ⢸⣿⣿⡇ ⢀⣠⣄⣾⠄   ',
+    	\' ⣠⣿⠿⠛ ⢀⣿⣿⣷⠘⢿⣿⣦⡀ ⢸⢿⣿⣿⣄ ⣸⣿⣿⡇⣪⣿⡿⠿⣿⣷⡄  ',
+    	\' ⠙⠃   ⣼⣿⡟  ⠈⠻⣿⣿⣦⣌⡇⠻⣿⣿⣷⣿⣿⣿ ⣿⣿⡇ ⠛⠻⢷⣄ ',
+    	\'      ⢻⣿⣿⣄   ⠈⠻⣿⣿⣿⣷⣿⣿⣿⣿⣿⡟ ⠫⢿⣿⡆     ',
+    	\'       ⠻⣿⣿⣿⣿⣶⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⡟⢀⣀⣤⣾⡿⠃     ',
+		\]
+
+nmap <c-n> :Startify <cr>
