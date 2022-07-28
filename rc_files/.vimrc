@@ -1,5 +1,3 @@
-syntax on
-
 "-- Plugins
 call plug#begin('~/.vim/plugged')
 
@@ -40,6 +38,10 @@ set mouse=a
 set shell=bash
 set encoding=UTF-8
 
+"-- Turing on tabs and space indicators
+set listchars=tab:»\ ,space:.
+set invlist
+
 "-- Minimap stuff
 let g:minimap_width = 10
 "let g:minimap_auto_start = 1
@@ -62,6 +64,22 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+"-- Tab toggle
+nmap ts :set showtabline=1<CR>
+nmap th :set showtabline=0<CR>
+
+"-- Remaping tab switch
+nmap 1 :tabnext 1<CR>
+nmap 2 :tabnext 2<CR>
+nmap 3 :tabnext 3<CR>
+nmap 4 :tabnext 4<CR>
+nmap 5 :tabnext 5<CR>
+nmap 6 :tabnext 6<CR>
+nmap 7 :tabnext 7<CR>
+nmap 8 :tabnext 8<CR>
+nmap 9 :tabnext 9<CR>
+nmap 0 :tabnext 0<CR>
+
 "-- Keybindings for nerd tree
 nnoremap <C-p> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
@@ -69,7 +87,7 @@ nnoremap <C-f> :NERDTreeFind<CR>
 "-- Lighline config
 
 let g:lightline = {
-	\ 'colorscheme': 'gruvbox',
+	\ 'colorscheme': 'onedark',
 	  \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'filename', 'readonly', 'modified' ],
@@ -99,15 +117,15 @@ let g:python_highlight_space_errors = 0
 "-- Enabling the tabs in python files
 autocmd FileType * setlocal noexpandtab
 
-colorscheme paradise
+colorscheme onedark
 
 autocmd BufRead,BufNewFile *.porth set filetype=porth
 autocmd BufRead,BufNewFile *.slug set filetype=slug
 
 "-- Enabling terminal transparency
-"autocmd SourcePost * highlight Normal     ctermbg=NONE guibg=NONE
-"            \ |    highlight SignColumn   ctermbg=NONE guibg=NONE
-"            \ |    highlight LineNr       ctermbg=NONE guibg=NONE
+autocmd SourcePost * highlight Normal     ctermbg=NONE guibg=NONE
+            \ |    highlight SignColumn   ctermbg=NONE guibg=NONE
+            \ |    highlight LineNr       ctermbg=NONE guibg=NONE
 
 
 let g:cpp_class_scope_highlight = 1

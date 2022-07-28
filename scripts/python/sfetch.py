@@ -90,6 +90,21 @@ logo = [
 ]
 
 logo = [
+""
+""
+""
+""
+""
+""
+""
+""
+""
+""
+""
+""
+]
+
+logo = [
 "	⠀⠀⠀⠀⠀ ＿＿	    	",
 "　　　　　／＞　　フ	",
 "　　　　　| 　_　 _| 	",
@@ -100,21 +115,6 @@ logo = [
 "　／￣|　　 |　|　|	",
 "　| (￣ヽ＿_ヽ_)__)	",
 "  ＼二つ	        "
-]
-
-logo = [
-""
-""
-""
-""
-""
-""
-""
-""
-""
-""
-""
-""
 ]
 
 #-- Collecting system information
@@ -185,7 +185,7 @@ for i in infos:
 #-- Rendering the last part
 print(logo_color + logo[-1] + colors.DEFAULT + " " + bottom)
 
-print(" " * len(logo[0]) + " ", end="  ")
-print(colors.PURPLE + " " + colors.BLUE + " " + colors.CYAN + " " + colors.GREEN + " " + colors.YELLOW + " " + colors.RED + " ")
+# print(" " * len(logo[0]) + " ", end="  ")
+# print(colors.PURPLE + " " + colors.BLUE + " " + colors.CYAN + " " + colors.GREEN + " " + colors.YELLOW + " " + colors.RED + " ")
 
 

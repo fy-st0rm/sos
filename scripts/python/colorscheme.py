@@ -81,7 +81,7 @@ file_path = f"{home_dir}/.config/i3/config"
 with open(file_path, "r") as r:
 	data = r.readlines()
 
-tokens = ["set $pannel_bg", "set $border", "set $menu_nb", "set $menu_nf", "set $menu_sb", "set $menu_sf"]
+tokens = ["set $pannel_bg", "set $border", "set $menu_nb", "set $menu_nf", "set $menu_sb", "set $menu_sf", "set $dmenu_nb", "set $dmenu_sb"]
 for no, line in enumerate(data):
 	for i in tokens:
 		if i in line:
