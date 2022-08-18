@@ -39,13 +39,15 @@ set mouse=a
 set shell=bash
 set encoding=UTF-8
 
+"-- Enabling the tabs in python files
+autocmd FileType * setlocal noexpandtab
+
 "-- Turing on tabs and space indicators
 set listchars=tab:»\ ,space:.
 set invlist
 
 "-- Minimap stuff
 let g:minimap_width = 10
-"let g:minimap_auto_start = 1
 let g:minimap_auto_start_win_enter = 1
 nmap mi :MinimapToggle<CR>  " Toggle minimap
 
@@ -53,6 +55,12 @@ nmap mi :MinimapToggle<CR>  " Toggle minimap
 hi CursorLineNr guifg=#af00af
 set cursorline
 set cursorlineopt=number
+
+"-- Colorscheme
+colorscheme onedark
+let g:python_highlight_all = 1
+let g:python_highlight_indent_errors = 0
+let g:python_highlight_space_errors = 0
 
 "-- Key Bindings
 nmap nt :tabnew<CR>			" To open new tab
@@ -86,12 +94,12 @@ nnoremap <C-p> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
 "-- Startify Keybindings
+nmap <c-n> :Startify <cr>
 nmap <C-s> :SSave<CR>
 nmap <C-c> :SClose<CR>
-nmap <C-D> :SDelete<CR>
+
 
 "-- Lighline config
-
 let g:lightline = {
 	\ 'colorscheme': 'onedark',
 	  \ 'active': {
@@ -114,19 +122,6 @@ set laststatus=2
 set background=dark
 set noshowmode
 let g:gh_color="soft"
-
-"-- Enabling color scheme
-let g:python_highlight_all = 1
-let g:python_highlight_indent_errors = 0
-let g:python_highlight_space_errors = 0
-
-"-- Enabling the tabs in python files
-autocmd FileType * setlocal noexpandtab
-
-colorscheme onedark
-
-autocmd BufRead,BufNewFile *.porth set filetype=porth
-autocmd BufRead,BufNewFile *.slug set filetype=slug
 
 "-- Enabling terminal transparency
 autocmd SourcePost * highlight Normal     ctermbg=NONE guibg=NONE
@@ -165,4 +160,3 @@ let g:startify_custom_header = [
     	\'       ⠻⣿⣿⣿⣿⣶⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⡟⢀⣀⣤⣾⡿⠃     ',
 		\]
 
-nmap <c-n> :Startify <cr>
