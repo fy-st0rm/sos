@@ -18,7 +18,7 @@ Plug 'lifepillar/vim-gruvbox8'
 Plug 'joshdick/onedark.vim'
 Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'altercation/vim-colors-solarized'
-Plug 'wojciechkepka/vim-github-dark'
+Plug 'projekt0n/github-nvim-theme'
 Plug 'patstockwell/vim-monokai-tasty'
 
 call plug#end()
@@ -56,15 +56,10 @@ hi CursorLineNr guifg=#af00af
 set cursorline
 set cursorlineopt=number
 
-"-- Colorscheme
-colorscheme onedark
-let g:python_highlight_all = 1
-let g:python_highlight_indent_errors = 0
-let g:python_highlight_space_errors = 0
-
 "-- Key Bindings
 nmap nt :tabnew<CR>			" To open new tab
 nmap tt :term<CR>			" To open terminal
+nmap <C-w> :wq<CR>
 :tnoremap <Esc> <C-\><C-n>  " To go to normal mode in terminal
 
 "-- Remapping of split screens
@@ -98,24 +93,39 @@ nmap <c-n> :Startify <cr>
 nmap <C-s> :SSave<CR>
 nmap <C-c> :SClose<CR>
 
+"-- Fold function
+let g:FoldMethod = 0
+map <C-f> :call ToggleFold()<cr>
+fun! ToggleFold()
+    if g:FoldMethod == 0
+        exe 'set foldmethod=indent'
+        let g:FoldMethod = 1
+    else
+        exe 'set foldmethod=marker'
+        let g:FoldMethod = 0
+    endif
+endfun
+
 
 "-- Lighline config
 let g:lightline = {
-	\ 'colorscheme': 'onedark',
-	  \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'filename', 'readonly', 'modified' ],
-      \             [ 'gitdiff' ] ],
-      \   'right': [ [ 'lineinfo' ],
-      \              [ 'percent' ] ]
-      \ },
-      \ 'inactive': {
-      \   'left': [ [ 'filename', 'gitversion' ] ],
-      \ },
-	  \ 'component_function': {
-      \   'gitbranch': 'gitbranch#name'
-      \ },
-      \ }
+    \ 'colorscheme': 'onedark',
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste' ],
+    \             [ 'gitbranch', 'filename', 'readonly', 'modified' ],
+    \             [ 'gitdiff' ] ],
+    \   'right': [ [ 'lineinfo' ],
+    \              [ 'percent' ] ]
+    \ },
+    \ 'inactive': {
+    \   'left': [ [ 'filename', 'gitversion' ] ],
+    \ },
+    \ 'component_function': {
+    \   'gitbranch': 'gitbranch#name'
+    \ },
+    \'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
+    \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
+    \ }
 
 "-- lightline vars
 set laststatus=2
@@ -128,6 +138,12 @@ autocmd SourcePost * highlight Normal     ctermbg=NONE guibg=NONE
             \ |    highlight SignColumn   ctermbg=NONE guibg=NONE
             \ |    highlight LineNr       ctermbg=NONE guibg=NONE
 
+
+"-- Colorscheme
+colorscheme onedark
+let g:python_highlight_all = 1
+let g:python_highlight_indent_errors = 0
+let g:python_highlight_space_errors = 0
 
 let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
@@ -159,4 +175,3 @@ let g:startify_custom_header = [
     	\'      ⢻⣿⣿⣄   ⠈⠻⣿⣿⣿⣷⣿⣿⣿⣿⣿⡟ ⠫⢿⣿⡆     ',
     	\'       ⠻⣿⣿⣿⣿⣶⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⡟⢀⣀⣤⣾⡿⠃     ',
 		\]
-

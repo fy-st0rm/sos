@@ -108,7 +108,9 @@
 				"set $menu_nb"	: "#282828",
 				"set $menu_nf"	: "#ebdbb2",
 				"set $menu_sb"	: "#98971a",
-				"set $menu_sf"	: "#282828"
+				"set $menu_sf"	: "#282828",
+				"set $dmenu_nb" : "#282828",
+				"set $dmenu_sb" : "#98971a"
 			},
 		"nord":			{	
 				"set $pannel_bg": "#2e3440",
@@ -116,7 +118,9 @@
 				"set $menu_nb"	: "#282a36",
 				"set $menu_nf"	: "#ffffff",
 				"set $menu_sb"	: "#89cff0",
-				"set $menu_sf"	: "#282a36"
+				"set $menu_sf"	: "#282a36",
+				"set $dmenu_nb" : "#282a36",
+				"set $dmenu_sb" : "#88c0d0"
 			},
 		"dracula":		{
 				"set $pannel_bg": "#282a36",
@@ -124,7 +128,9 @@
 				"set $menu_nb"	: "#282a36",
 				"set $menu_nf"	: "#ffffff",
 				"set $menu_sb"	: "#bd93f9",
-				"set $menu_sf"	: "#282a36"	
+				"set $menu_sf"	: "#282a36",
+				"set $dmenu_nb" : "#282a36",
+				"set $dmenu_sb" : "#bd93f9"
 			},
 		"doom-one":		{
 				"set $pannel_bg": "#282c34",
@@ -132,7 +138,9 @@
 				"set $menu_nb"	: "#282c34",
 				"set $menu_nf"	: "#ffffff",
 				"set $menu_sb"	: "#51afef",
-				"set $menu_sf"	: "#282a36"	
+				"set $menu_sf"	: "#282a36",
+				"set $dmenu_nb" : "#282c34",
+				"set $dmenu_sb" : "#51afef"
 			},
 		"sdark":		{
 				"set $pannel_bg": "#070708",
@@ -140,7 +148,9 @@
 				"set $menu_nb"	: "#070708",
 				"set $menu_nf"	: "#ecf2f8",
 				"set $menu_sb"	: "#555267",
-				"set $menu_sf"	: "#ecf2f8"	
+				"set $menu_sf"	: "#ecf2f8",
+				"set $dmenu_nb" : "#070708",
+				"set $dmenu_sb" : "#555267"
 			},
 		"paradise":		{
 				"set $pannel_bg": "#081112",
@@ -148,7 +158,9 @@
 				"set $menu_nb"	: "#151515",
 				"set $menu_nf"	: "#E8E3E3",
 				"set $menu_sb"	: "#8C977D",
-				"set $menu_sf"	: "#ecf2f8"	
+				"set $menu_sf"	: "#ecf2f8",
+				"set $dmenu_nb" : "#151515",
+				"set $dmenu_sb" : "#8C977D"
 			},
 		"solarized-dark":		{
 				"set $pannel_bg": "#002b36",
@@ -156,7 +168,9 @@
 				"set $menu_nb"	: "#073642",
 				"set $menu_nf"	: "#ecf2f8",
 				"set $menu_sb"	: "#859900",
-				"set $menu_sf"	: "#ecf2f8"	
+				"set $menu_sf"	: "#ecf2f8",
+				"set $dmenu_nb" : "#073642",
+				"set $dmenu_sb" : "#859900"
 			}
 	}
 }
