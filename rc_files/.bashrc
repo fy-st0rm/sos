@@ -4,8 +4,6 @@
 
 [[ $- != *i* ]] && return
 
-
-
 colors() {
 	local fgc bgc vals seq0
 
@@ -188,7 +186,7 @@ function git_branch
 		fi
 
 		# git logo unicodes "\uE0A0" "\uf126"
-		echo -e "$BLUE on ($PURPLE\uf126 $branch$BLUE)"
+		echo -e "$BLUE on ($PURPLE\uE0A0 $branch$BLUE)"
 	fi
 
 }
@@ -197,19 +195,21 @@ function git_branch
 # PS1="$PURPLE┌$RED[$YELLOW\d$RED]$PURPLE--$RED[$GREEN\w$RED]$PURPLE\n└-$RED>$DEFAULT "
 # PS1='\[\033[94m\][\[\033[93m\]\d\[\033[94m\]]\[\033[95m\]--\[\033[94m\][\[\033[92m\]\W\[\033[94m\]]$\[\033[0m\] '
 # PS1='\[\033[91m\][\[\033[93m\]\u@\[\033[94m\]\h \[\033[92m\]\W\[\033[91m\]]\[\033[96m\]$\[\033[0m\] '
+#➜
 
 if [[ ${EUID} == 0 ]] ; then
-	#PS1="$YELLOW[$RED\u@$BLUE\h $GREEN\W$YELLOW]$NORMAL\$(git_branch)$RED❯$RED❯$RED❯ $DEFAULT"
-	PS1="$GREEN\W$NORMAL\$(git_branch)$RED ➜ $DEFAULT"
+	# PS1="$YELLOW[$RED\u@$BLUE\h $GREEN\W$YELLOW]$NORMAL\$(git_branch)$RED❯$RED❯$RED❯ $DEFAULT"
+	PS1="( .-.) $GREEN\W$NORMAL\$(git_branch)$RED ➜ $DEFAULT"
 else
-	#PS1="$RED[$YELLOW\u@$BLUE\h $GREEN\W$RED]$NORMAL\$(git_branch)$CYAN❯$YELLOW❯$RED❯ $DEFAULT"
-	PS1="$GREEN\W$NORMAL\$(git_branch)$CYAN ➜ $DEFAULT"
+	# PS1="$RED[$YELLOW\u@$BLUE\h $GREEN\W$RED]$NORMAL\$(git_branch)$CYAN❯$YELLOW❯$RED❯ $DEFAULT"
+	PS1="( .-.) $GREEN\W$NORMAL\$(git_branch)$CYAN ➜ $DEFAULT"
+	# PS1="$GREEN\W$NORMAL\$(git_branch)$CYAN $DEFAULT._.) $DEFAULT"
 fi
 
-alias ls='exa -la'
-# alias neofetch='neofetch --ascii_colors 4 --colors 0 0 0 4 0 7'
-# eval "$(starship init bash)"
 
-# Auto Starts
-sfetch
-# neofetch
+alias ls='exa -la'
+alias pdf='evince'
+alias logout='i3-msg exit'
+# eval "$(starship init bash)"
+colorscript -e panes
+

@@ -54,7 +54,7 @@ end
 
 
 # Enabling starship prompt
-# starship init fish | source
+starship init fish | source
 
 # [Custom] Auto start
 # sfetch

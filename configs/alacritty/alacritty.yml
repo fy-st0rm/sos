@@ -46,8 +46,11 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 0
-    y: 0
+    x: 3
+    y: 3
+
+  # Opacity
+  opacity: 0.9
 
   # Spread additional padding evenly around the terminal content.
   # dynamic_padding: false
@@ -110,9 +113,14 @@ font:
     # family: JetBrains Mono
     # family: Mononoki Nerd Font Mono
     # family: consolas
-    family: Fira Code
+    # family: Fira Code
+    # family: Cascadia Code
+    # family: Mx437 IBM BIOS-2y
+    # family: Ac437 IBM EGA 8x8
+    # family: UbuntuMono Nerd Font Mono
+    family: Iosevka
 
-    style: Regular
+    style: Medium
 
   # Bold font face
   bold:  
@@ -121,9 +129,14 @@ font:
     # family: JetBrains Mono
     # family: Mononoki Nerd Font Mono
     # family: consolas
-    family: Fira Code
+    # family: Fira Code
+    # family: Cascadia Code
+    # family: Mx437 IBM BIOS-2y
+    # family: Ac437 IBM EGA 8x8
+    # family: UbuntuMono Nerd Font Mono
+    family: Iosevka
 
-    style: Bold
+    style: Medium
 
   # Italic font face
   italic:    
@@ -132,7 +145,12 @@ font:
     # family: JetBrains Mono
     # family: Mononoki Nerd Font Mono
     # family: consolas
-    family: Fira Code
+    # family: Fira Code
+    # family: Cascadia Code
+    # family: Mx437 IBM BIOS-2y
+    # family: Ac437 IBM EGA 8x8
+    # family: UbuntuMono Nerd Font Mono
+    family: Iosevka
 
     style: Italic
 
@@ -143,19 +161,24 @@ font:
     # family: JetBrains Mono
     # family: Mononoki Nerd Font Mono
     # family: consolas
-    family: Fira Code
-
+    # family: Fira Code
+    # family: Cascadia Code
+    # family: Mx437 IBM BIOS-2y
+    # family: Ac437 IBM EGA 8x8
+    # family: UbuntuMono Nerd Font Mono
+    family: Iosevka
+    
     style: Bold Italic
 
   # Point size
-  size: 9.5
+  size: 12
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
   # spacing.
   offset:
-    x: -1
-    y: -1
+    x: 0
+    y: 0
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increasing `x` moves the glyph to the
@@ -168,7 +191,7 @@ font:
   #
   # Thin strokes are suitable for retina displays, but for non-retina screens
   # it is recommended to set `use_thin_strokes` to `false`.
-  #use_thin_strokes: true
+  # use_thin_strokes: false
 
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: false
@@ -509,6 +532,10 @@ schemes:
       background: '0x002b36'
       foreground: '0x839496'
 
+    cursor:
+      text: CellBackground
+      cursor: '0x839496'
+
     # Normal colors
     normal:
       black:   '0x073642'
@@ -537,19 +564,23 @@ schemes:
   sdark: &sdark
     # Default colors
     primary:
-      background: '#030209'
+      background: '#0c0c0e'
       foreground: '#ecf2f8'
+
+    cursor:
+      text: CellBackground
+      cursor: '0xecf2f8'
 
     # Normal colors
     normal:
-      black:   '#121212'
-      red:     '#fa7970'
-      green:   '#7ce38b'
-      yellow:  '#f3cd2d'
-      blue:    '#77bdfb'
-      magenta: '#cea5fb'
-      cyan:    '#a2d2fb'
-      white:   '0xeee8d5'
+      black:   '0x002b36'
+      red:     '0xcb4b16'
+      green:   '0x586e75'
+      yellow:  '0x657b83'
+      blue:    '0x839496'
+      magenta: '0x6c71c4'
+      cyan:    '0x93a1a1'
+      white:   '0xfdf6e3'
 
     # Bright colors
     bright:
@@ -561,8 +592,106 @@ schemes:
       magenta: '#cea5fb'
       cyan:    '#a2d2fb'
       white:   '0xeee8d5'
+
+  # Catppuccin colorscheme
+  catppuccin: &catppuccin
+    primary:
+      background: '0x1E1D2F'
+      foreground: '0xD9E0EE'
+
+    # Colors the cursor will use if `custom_cursor_colors` is true
+    cursor:
+      text: '0x1E1D2F'
+      cursor: '0xF5E0DC'
+
+    # Normal colors
+    normal:
+      black:   '0x6E6C7E'
+      red:     '0xF28FAD'
+      green:   '0xABE9B3'
+      yellow:  '0xFAE3B0'
+      blue:    '0x96CDFB'
+      magenta: '0xF5C2E7'
+      cyan:    '0x89DCEB'
+      white:   '0xD9E0EE'
+
+    # Bright colors
+    bright:
+      black:   '0x988BA2'
+      red:     '0xF28FAD'
+      green:   '0xABE9B3'
+      yellow:  '0xFAE3B0'
+      blue:    '0x96CDFB'
+      magenta: '0xF5C2E7'
+      cyan:    '0x89DCEB'
+      white:   '0xD9E0EE'
+
+  # Paradise colorscheme
+  paradise: &paradise
+    primary:
+      background: '#1d1f21'
+      foreground: '#E8E3E3'
+
+    cursor:
+      text: '#151515'
+      cursor: '#E8E3E3'
+
+    # Normal colors
+    normal:
+      black:   '#151515'
+      red:     '#B66467'
+      green:   '#8C977D'
+      yellow:  '#D9BC8C'
+      blue:    '#8DA3B9'
+      magenta: '#A988B0'
+      cyan:    '#8AA6A2'
+      white:   '#E8E3E3'
+
+    # Bright colors
+    bright:
+      black:   '#353535'
+      red:     '#B66467'
+      green:   '#8C977D'
+      yellow:  '#D9BC8C'
+      blue:    '#8DA3B9'
+      magenta: '#A988B0'
+      cyan:    '#8AA6A2'
+      white:   '#E8E3E3'
+
+  # Github dimmed
+  github_dimmed: &github_dimmed
+    # Default colors
+    primary:
+      background: '0x22272e'
+      foreground: '0x768390'
+
+    # Normal colors
+    normal:
+      black:   '0x545d68'
+      red:     '0xf47067'
+      green:   '0x57ab5a'
+      yellow:  '0xc69026'
+      blue:    '0x539bf5'
+      magenta: '0xb083f0'
+      cyan:    '0x39c5cf'
+      white:   '0x909dab'
+
+    # Bright colors
+    bright:
+      black:   '0x636e7b'
+      red:     '0xff938a'
+      green:   '0x6bc46d'
+      yellow:  '0xdaaa3f'
+      blue:    '0x6cb6ff'
+      magenta: '0xdcbdfb'
+      cyan:    '0x56d4dd'
+      white:   '0xcdd9e5'
+
+    indexed_colors:
+      - { index: 16, color: '0xd18616' }
+      - { index: 17, color: '0xff938a' }
       
-colors: *sdark
+colors: *gruvbox-dark
 
 # Bell
 #
@@ -609,7 +738,7 @@ colors: *sdark
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.80
+background_opacity: 0.95
 #background_opacity: 1
 
 selection:
@@ -638,7 +767,7 @@ cursor:
     #   - Off: Disable blinking by default
     #   - On: Enable blinking by default
     #   - Always: Force the cursor to always blink
-    #blinking: Off
+    blinking: Off
 
   # Vi mode cursor style
   #

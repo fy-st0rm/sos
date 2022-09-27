@@ -10,6 +10,7 @@ Plug 'preservim/nerdtree'
 Plug 'wfxr/minimap.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'mhinz/vim-startify'
+Plug 'flw-cn/vim-nerdtree-l-open-h-close'
 
 "-- Colorschemes
 Plug 'arcticicestudio/nord-vim'
@@ -20,6 +21,7 @@ Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'projekt0n/github-nvim-theme'
 Plug 'patstockwell/vim-monokai-tasty'
+Plug 'ayu-theme/ayu-vim'
 
 call plug#end()
 
@@ -87,6 +89,8 @@ nmap 0 :tabnext 0<CR>
 "-- Keybindings for nerd tree
 nnoremap <C-p> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
+let g:NERDTreeMapOpenDirNode = 'l'
+let g:NERDTreeMapCloseDirNode = 'h'
 
 "-- Startify Keybindings
 nmap <c-n> :Startify <cr>
@@ -109,7 +113,7 @@ endfun
 
 "-- Lighline config
 let g:lightline = {
-    \ 'colorscheme': 'onedark',
+	\ 'colorscheme': 'gruvbox',
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
     \             [ 'gitbranch', 'filename', 'readonly', 'modified' ],
@@ -140,7 +144,9 @@ autocmd SourcePost * highlight Normal     ctermbg=NONE guibg=NONE
 
 
 "-- Colorscheme
-colorscheme onedark
+set termguicolors  
+"let ayucolor="mirage" 
+colorscheme gruvbox8
 let g:python_highlight_all = 1
 let g:python_highlight_indent_errors = 0
 let g:python_highlight_space_errors = 0
@@ -154,7 +160,8 @@ let g:cpp_posix_standard = 1
 let g:startify_bookmarks = [
 	\ {'v': '~/.vimrc'},
 	\ {'i': '~/.config/i3/config'},
-	\ {'b': '~/.bashrc'}
+	\ {'b': '~/.bashrc'},
+	\ {'a': '~/.config/alacritty/alacritty.yml'}
 	\]
 
 let g:startify_lists = [
@@ -162,16 +169,17 @@ let g:startify_lists = [
 	\ { 'header': ['   Sessons:'], 'type':'sessions'}
 	\]
 
-let g:startify_custom_header = [
-		\'   ⣴⣶⣤⡤⠦⣤⣀⣤⠆     ⣈⣭⣿⣶⣿⣦⣼⣆          ',
-		\'    ⠉⠻⢿⣿⠿⣿⣿⣶⣦⠤⠄⡠⢾⣿⣿⡿⠋⠉⠉⠻⣿⣿⡛⣦       ',
-    	\'          ⠈⢿⣿⣟⠦ ⣾⣿⣿⣷    ⠻⠿⢿⣿⣧⣄     ',
-    	\'           ⣸⣿⣿⢧ ⢻⠻⣿⣿⣷⣄⣀⠄⠢⣀⡀⠈⠙⠿⠄    ',
-    	\'          ⢠⣿⣿⣿⠈    ⣻⣿⣿⣿⣿⣿⣿⣿⣛⣳⣤⣀⣀   ',
-    	\'   ⢠⣧⣶⣥⡤⢄ ⣸⣿⣿⠘  ⢀⣴⣿⣿⡿⠛⣿⣿⣧⠈⢿⠿⠟⠛⠻⠿⠄  ',
-    	\'  ⣰⣿⣿⠛⠻⣿⣿⡦⢹⣿⣷   ⢊⣿⣿⡏  ⢸⣿⣿⡇ ⢀⣠⣄⣾⠄   ',
-    	\' ⣠⣿⠿⠛ ⢀⣿⣿⣷⠘⢿⣿⣦⡀ ⢸⢿⣿⣿⣄ ⣸⣿⣿⡇⣪⣿⡿⠿⣿⣷⡄  ',
-    	\' ⠙⠃   ⣼⣿⡟  ⠈⠻⣿⣿⣦⣌⡇⠻⣿⣿⣷⣿⣿⣿ ⣿⣿⡇ ⠛⠻⢷⣄ ',
-    	\'      ⢻⣿⣿⣄   ⠈⠻⣿⣿⣿⣷⣿⣿⣿⣿⣿⡟ ⠫⢿⣿⡆     ',
-    	\'       ⠻⣿⣿⣿⣿⣶⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⡟⢀⣀⣤⣾⡿⠃     ',
-		\]
+"let g:startify_custom_header = [
+"		\'   ⣴⣶⣤⡤⠦⣤⣀⣤⠆     ⣈⣭⣿⣶⣿⣦⣼⣆          ',
+"		\'    ⠉⠻⢿⣿⠿⣿⣿⣶⣦⠤⠄⡠⢾⣿⣿⡿⠋⠉⠉⠻⣿⣿⡛⣦       ',
+"    	\'          ⠈⢿⣿⣟⠦ ⣾⣿⣿⣷    ⠻⠿⢿⣿⣧⣄     ',
+"    	\'           ⣸⣿⣿⢧ ⢻⠻⣿⣿⣷⣄⣀⠄⠢⣀⡀⠈⠙⠿⠄    ',
+"    	\'          ⢠⣿⣿⣿⠈    ⣻⣿⣿⣿⣿⣿⣿⣿⣛⣳⣤⣀⣀   ',
+"    	\'   ⢠⣧⣶⣥⡤⢄ ⣸⣿⣿⠘  ⢀⣴⣿⣿⡿⠛⣿⣿⣧⠈⢿⠿⠟⠛⠻⠿⠄  ',
+"    	\'  ⣰⣿⣿⠛⠻⣿⣿⡦⢹⣿⣷   ⢊⣿⣿⡏  ⢸⣿⣿⡇ ⢀⣠⣄⣾⠄   ',
+"    	\' ⣠⣿⠿⠛ ⢀⣿⣿⣷⠘⢿⣿⣦⡀ ⢸⢿⣿⣿⣄ ⣸⣿⣿⡇⣪⣿⡿⠿⣿⣷⡄  ',
+"    	\' ⠙⠃   ⣼⣿⡟  ⠈⠻⣿⣿⣦⣌⡇⠻⣿⣿⣷⣿⣿⣿ ⣿⣿⡇ ⠛⠻⢷⣄ ',
+"    	\'      ⢻⣿⣿⣄   ⠈⠻⣿⣿⣿⣷⣿⣿⣿⣿⣿⡟ ⠫⢿⣿⡆     ',
+"    	\'       ⠻⣿⣿⣿⣿⣶⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⡟⢀⣀⣤⣾⡿⠃     ',
+"		\]
+

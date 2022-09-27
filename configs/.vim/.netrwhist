@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =8
+let g:netrw_dirhist_8='/home/st0rm/Documents/sos/scripts/python'
+let g:netrw_dirhist_7='/home/st0rm/Documents/c_projects/gln/src'
+let g:netrw_dirhist_6='/home/st0rm/Documents/c_projects/gln'
+let g:netrw_dirhist_5='/home/st0rm/Documents/c_projects/gln/includes'
+let g:netrw_dirhist_4='/home/st0rm/Documents/c_projects/gln/src'
+let g:netrw_dirhist_3='/home/st0rm/Documents/c++_projects/Sparky/Sparky/Entity'
+let g:netrw_dirhist_2='/home/st0rm/Documents/c++_projects/Sparky/Sparky'
+let g:netrw_dirhist_1='/home/st0rm/Documents/c++_projects/Sparky'
+let g:netrw_dirhist_0='/home/st0rm/Documents/c++_projects'
+let g:netrw_dirhist_9='/home/st0rm/Documents'
