@@ -113,7 +113,7 @@ endfun
 
 "-- Lighline config
 let g:lightline = {
-	\ 'colorscheme': 'gruvbox',
+	\ 'colorscheme': 'onedark',
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
     \             [ 'gitbranch', 'filename', 'readonly', 'modified' ],
@@ -127,8 +127,8 @@ let g:lightline = {
     \ 'component_function': {
     \   'gitbranch': 'gitbranch#name'
     \ },
-    \'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
-    \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
+    \'separator': { 'left': "\ue0b4", 'right': "\ue0b6" },
+    \ 'subseparator': { 'left': "\ue0b5", 'right': "\ue0b7" }
     \ }
 
 "-- lightline vars
@@ -146,7 +146,7 @@ autocmd SourcePost * highlight Normal     ctermbg=NONE guibg=NONE
 "-- Colorscheme
 set termguicolors  
 "let ayucolor="mirage" 
-colorscheme gruvbox8
+colorscheme ayu
 let g:python_highlight_all = 1
 let g:python_highlight_indent_errors = 0
 let g:python_highlight_space_errors = 0
