@@ -50,7 +50,7 @@ window:
     y: 3
 
   # Opacity
-  opacity: 0.9
+  opacity: 0.95
 
   # Spread additional padding evenly around the terminal content.
   # dynamic_padding: false
@@ -110,15 +110,17 @@ font:
   normal:
     # family: Perfect DOS VGA 437 
     # family: TerminessTTF Nerd Font Mono
-    # family: JetBrains Mono
+    family: JetBrainsMono Nerd Font Mono
     # family: Mononoki Nerd Font Mono
     # family: consolas
-    # family: Fira Code
+    # family: FiraCode Nerd Font
     # family: Cascadia Code
     # family: Mx437 IBM BIOS-2y
     # family: Ac437 IBM EGA 8x8
     # family: UbuntuMono Nerd Font Mono
-    family: Iosevka
+    # family: Iosevka
+    # family: CaskaydiaCove Nerd Font
+    # family: Monocraft
 
     style: Medium
 
@@ -126,15 +128,17 @@ font:
   bold:  
     # family: Perfect DOS VGA 437
     # family: TerminessTTF Nerd Font Mono
-    # family: JetBrains Mono
+    family: JetBrainsMono Nerd Font Mono
     # family: Mononoki Nerd Font Mono
     # family: consolas
-    # family: Fira Code
+    # family: FiraCode Nerd Font
     # family: Cascadia Code
     # family: Mx437 IBM BIOS-2y
     # family: Ac437 IBM EGA 8x8
     # family: UbuntuMono Nerd Font Mono
-    family: Iosevka
+    # family: Iosevka
+    # family: CaskaydiaCove Nerd Font
+    # family: Monocraft
 
     style: Medium
 
@@ -142,15 +146,17 @@ font:
   italic:    
     # family: Perfect DOS VGA 437
     # family: TerminessTTF Nerd Font Mono
-    # family: JetBrains Mono
+    family: JetBrainsMono Nerd Font Mono
     # family: Mononoki Nerd Font Mono
     # family: consolas
-    # family: Fira Code
+    # family: FiraCode Nerd Font
     # family: Cascadia Code
     # family: Mx437 IBM BIOS-2y
     # family: Ac437 IBM EGA 8x8
     # family: UbuntuMono Nerd Font Mono
-    family: Iosevka
+    # family: Iosevka
+    # family: CaskaydiaCove Nerd Font
+    # family: Monocraft
 
     style: Italic
 
@@ -158,20 +164,22 @@ font:
   bold_italic:
     # family: Perfect DOS VGA 437
     # family: TerminessTTF Nerd Font Mono
-    # family: JetBrains Mono
+    family: JetBrainsMono Nerd Font Mono
     # family: Mononoki Nerd Font Mono
     # family: consolas
-    # family: Fira Code
+    # family: FiraCode Nerd Font
     # family: Cascadia Code
     # family: Mx437 IBM BIOS-2y
     # family: Ac437 IBM EGA 8x8
     # family: UbuntuMono Nerd Font Mono
-    family: Iosevka
+    # family: Iosevka
+    # family: CaskaydiaCove Nerd Font
+    # family: Monocraft
     
     style: Bold Italic
 
   # Point size
-  size: 12
+  size: 10
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -658,6 +666,33 @@ schemes:
       cyan:    '#8AA6A2'
       white:   '#E8E3E3'
 
+  # Everforest
+  everforest: &everforest
+    primary:
+      background: '#323d43'
+      foreground: '#d3c6aa'
+    cursor:
+      text: '#151515'
+      cursor: '#d3c6aa'
+    normal:
+      black:   '#4b565c'
+      red:     '#e67e80'
+      green:   '#a7c080'
+      yellow:  '#dbbc7f'
+      blue:    '#7fbbb3'
+      magenta: '#d699b6'
+      cyan:    '#83c092'
+      white:   '#d3c6aa'
+    bright:
+      black:   '#4b565c'
+      red:     '#e67e80'
+      green:   '#a7c080'
+      yellow:  '#dbbc7f'
+      blue:    '#7fbbb3'
+      magenta: '#d699b6'
+      cyan:    '#83c092'
+      white:   '#d3c6aa'
+
   # Github dimmed
   github_dimmed: &github_dimmed
     # Default colors
@@ -691,7 +726,7 @@ schemes:
       - { index: 16, color: '0xd18616' }
       - { index: 17, color: '0xff938a' }
       
-colors: *gruvbox-dark
+colors: *everforest
 
 # Bell
 #
@@ -738,7 +773,7 @@ colors: *gruvbox-dark
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.95
+#background_opacity: 0.95
 #background_opacity: 1
 
 selection:
@@ -758,7 +793,7 @@ cursor:
     #   - ▇ Block
     #   - _ Underline
     #   - | Beam
-    shape: Block 
+    shape: Block
 
     # Cursor blinking state
     #
