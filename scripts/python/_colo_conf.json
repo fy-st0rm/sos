@@ -44,7 +44,7 @@
 			},
 		"doom-one":		{
 				"wallpaper"		: "~/Pictures/Wallpapers/your-name-2.jpg",
-				"vim"			: "ayu",
+				"vim"			: "onedark",
 				"lightline"		: "onedark",
 				"[seperator]\n"	: "#e1e8f8",
 				"[ethernet]\n"	: "#e1e8f8",
@@ -72,8 +72,8 @@
 			},
 		"paradise":		{
 				"wallpaper"		: "~/Pictures/Wallpapers/core_dump.png",
-				"vim"			: "paradise",
-				"lightline"		: "gruvbox",
+				"vim"			: "two-firewatch",
+				"lightline"		: "Tomorrow_Night",
 				"[seperator]\n"	: "#e1e8f8",
 				"[ethernet]\n"	: "#e1e8f8",
 				"[wifi]\n"		: "#e1e8f8",
@@ -98,19 +98,19 @@
 				"[battery]\n"	: "#da8548",
 				"[time]\n"		: "#c8c2e1"
 			},
-		"horizon":		{
-				"wallpaper"		: "~/Pictures/wallpapers/0051.jpg",
-				"vim"			: "nord",
-				"lightline"		: "nord",
-				"[seperator]\n"	: "#68809a",
-				"[ethernet]\n"	: "#8FBCBB",
-				"[wifi]\n"		: "#a3be8c",
-				"[cpu_temp]\n"	: "#81a1c1",
-				"[cpu_usage]\n"	: "#8fbcbb",
-				"[ram]\n"		: "#D8DEE9",
-				"[volume]\n"	: "#b48ead",
-				"[battery]\n"	: "#a3be8c",
-				"[time]\n"		: "#ebcb8b"
+		"everforest":			{
+				"wallpaper"		: "~/Pictures/wallpapers/0189.jpg",
+				"vim"			: "everforest",
+				"lightline"		: "everforest",
+				"[seperator]\n"	: "#e1e8f8",
+				"[ethernet]\n"	: "#e1e8f8",
+				"[wifi]\n"		: "#e1e8f8",
+				"[cpu_temp]\n"	: "#e1e8f8",
+				"[cpu_usage]\n"	: "#e1e8f8",
+				"[ram]\n"		: "#e1e8f8",
+				"[volume]\n"	: "#e1e8f8",
+				"[battery]\n"	: "#e1e8f8",
+				"[time]\n"		: "#e1e8f8"
 			}
 	},
 
@@ -178,6 +178,16 @@
 				"set $menu_nf"	: "#ecf2f8",
 				"set $menu_sb"	: "#859900",
 				"set $menu_sf"	: "#ecf2f8"	
+			},
+		"everforest":			{
+				"set $pannel_bg": "#08111200",
+				"set $border"	: "#8C977D",
+				"set $menu_nb"	: "#151515",
+				"set $menu_nf"	: "#d3c6aa77",
+				"set $menu_sb"	: "#8C977D00",
+				"set $menu_sf"	: "#d3c6aa",
+				"set $dmenu_nb" : "#323d43",
+				"set $dmenu_sb" : "#8C977D"
 			}
 	}
 }
