@@ -2,21 +2,21 @@ import sys
 import os
 import json
 
-if len(sys.argv) == 1:
-	print("usage: colorscheme [name of scheme]")
-	print("Colorschemes: gruvbox-dark , nord , dracula , doom-one , sdark , paradise , solarized")
-	exit()
-
-
-# Scheme for i3blocks
+# Loading the config file
 config_path = os.path.expanduser("~") + "/.config/"
 config = json.load(open(config_path + "colo_conf.json"))
+
+if len(sys.argv) == 1:
+	print("usage: colorscheme [name of scheme]")
+	print("Colorschemes:")
+	for color in config["colorscheme"]:
+		print("    " + color)
+	exit()
 
 scheme = sys.argv[1]
 if scheme not in config["colorscheme"]:
 	print(scheme, "is not a valid colorscheme name.")
 	exit()
-
 
 home_dir = os.path.expanduser("~")
 #----
@@ -58,6 +58,25 @@ with open(file_path, "w") as w:
 # Converting vim
 #----
 file_path = f"{home_dir}/.vimrc"
+
+with open(file_path, "r") as r:
+	data = r.readlines()
+
+for no, line in enumerate(data):
+	if "colorscheme " in line:
+		vim = config["colorscheme"][scheme]["vim"]
+		data[no] = f"colorscheme {vim}\n"
+	elif "\'colorscheme\'" in line:
+		lightline = config["colorscheme"][scheme]["lightline"]
+		data[no] = f"	\\ \'colorscheme\': \'{lightline}\',\n"
+
+with open(file_path, "w") as w:
+	w.writelines(data)
+
+#----
+# Converting nvim
+#----
+file_path = f"{home_dir}/.config/nvim/init.vim"
 
 with open(file_path, "r") as r:
 	data = r.readlines()
