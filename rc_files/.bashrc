@@ -235,10 +235,10 @@ function end {
 # ➜ ❯  ❮
 if [[ ${EUID} == 0 ]] ; then
 	# PS1="$YELLOW[$RED\u@$BLUE\h $GREEN\W$YELLOW]$NORMAL\$(git_branch)$RED❯$RED❯$RED❯ $DEFAULT"
-	PS1="( .-.) $GREEN\W$NORMAL\$(git_branch)$RED $ $DEFAULT"
+	PS1="$DEFAULT( .-.) $GREEN\W$NORMAL\$(git_branch)$RED $ $DEFAULT"
 else
 	# PS1="$RED[$YELLOW\u@$BLUE\h $GREEN\W$RED]$NORMAL\$(git_branch)$CYAN❯$YELLOW❯$RED❯ $DEFAULT"
-	PS1="( .-.) $GREEN \w$NORMAL\$(git_branch)$CYAN ➜ $DEFAULT"
+	PS1="$DEFAULT( .-.) $GREEN \w$NORMAL\$(git_branch)$CYAN ➜ $DEFAULT"
 	# PS1="$GREEN\W$NORMAL\$(git_branch)$CYAN $DEFAULT._.) $DEFAULT"
 
 	# PS1="$(username)$(path)\$(git_branch)$(end)"
@@ -257,3 +257,5 @@ colorscript -e panes
 
 EDITOR="vim"
 . "$HOME/.cargo/env"
+
+#eval "$(oh-my-posh init bash --config ~/.config/oh-my-posh/clean-detailed.omp.json)"
