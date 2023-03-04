@@ -32,6 +32,9 @@ packer.startup(function(use)
 	-- Language server
 	use("neovim/nvim-lspconfig")
 
+	-- Cmake plugin
+	use('cdelledonne/vim-cmake')
+
 	-- Autocompletion
 	use('hrsh7th/nvim-cmp')
     use('hrsh7th/cmp-nvim-lsp')
@@ -44,13 +47,22 @@ packer.startup(function(use)
 	-- Treesitter Syntax Highlighting
 	use("nvim-treesitter/nvim-treesitter")
 
+	-- Tab line
+	use("kyazdani42/nvim-web-devicons")
+	use('nanozuki/tabby.nvim')
+
 	-- A better statusline
 	use("nvim-lualine/lualine.nvim") 
 
 	-- File management --
 	use("vifm/vifm.vim")
-	use("preservim/nerdtree")
-	use("tiagofumo/vim-nerdtree-syntax-highlight")
+	use({
+		'nvim-tree/nvim-tree.lua',
+		requires = {
+			'nvim-tree/nvim-web-devicons', -- optional, for file icons
+		},
+		tag = 'nightly' -- optional, updated every week. (see issue #1193)
+	})
 	use("ryanoasis/vim-devicons")
 
 	-- Syntax Highlighting and Colors --

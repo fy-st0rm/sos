@@ -26,9 +26,15 @@ map("n", "<C-n>", "<CMD>Startify<CR>")
 map("n", "<C-s>", "<CMD>SSave<CR>")
 map("n", "<C-c>", "<CMD>SClose<CR>")
 
+-- Remaping split movement
+map("n", "<C-h>", "<C-w>h")
+map("n", "<C-j>", "<C-w>j")
+map("n", "<C-k>", "<C-w>k")
+map("n", "<C-l>", "<C-w>l")
+
 -- Keybindings for tabs
 map("n", "nt", "<CMD>tabnew<CR>")
-map("n", "<C-w>", "<CMD>wq<CR>")
+map("n", "<C-w>", "<CMD>q!<CR>")
 
 -- Tab navigations
 map("n", "n1", "<CMD>tabnext 1<CR>")
@@ -43,7 +49,11 @@ map("n", "n9", "<CMD>tabnext 9<CR>")
 
 -- Keybindings for telescope
 map("n", "<C-p>", "<CMD>Telescope find_files<CR>")
-map("n", "<C-h>", "<CMD>NERDTreeToggle<CR>")
+
+-- Keybindings for CMake
+map("n", "<C-g>", "<CMD>CMakeGenerate<CR>")
+map("n", "<C-b>", "<CMD>CMakeBuild<CR>")
+map("n", "<C-x>", "<CMD>CMakeClose<CR>")
 
 -- LSP mapping
 
@@ -71,17 +81,14 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
 end
 
-local lsp_flags = {
-	-- This is the default in Nvim 0.7+
-	debounce_text_changes = 150,
-}
-
 -- Setting up the lsp
-local servers = { 'pyright' }
+local servers = { 'pyright' , 'clangd' }
 for _, lsp in pairs(servers) do
 	require('lspconfig')[lsp].setup{
 		on_attach = on_attach,
-		flags = lsp_flags,
+		flags = {
+			debounce_text_changes = 150,
+		},
 	}
 end
 

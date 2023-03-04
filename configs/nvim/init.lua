@@ -1,8 +1,8 @@
 
 -- Neovim config
 require("plugin")
-require("color")
-require("maps")
-require("startup")
 require("base")
+require("startup")
+require("maps")
 require("nvim-cmp")
+require("color")

@@ -5,6 +5,10 @@ local opt = vim.opt
 -- cmd('syntax on')
 -- vim.api.nvim_command('filetype plugin indent on')
 
+-- Enabled for nvim-tree
+g.loaded_netrw = 1
+g.loaded_netrwPlugin = 1
+
 -- Shell
 o.shell = "bash"
 
