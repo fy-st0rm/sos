@@ -84,3 +84,14 @@ for _, lsp in pairs(servers) do
 		flags = lsp_flags,
 	}
 end
+
+-- Adding extra paths to python lsp analyzer
+require("lspconfig").pyright.setup {
+  settings = {
+    python = {
+      analysis = {
+        extraPaths = {"/usr/lib/python3.10/site-packages"}
+      }
+    }
+  }
+}

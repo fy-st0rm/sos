@@ -1,4 +1,4 @@
-# Configuration for Alacritty, the GPU enhanced terminal emulator.
+  # Configuration for Alacritty, the GPU enhanced terminal emulator.
 
 # Import additional configuration files
 #
@@ -46,11 +46,11 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 3
-    y: 3
+    x: 5
+    y: 5
 
   # Opacity
-  opacity: 0.95
+  opacity: 0.9
 
   # Spread additional padding evenly around the terminal content.
   # dynamic_padding: false
@@ -112,7 +112,7 @@ font:
     # family: TerminessTTF Nerd Font Mono
     family: JetBrainsMono Nerd Font Mono
     # family: Mononoki Nerd Font Mono
-    # family: consolas
+    # family: Consolas NF
     # family: FiraCode Nerd Font
     # family: Cascadia Code
     # family: Mx437 IBM BIOS-2y
@@ -130,7 +130,7 @@ font:
     # family: TerminessTTF Nerd Font Mono
     family: JetBrainsMono Nerd Font Mono
     # family: Mononoki Nerd Font Mono
-    # family: consolas
+    # family: Consolas NF
     # family: FiraCode Nerd Font
     # family: Cascadia Code
     # family: Mx437 IBM BIOS-2y
@@ -148,7 +148,7 @@ font:
     # family: TerminessTTF Nerd Font Mono
     family: JetBrainsMono Nerd Font Mono
     # family: Mononoki Nerd Font Mono
-    # family: consolas
+    # family: Consolas NF
     # family: FiraCode Nerd Font
     # family: Cascadia Code
     # family: Mx437 IBM BIOS-2y
@@ -166,7 +166,7 @@ font:
     # family: TerminessTTF Nerd Font Mono
     family: JetBrainsMono Nerd Font Mono
     # family: Mononoki Nerd Font Mono
-    # family: consolas
+    # family: Consolas NF
     # family: FiraCode Nerd Font
     # family: Cascadia Code
     # family: Mx437 IBM BIOS-2y
@@ -175,11 +175,11 @@ font:
     # family: Iosevka
     # family: CaskaydiaCove Nerd Font
     # family: Monocraft
-    
+
     style: Bold Italic
 
   # Point size
-  size: 10
+  size: 9
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -481,7 +481,7 @@ schemes:
       blue:    '#51afef'
       magenta: '#c678dd'
       cyan:    '#5699af'
-      white:   '#202328'
+      white:   '#4b5263'
     bright:
       black:   '#5b6268'
       red:     '#da8548'
@@ -501,6 +501,7 @@ schemes:
     primary:
       # hard contrast: background = '0x1d2021'
       background: '0x282828'
+      # background: '0x1d2021'
       # soft contrast: background = '0x32302f'
       foreground: '0xebdbb2'
 
@@ -603,41 +604,89 @@ schemes:
 
   # Catppuccin colorscheme
   catppuccin: &catppuccin
+    # Default colors
     primary:
-      background: '0x1E1D2F'
-      foreground: '0xD9E0EE'
+        background: "#24273A" # base
+        foreground: "#CAD3F5" # text
+        # Bright and dim foreground colors
+        dim_foreground: "#CAD3F5" # text
+        bright_foreground: "#CAD3F5" # text
 
-    # Colors the cursor will use if `custom_cursor_colors` is true
+    # Cursor colors
     cursor:
-      text: '0x1E1D2F'
-      cursor: '0xF5E0DC'
+        text: "#24273A" # base
+        cursor: "#F4DBD6" # rosewater
+    vi_mode_cursor:
+        text: "#24273A" # base
+        cursor: "#B7BDF8" # lavender
+
+    # Search colors
+    search:
+        matches:
+            foreground: "#24273A" # base
+            background: "#A5ADCB" # subtext0
+        focused_match:
+            foreground: "#24273A" # base
+            background: "#A6DA95" # green
+        footer_bar:
+            foreground: "#24273A" # base
+            background: "#A5ADCB" # subtext0
+
+    # Keyboard regex hints
+    hints:
+        start:
+            foreground: "#24273A" # base
+            background: "#EED49F" # yellow
+        end:
+            foreground: "#24273A" # base
+            background: "#A5ADCB" # subtext0
+
+    # Selection colors
+    selection:
+        text: "#24273A" # base
+        background: "#F4DBD6" # rosewater
 
     # Normal colors
     normal:
-      black:   '0x6E6C7E'
-      red:     '0xF28FAD'
-      green:   '0xABE9B3'
-      yellow:  '0xFAE3B0'
-      blue:    '0x96CDFB'
-      magenta: '0xF5C2E7'
-      cyan:    '0x89DCEB'
-      white:   '0xD9E0EE'
+        black: "#494D64" # surface1
+        red: "#ED8796" # red
+        green: "#A6DA95" # green
+        yellow: "#EED49F" # yellow
+        blue: "#8AADF4" # blue
+        magenta: "#F5BDE6" # pink
+        cyan: "#8BD5CA" # teal
+        white: "#B8C0E0" # subtext1
 
     # Bright colors
     bright:
-      black:   '0x988BA2'
-      red:     '0xF28FAD'
-      green:   '0xABE9B3'
-      yellow:  '0xFAE3B0'
-      blue:    '0x96CDFB'
-      magenta: '0xF5C2E7'
-      cyan:    '0x89DCEB'
-      white:   '0xD9E0EE'
+        black: "#5B6078" # surface2
+        red: "#ED8796" # red
+        green: "#A6DA95" # green
+        yellow: "#EED49F" # yellow
+        blue: "#8AADF4" # blue
+        magenta: "#F5BDE6" # pink
+        cyan: "#8BD5CA" # teal
+        white: "#A5ADCB" # subtext0
+
+    # Dim colors
+    dim:
+        black: "#494D64" # surface1
+        red: "#ED8796" # red
+        green: "#A6DA95" # green
+        yellow: "#EED49F" # yellow
+        blue: "#8AADF4" # blue
+        magenta: "#F5BDE6" # pink
+        cyan: "#8BD5CA" # teal
+        white: "#B8C0E0" # subtext1
+
+    indexed_colors:
+        - { index: 16, color: "#F5A97F" }
+        - { index: 17, color: "#F4DBD6" }
 
   # Paradise colorscheme
   paradise: &paradise
     primary:
-      background: '#1d1f21'
+      background: '#1b1b19'
       foreground: '#E8E3E3'
 
     cursor:
@@ -669,7 +718,7 @@ schemes:
   # Everforest
   everforest: &everforest
     primary:
-      background: '#323d43'
+      background: '#2b3339'
       foreground: '#d3c6aa'
     cursor:
       text: '#151515'
@@ -726,7 +775,7 @@ schemes:
       - { index: 16, color: '0xd18616' }
       - { index: 17, color: '0xff938a' }
       
-colors: *everforest
+colors: *catppuccin
 
 # Bell
 #
