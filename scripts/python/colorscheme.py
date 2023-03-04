@@ -74,25 +74,6 @@ with open(file_path, "w") as w:
 	w.writelines(data)
 
 #----
-# Converting nvim
-#----
-file_path = f"{home_dir}/.config/nvim/init.vim"
-
-with open(file_path, "r") as r:
-	data = r.readlines()
-
-for no, line in enumerate(data):
-	if "colorscheme " in line:
-		vim = config["colorscheme"][scheme]["vim"]
-		data[no] = f"colorscheme {vim}\n"
-	elif "\'colorscheme\'" in line:
-		lightline = config["colorscheme"][scheme]["lightline"]
-		data[no] = f"	\\ \'colorscheme\': \'{lightline}\',\n"
-
-with open(file_path, "w") as w:
-	w.writelines(data)
-
-#----
 # i3
 #----
 file_path = f"{home_dir}/.config/i3/config"
