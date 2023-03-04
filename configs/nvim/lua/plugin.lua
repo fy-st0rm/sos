@@ -32,8 +32,15 @@ packer.startup(function(use)
 	-- Language server
 	use("neovim/nvim-lspconfig")
 
+	-- Autocompletion
+	use('hrsh7th/nvim-cmp')
+    use('hrsh7th/cmp-nvim-lsp')
+	use('L3MON4D3/LuaSnip')
+	use('saadparwaiz1/cmp_luasnip')
+
 	-- Adds git releated signs to the gutter, as well as utilities for managing changes
 	use("lewis6991/gitsigns.nvim")
+
 	-- Treesitter Syntax Highlighting
 	use("nvim-treesitter/nvim-treesitter")
 
@@ -62,6 +69,10 @@ packer.startup(function(use)
 	use("RRethy/nvim-base16")
 	use("kyazdani42/nvim-palenight.lua")
 	use ({ 'projekt0n/github-nvim-theme', tag = 'v0.0.7' })
+	use { "catppuccin/nvim", as = "catppuccin" }
+
+	-- Transparent background
+	use("xiyaowong/nvim-transparent")
 
 	-- Other stuff --
 	use("frazrepo/vim-rainbow")

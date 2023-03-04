@@ -1,6 +1,7 @@
 
 -- Startup of plugins
 require('lualine').setup()
+
 require('gitsigns').setup({
 	signs = {
 		add			 = { text = '+' },
@@ -10,13 +11,18 @@ require('gitsigns').setup({
 		changedelete = { text = '~' },
 	}
 })
+
+require('transparent').setup({
+	enable=true
+})
+
 vim.g.python_highlight_all=1
 
 -- Startify startup
 vim.cmd([[
 let g:startify_bookmarks = [
 	\ {'v': '~/.vimrc'},
-	\ {'n': '~/.config/nvim/init.vim'},
+	\ {'n': '~/.config/nvim/init.lua'},
 	\ {'i': '~/.config/i3/config'},
 	\ {'b': '~/.bashrc'},
 	\ {'a': '~/.config/alacritty/alacritty.yml'}

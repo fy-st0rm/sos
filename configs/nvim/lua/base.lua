@@ -28,6 +28,7 @@ o.cursorline     = true
 -- Some basic features
 opt.mouse     = "a"
 o.expandtab   = true
+o.hlsearch    = false
 o.smarttab    = true
 o.cindent     = true
 o.autoindent  = true
@@ -37,7 +38,7 @@ o.tabstop     = 4
 o.shiftwidth  = 4
 o.softtabstop = -1 -- If negative, shiftwidth value is used
 o.list        = true
-o.listchars   = "trail:·,nbsp:◇,tab:▏ ,extends:▸,precedes:◂"
+o.listchars   = "trail:·,nbsp:◇,tab:┊ ,extends:▸,precedes:◂"
 
 -- Setting tabs instead of spaces
 vim.cmd("autocmd FileType * setlocal noexpandtab")
