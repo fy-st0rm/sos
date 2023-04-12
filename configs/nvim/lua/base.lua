@@ -38,8 +38,8 @@ o.cindent     = true
 o.autoindent  = true
 o.wrap        = true
 o.textwidth   = 300
-o.tabstop     = 4
-o.shiftwidth  = 4
+o.tabstop     = 2
+o.shiftwidth  = 2
 o.softtabstop = -1 -- If negative, shiftwidth value is used
 o.list        = true
 o.listchars   = "trail:·,nbsp:◇,tab:┊ ,extends:▸,precedes:◂"
@@ -70,3 +70,5 @@ o.splitbelow = true
 -- Map <leader> to space
 g.mapleader      = " "
 g.maplocalleader = " "
+
+o.guifont = "TerminessTTF Nerd Font Mono:h10"

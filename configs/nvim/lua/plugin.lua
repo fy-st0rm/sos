@@ -67,6 +67,7 @@ packer.startup(function(use)
 
 	-- Syntax Highlighting and Colors --
 	use("PotatoesMaster/i3-vim-syntax")
+	use("tikhomirov/vim-glsl")
 	use("kovetskiy/sxhkd-vim")
 	use("vim-python/python-syntax")
 	use("ap/vim-css-color")
@@ -78,10 +79,18 @@ packer.startup(function(use)
 	use("junegunn/vim-emoji")
 
 	-- Colorschemes --
-	use("RRethy/nvim-base16")
 	use("kyazdani42/nvim-palenight.lua")
-	use ({ 'projekt0n/github-nvim-theme', tag = 'v0.0.7' })
-	use { "catppuccin/nvim", as = "catppuccin" }
+	use({ 'projekt0n/github-nvim-theme', tag = 'v0.0.7' })
+	use({ "catppuccin/nvim", as = "catppuccin" })
+	use('AlexvZyl/nordic.nvim')
+	use('franbach/miramare')
+	use('kaiuri/nvim-juliana')
+	use('shaunsingh/nord.nvim')
+	use("EdenEast/nightfox.nvim")
+	use("sainnhe/sonokai")
+	use("neanias/everforest-nvim")
+	use("sainnhe/gruvbox-material")
+	use("fcpg/vim-farout")
 
 	-- Transparent background
 	use("xiyaowong/nvim-transparent")

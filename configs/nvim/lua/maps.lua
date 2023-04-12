@@ -26,6 +26,9 @@ map("n", "<C-n>", "<CMD>Startify<CR>")
 map("n", "<C-s>", "<CMD>SSave<CR>")
 map("n", "<C-c>", "<CMD>SClose<CR>")
 
+-- Treetoggle
+map("n", "<C-o>", "<CMD>NvimTreeToggle<CR>")
+
 -- Remaping split movement
 map("n", "<C-h>", "<C-w>h")
 map("n", "<C-j>", "<C-w>j")
@@ -48,49 +51,15 @@ map("n", "n8", "<CMD>tabnext 8<CR>")
 map("n", "n9", "<CMD>tabnext 9<CR>")
 
 -- Keybindings for telescope
-map("n", "<C-p>", "<CMD>Telescope find_files<CR>")
+map("n", "<C-p>", "<CMD>Telescope find_files hidden=true<CR>")
 
 -- Keybindings for CMake
 map("n", "<C-g>", "<CMD>CMakeGenerate<CR>")
 map("n", "<C-b>", "<CMD>CMakeBuild<CR>")
 map("n", "<C-x>", "<CMD>CMakeClose<CR>")
 
--- LSP mapping
-
-local on_attach = function(client, bufnr)
-	-- Enable completion triggered by <c-x><c-o>
-	vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-	
-	-- Mappings.
-	-- See `:help vim.lsp.*` for documentation on any of the below functions
-	local bufopts = { noremap=true, silent=true, buffer=bufnr }
-	vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-	vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-	vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
-	vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-	vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
-	vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
-	vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
-	vim.keymap.set('n', '<space>wl', function()
-	  print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-	end, bufopts)
-	vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
-	vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
-	vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
-	vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-	vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
-end
-
--- Setting up the lsp
-local servers = { 'pyright' , 'clangd' }
-for _, lsp in pairs(servers) do
-	require('lspconfig')[lsp].setup{
-		on_attach = on_attach,
-		flags = {
-			debounce_text_changes = 150,
-		},
-	}
-end
+-- Keybinding to c builder
+map("n", "<C-b>", "<CMD>sp | term ipm run<CR>")
 
 -- Adding extra paths to python lsp analyzer
 require("lspconfig").pyright.setup {
