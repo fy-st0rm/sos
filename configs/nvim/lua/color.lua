@@ -4,9 +4,13 @@
 
 -- Colorscheme setup
 
+require('ayu').setup({
+	mirage = true
+})
+
 require('nightfox').setup({
 	options = {
-		transparent = true
+		transparent = false
 	}
 })
 
@@ -16,6 +20,24 @@ require('nordic').setup({
 		style = 'classic',
 	},
 })
+
+require('github-theme').setup({
+	transparent = true
+})
+
+require('everforest').setup({
+	transparent_background_level = 1
+})
+
+require('noirbuddy').setup {
+  preset = 'slate',
+}
+
+require('onedark').setup {
+    style = 'darker'
+}
+
+vim.g.miramare_transparent_background = 1
 
 
 -- Uncomment just ONE of the following colorschemes!
@@ -39,8 +61,18 @@ require('nordic').setup({
 -- local ok, _ = pcall(vim.cmd, 'colorscheme everforest')
 -- local ok, _ = pcall(vim.cmd, 'colorscheme nightfox')
 -- local ok, _ = pcall(vim.cmd, 'colorscheme gruvbox-material')
+-- local ok, _ = pcall(vim.cmd, 'colorscheme gruvbox')
 -- local ok, _ = pcall(vim.cmd, 'colorscheme nordic')
-local ok, _ = pcall(vim.cmd, 'colorscheme farout')
+-- local ok, _ = pcall(vim.cmd, 'colorscheme nord')
+-- local ok, _ = pcall(vim.cmd, 'colorscheme paradise')
+-- local ok, _ = pcall(vim.cmd, 'colorscheme farout')
+-- local ok, _ = pcall(vim.cmd, 'colorscheme rasmus')
+-- local ok, _ = pcall(vim.cmd, 'colorscheme paradise')
+-- local ok, _ = pcall(vim.cmd, 'colorscheme oh-lucy')
+-- local ok, _ = pcall(vim.cmd, 'colorscheme onedark')
+-- local ok, _ = pcall(vim.cmd, 'colorscheme plain')
+-- local ok, _ = pcall(vim.cmd, 'colorscheme ayu')
+-- local ok, _ = pcall(vim.cmd, 'colorscheme kanagawa')
 
 -- Highlight the region on yank
 vim.api.nvim_create_autocmd("TextYankPost", {

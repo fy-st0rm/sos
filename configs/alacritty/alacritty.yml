@@ -50,7 +50,7 @@ window:
     y: 5
 
   # Opacity
-  opacity: 0.9
+  opacity: 1
 
   # Spread additional padding evenly around the terminal content.
   # dynamic_padding: false
@@ -108,9 +108,10 @@ window:
 font:
   # Normal (roman) font face
   normal:
+    family: RandyGG
     # family: Perfect DOS VGA 437 
-    # family: TerminessTTF Nerd Font Mono
-    family: JetBrainsMono Nerd Font Mono
+    # family: Terminess Nerd Font Mono
+    # family: JetBrainsMono Nerd Font Mono
     # family: Mononoki Nerd Font Mono
     # family: Consolas NF
     # family: FiraCode Nerd Font
@@ -126,9 +127,10 @@ font:
 
   # Bold font face
   bold:  
+    family: RandyGG
     # family: Perfect DOS VGA 437
-    # family: TerminessTTF Nerd Font Mono
-    family: JetBrainsMono Nerd Font Mono
+    # family: Terminess Nerd Font Mono
+    # family: JetBrainsMono Nerd Font Mono
     # family: Mononoki Nerd Font Mono
     # family: Consolas NF
     # family: FiraCode Nerd Font
@@ -144,9 +146,10 @@ font:
 
   # Italic font face
   italic:    
+    family: RandyGG
     # family: Perfect DOS VGA 437
-    # family: TerminessTTF Nerd Font Mono
-    family: JetBrainsMono Nerd Font Mono
+    # family: Terminess Nerd Font Mono
+    # family: JetBrainsMono Nerd Font Mono
     # family: Mononoki Nerd Font Mono
     # family: Consolas NF
     # family: FiraCode Nerd Font
@@ -162,9 +165,10 @@ font:
 
   # Bold italic font face
   bold_italic:
+    family: RandyGG
     # family: Perfect DOS VGA 437
-    # family: TerminessTTF Nerd Font Mono
-    family: JetBrainsMono Nerd Font Mono
+    # family: Terminess Nerd Font Mono
+    # family: JetBrainsMono Nerd Font Mono
     # family: Mononoki Nerd Font Mono
     # family: Consolas NF
     # family: FiraCode Nerd Font
@@ -179,7 +183,7 @@ font:
     style: Bold Italic
 
   # Point size
-  size: 9
+  size: 10.5
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -191,9 +195,9 @@ font:
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increasing `x` moves the glyph to the
   # right, increasing `y` moves the glyph upward.
-  #glyph_offset:
-  #  x: 0
-  #  y: 0
+  glyph_offset:
+    x: 0
+    y: 0
 
   # Thin stroke font rendering (macOS only)
   #
@@ -411,7 +415,7 @@ schemes:
 
   nord: &nord
     primary:
-      background: '#2e3440'
+      background: '#242933'
       foreground: '#d8dee9'
       dim_foreground: '#a5abb6'
     cursor:
@@ -465,7 +469,7 @@ schemes:
 
   doom-one: &doom-one
     primary:
-      background: '#282c34'
+      background: '0x1e2127'
       foreground: '#bbc2cf'
     cursor:
       text: CellBackground
@@ -573,7 +577,7 @@ schemes:
   sdark: &sdark
     # Default colors
     primary:
-      background: '#0c0c0e'
+      background: '#1b1b19'
       foreground: '#ecf2f8'
 
     cursor:
@@ -582,14 +586,14 @@ schemes:
 
     # Normal colors
     normal:
-      black:   '0x002b36'
-      red:     '0xcb4b16'
-      green:   '0x586e75'
-      yellow:  '0x657b83'
-      blue:    '0x839496'
-      magenta: '0x6c71c4'
-      cyan:    '0x93a1a1'
-      white:   '0xfdf6e3'
+      black:   '#002b36'
+      red:     '#cb4b16'
+      green:   '#586e75'
+      yellow:  '#657b83'
+      blue:    '#839496'
+      magenta: '#6c71c4'
+      cyan:    '#93a1a1'
+      white:   '#fdf6e3'
 
     # Bright colors
     bright:
@@ -600,7 +604,7 @@ schemes:
       blue:    '#77bdfb'
       magenta: '#cea5fb'
       cyan:    '#a2d2fb'
-      white:   '0xeee8d5'
+      white:   '#eee8d5'
 
   # Catppuccin colorscheme
   catppuccin: &catppuccin
@@ -746,36 +750,68 @@ schemes:
   github_dimmed: &github_dimmed
     # Default colors
     primary:
-      background: '0x22272e'
-      foreground: '0x768390'
+      background: '#22272e'
+      foreground: '#768390'
+
+    cursor:
+      text: '#151515'
+      cursor: '#d3c6aa'
 
     # Normal colors
     normal:
-      black:   '0x545d68'
-      red:     '0xf47067'
-      green:   '0x57ab5a'
-      yellow:  '0xc69026'
-      blue:    '0x539bf5'
-      magenta: '0xb083f0'
-      cyan:    '0x39c5cf'
-      white:   '0x909dab'
+      black:   '#545d68'
+      red:     '#f47067'
+      green:   '#57ab5a'
+      yellow:  '#c69026'
+      blue:    '#539bf5'
+      magenta: '#b083f0'
+      cyan:    '#39c5cf'
+      white:   '#909dab'
 
     # Bright colors
     bright:
-      black:   '0x636e7b'
-      red:     '0xff938a'
-      green:   '0x6bc46d'
-      yellow:  '0xdaaa3f'
-      blue:    '0x6cb6ff'
-      magenta: '0xdcbdfb'
-      cyan:    '0x56d4dd'
-      white:   '0xcdd9e5'
+      black:   '#636e7b'
+      red:     '#ff938a'
+      green:   '#6bc46d'
+      yellow:  '#daaa3f'
+      blue:    '#6cb6ff'
+      magenta: '#dcbdfb'
+      cyan:    '#56d4dd'
+      white:   '#cdd9e5'
 
     indexed_colors:
-      - { index: 16, color: '0xd18616' }
-      - { index: 17, color: '0xff938a' }
+      - { index: 16, color: '#d18616' }
+      - { index: 17, color: '#ff938a' }
+
+  # Oh_lucy
+  oh_lucy: &oh_lucy
+    primary:
+      background: '#1E1D23'
+      foreground: '#DED7D0'
+    cursor:
+      text: '#151515'
+      cursor: '#d3c6aa'
+    normal:
+      black:   '#938884'
+      red:     '#FF7DA3'
+      green:   '#7EC49D'
+      yellow:  '#EFD472'
+      blue:    '#8BB8D0'
+      magenta: '#BDA9D4'
+      cyan:    '#BDA9D4'
+      white:   '#DED7D0'
+    bright:
+      black:   '#938884'
+      red:     '#FF7DA3'
+      green:   '#7EC49D'
+      yellow:  '#EFD472'
+      blue:    '#8BB8D0'
+      magenta: '#BDA9D4'
+      cyan:    '#BDA9D4'
+      white:   '#DED7D0'
+
       
-colors: *catppuccin
+colors: *sdark
 
 # Bell
 #
@@ -870,7 +906,7 @@ cursor:
 
   # Thickness of the cursor relative to the cell width as floating point number
   # from `0.0` to `1.0`.
-  #thickness: 0.15
+  thickness: 0.2
 
 # Live config reload (changes require restart)
 #live_config_reload: true

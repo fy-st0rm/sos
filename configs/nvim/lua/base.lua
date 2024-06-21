@@ -9,6 +9,8 @@ local opt = vim.opt
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 
+g.rust_recommended_style = false
+
 -- Shell
 o.shell = "bash"
 
@@ -23,11 +25,16 @@ o.updatetime = 200
 o.scrolloff = 8
 
 -- Better editor UI
-o.number         = true
+o.number         = false
 o.numberwidth    = 2
-o.relativenumber = true
+o.relativenumber = false
 o.signcolumn     = "yes"
 o.cursorline     = true
+o.showtabline    = 0
+
+-- Setting tabs instead of spaces
+vim.cmd("autocmd FileType * setlocal noexpandtab")
+vim.cmd("let g:python_recommended_style = 0")
 
 -- Some basic features
 opt.mouse     = "a"
@@ -40,12 +47,9 @@ o.wrap        = true
 o.textwidth   = 300
 o.tabstop     = 2
 o.shiftwidth  = 2
-o.softtabstop = -1 -- If negative, shiftwidth value is used
+vim.bo.softtabstop = 2 -- If negative, shiftwidth value is used
 o.list        = true
 o.listchars   = "trail:·,nbsp:◇,tab:┊ ,extends:▸,precedes:◂"
-
--- Setting tabs instead of spaces
-vim.cmd("autocmd FileType * setlocal noexpandtab")
 
 -- Makes neovim and host OS clipboard play nicely with each other
 o.clipboard = "unnamedplus"

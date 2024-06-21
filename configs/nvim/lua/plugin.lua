@@ -18,6 +18,9 @@ packer.startup(function(use)
 	-- Packer can manage itself
 	use("wbthomason/packer.nvim")
 
+	use('williamboman/mason.nvim')
+	use('williamboman/mason-lspconfig.nvim')
+
 	-- Telescope
 	use({
 		"nvim-telescope/telescope.nvim",
@@ -37,7 +40,7 @@ packer.startup(function(use)
 
 	-- Autocompletion
 	use('hrsh7th/nvim-cmp')
-    use('hrsh7th/cmp-nvim-lsp')
+	use('hrsh7th/cmp-nvim-lsp')
 	use('L3MON4D3/LuaSnip')
 	use('saadparwaiz1/cmp_luasnip')
 
@@ -55,7 +58,6 @@ packer.startup(function(use)
 	use("nvim-lualine/lualine.nvim") 
 
 	-- File management --
-	use("vifm/vifm.vim")
 	use({
 		'nvim-tree/nvim-tree.lua',
 		requires = {
@@ -90,7 +92,24 @@ packer.startup(function(use)
 	use("sainnhe/sonokai")
 	use("neanias/everforest-nvim")
 	use("sainnhe/gruvbox-material")
+	use("ellisonleao/gruvbox.nvim")
 	use("fcpg/vim-farout")
+	use("kristijanhusak/vim-hybrid-material")
+	use("alligator/accent.vim")
+	use {
+		"jesseleite/nvim-noirbuddy",
+		requires = { "tjdevries/colorbuddy.nvim", branch = "dev" }
+	}
+	use("kvrohit/rasmus.nvim")
+	use("Yazeed1s/oh-lucy.nvim")
+	use("navarasu/onedark.nvim")
+	use {
+		"mcchrish/zenbones.nvim",
+		requires = "rktjmp/lush.nvim"
+	}
+	use('andreypopp/vim-colors-plain')
+	use("Shatur/neovim-ayu")
+	use("rebelot/kanagawa.nvim")
 
 	-- Transparent background
 	use("xiyaowong/nvim-transparent")

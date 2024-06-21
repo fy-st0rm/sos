@@ -59,15 +59,17 @@ map("n", "<C-b>", "<CMD>CMakeBuild<CR>")
 map("n", "<C-x>", "<CMD>CMakeClose<CR>")
 
 -- Keybinding to c builder
-map("n", "<C-b>", "<CMD>sp | term ipm run<CR>")
+-- map("n", "<C-b>", "<CMD>sp | term ipm run<CR>")
+-- map("n", "<C-b>", "<CMD>sp | term cargo run<CR>")
+map("n", "<C-b>", "<CMD>sp | term make<CR>")
 
 -- Adding extra paths to python lsp analyzer
-require("lspconfig").pyright.setup {
-  settings = {
-    python = {
-      analysis = {
-        extraPaths = {"/usr/lib/python3.10/site-packages"}
-      }
-    }
-  }
-}
+--require("lspconfig").pyright.setup {
+--  settings = {
+--    python = {
+--      analysis = {
+--        extraPaths = {"/usr/lib/python3.10/site-packages"}
+--      }
+--    }
+--  }
+--}

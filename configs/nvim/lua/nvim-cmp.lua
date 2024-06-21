@@ -83,7 +83,7 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
 	vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
 	vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-	vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+	vim.keymap.set('n', '<C-i>', vim.lsp.buf.signature_help, bufopts)
 	vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
 	vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
 	vim.keymap.set('n', '<space>wl', function()
@@ -99,13 +99,26 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-local servers = { 'pyright', 'clangd' }
-for _, lsp in pairs(servers) do
-	require('lspconfig')[lsp].setup{
-		on_attach = on_attach,
-		flags = {
-			debounce_text_changes = 150,
-		},
-		capabilities = capabilities
-	}
-end
+-- local servers = { 'clangd' }
+-- for _, lsp in pairs(servers) do
+-- 	require('lspconfig')[lsp].setup{
+-- 		on_attach = on_attach,
+-- 		flags = {
+-- 			debounce_text_changes = 150,
+-- 		},
+-- 		capabilities = capabilities
+-- 	}
+-- end
+
+--require('lspconfig').rust_analyzer.setup({
+--	on_attach = on_attach,
+--	capabilities = capabilities,
+--	root_dir = require('lspconfig/util').root_pattern("Cargo.toml"),
+--	settings = {
+--		['rust-analyzer'] = {
+--			cargo = {
+--				allFeatures = true
+--			}
+--		}
+--	}
+--});

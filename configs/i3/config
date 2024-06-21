@@ -16,8 +16,10 @@ set $mod Mod1
 # font pango: Mx437 IBM BIOS-2y 10
 # font pango: UbuntuMono Nerd Font Mono 11
 # font pango: Ac437 IBM EGA 8x8 8
-font pango: Jetbrains Mono 9
+# font pango: JetbrainsMono Nerd Font Mono 9
+# font pango: CaskaydiaCove Nerd Font 9
 # font pango: Iosevka 10
+font pango: RandyGG 11
 # font pango: consolas 10
 # font pango: FireCode 9
 
@@ -85,16 +87,16 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # Workspaces
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+set $ws1 "1:  "
+set $ws2 "2:  "
+set $ws3 "3:  "
+set $ws4 "4:  "
+set $ws5 "5:  "
+set $ws6 "6:  "
+set $ws7 "7:  "
+set $ws8 "8:  "
+set $ws9 "9:  "
+set $ws10 "10:  "
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -131,29 +133,37 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # Colors
-set $pannel_bg #28282800
-set $border #689d6a
-set $menu_nb #28282800
-set $menu_nf #ebdbb277
-set $menu_sb #98971a00
-set $menu_sf #e1e8f8
-set $dmenu_nb #282828
-set $dmenu_sb #98971a
+set $pannel_bg #081112AA
+set $border #555267
+set $menu_nb #070708
+set $menu_nf #e1e8f877
+set $menu_sb #081112BB
+set $menu_sf #ecf2f8
+set $dmenu_nb #151515
+set $dmenu_sb #555267
+
+# Program assignment
+assign [class="Opera"]   workspace number $ws1
+assign [class="discord"] workspace number $ws2
 
 # Keybindings
 bindsym Print 				exec --no-startup-id maim "/home/$USER/Pictures/screenshots/$(date).png"
 bindsym $mod+Shift+Return 	exec --no-startup-id nautilus
-bindsym $mod+Return 		exec alacritty
-bindsym $mod+Shift+b 		exec --no-startup-id qutebrowser
-bindsym $mod+d 				exec --no-startup-id dmenu_run -c -l 15 -h 21 -fn 'Jetbrains Mono-12' -nb '$dmenu_nb' -sb '$dmenu_sb'
+# bindsym $mod+Return 		exec --no-startup-id alacritty -e vim --servername server -c ":term ++curwin"
+bindsym $mod+Return 		exec --no-startup-id alacritty
+bindsym $mod+Shift+b 		exec --no-startup-id opera
+bindsym $mod+d 				exec --no-startup-id dmenu_run -c -l 10 -h 21 -fn 'RandyGG-15' -nb '$dmenu_nb' -sb '$dmenu_sb'
+bindsym $mod+Shift+d        exec --no-startup-id i3lock -i ~/Pictures/Wallpapers/lock.png
+bindsym $mod+Shift+n        exec --no-startup-id neovide
 
 # Auto start
 exec --no-startup-id nitrogen --restore
 # exec --no-startup-id saw -r
 exec --no-startup-id synclient TapButton1=1
-exec --no-startup-id compton
+exec --no-startup-id picom
 exec --no-startup-id dunst
 exec --no-startup-id syndaemon -d -i 0.5
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -184,31 +194,32 @@ client.focused  	 	$menu_sb $menu_sb $menu_sf $border $border
 client.unfocused	 	$menu_nb $menu_nb $menu_nf $border $border
 client.focused_inactive	$border #000000 #00000 $border $border
 # I3 bar
-bar {
-		status_command i3blocks
-		position top
-
-		# Hiding bar
-		mode hide
-		hidden_state hide
-		modifier Mod1
-		i3bar_command i3bar --transparency
-
-		#status_command ~/.config/bumblebee-status/bumblebee-status\
-		#-t onedark-powerline \
-		#-m nic cpu memory amixer battery datetime\
-		#-p datetime.format="%a %e %b %Y - %I:%M %p"  memory.format="{used}" nic.format="{intf} {state}"
-
-		colors {
-			background $pannel_bg
-			focused_workspace	 $menu_sb $menu_sb $menu_sf
-			inactive_workspace	 $pannel_bg $pannel_bg $menu_nf
-		}
-}
+# bar {
+# 	status_command i3blocks
+# 	position bottom
+# 
+# 	# Hiding bar
+# 	# mode hide
+# 	# hidden_state hide
+# 	modifier Mod1
+# 	# i3bar_command ~/Documents/c_projects/cinnabar/cinnabar
+# 	i3bar_command i3bar --transparency
+# 
+# 	# status_command ~/.config/bumblebee-status/bumblebee-status\
+# 	# -t onedark-powerline \
+# 	# -m nic cpu memory amixer battery datetime\
+# 	# -p datetime.format="%a %e %b %Y - %I:%M %p"  memory.format="{used}" nic.format="{intf} {state}"
+# 
+# 	colors {
+# 		background $pannel_bg
+# 		focused_workspace	 $menu_sb $menu_sb $menu_sf
+# 		inactive_workspace	 $pannel_bg $pannel_bg $menu_nf
+# 	}
+# }
 
 # Adding gaps
-for_window [class="^.*"] border pixel 0
-gaps inner 5
-gaps outer 5
-border_radius 7
+for_window [class="^.*"] border pixel 1
+gaps inner 0
+gaps outer 0
+border_radius 0
 

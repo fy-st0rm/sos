@@ -125,7 +125,7 @@ function! LightLineGit()
 endfunction
 
 let g:lightline = {
-	\ 'colorscheme': 'miramare',
+	\ 'colorscheme': 'ghdark',
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
     \             [ 'gitbranch', 'filename', 'readonly', 'modified' ],
@@ -164,7 +164,7 @@ let g:everforest_transparent_background = 1
 let g:miramare_transparent_background   = 1
 "let g:everforest_background = 'hard'
 "let ayucolor="mirage" 
-colorscheme miramare
+colorscheme gray
 
 "-- Enabling terminal transparency
 autocmd SourcePost * highlight Normal     ctermbg=NONE guibg=NONE
