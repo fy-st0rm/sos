@@ -1,33 +1,22 @@
-
-#░██████╗████████╗░█████╗░██████╗░███╗░░░███╗
-#██╔════╝╚══██╔══╝██╔══██╗██╔══██╗████╗░████║
-#╚█████╗░░░░██║░░░██║░░██║██████╔╝██╔████╔██║
-#░╚═══██╗░░░██║░░░██║░░██║██╔══██╗██║╚██╔╝██║
-#██████╔╝░░░██║░░░╚█████╔╝██║░░██║██║░╚═╝░██║
-#╚═════╝░░░░╚═╝░░░░╚════╝░╚═╝░░╚═╝╚═╝░░░░░╚═╝
-
-
-# <Alt> as a mod key
+# Mod key (ALT)
 set $mod Mod1
 
-# Setting up font
-# font pango: TerminessTTF Nerd Font Mono 12
-# font pango: monospace 9
-# font pango: Mx437 IBM BIOS-2y 10
-# font pango: UbuntuMono Nerd Font Mono 11
-# font pango: Ac437 IBM EGA 8x8 8
-# font pango: JetbrainsMono Nerd Font Mono 9
-# font pango: CaskaydiaCove Nerd Font 9
-# font pango: Iosevka 10
-font pango: RandyGG 11
-# font pango: consolas 10
-# font pango: FireCode 9
+# Fonts
+font pango:CaskaydiaCove Nerd Font 10
 
-# Network and something autostarts
+# Start XDG autostart .desktop files using dex. See also
+# https://wiki.archlinux.org/index.php/XDG_Autostart
+exec --no-startup-id dex --autostart --environment i3
+
+# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
+# screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
+# NetworkManager is the most popular way to manage wireless networks on Linux,
+# and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
-# Audio management
+# Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
@@ -35,11 +24,18 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Brightness management
-bindsym XF86MonBrightnessUp exec light -A 1
-bindsym XF86MonBrightnessDown exec light -U 1
+bindsym XF86MonBrightnessUp exec brightnessctl s +10
+bindsym XF86MonBrightnessDown exec brightnessctl s 10-
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
+
+# move tiling windows via drag & drop by left-clicking into the title bar,
+# or left-clicking anywhere into the window while holding the floating modifier.
+tiling_drag modifier titlebar
+
+# start a terminal
+bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -68,11 +64,16 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# Layout changers
+# split in horizontal orientation
 bindsym $mod+h split h
+
+# split in vertical orientation
 bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
+# change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
@@ -86,17 +87,21 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
-# Workspaces
-set $ws1 "1:  "
-set $ws2 "2:  "
-set $ws3 "3:  "
-set $ws4 "4:  "
-set $ws5 "5:  "
-set $ws6 "6:  "
-set $ws7 "7:  "
-set $ws8 "8:  "
-set $ws9 "9:  "
-set $ws10 "10:  "
+# focus the child container
+#bindsym $mod+d focus child
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -115,58 +120,40 @@ bindsym $mod+Shift+1 move container to workspace number $ws1
 bindsym $mod+Shift+2 move container to workspace number $ws2
 bindsym $mod+Shift+3 move container to workspace number $ws3
 bindsym $mod+Shift+4 move container to workspace number $ws4
-bindsym $mod+Shift+5 move container to workspace number $ws5 
+bindsym $mod+Shift+5 move container to workspace number $ws5
 bindsym $mod+Shift+6 move container to workspace number $ws6
 bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
-# Move workspace to other monitors
-bindsym $mod+Shift+p move workspace to output primary
-bindsym $mod+Shift+h move workspace to output HDMI-
-workspace 9 output VIRTUAL1
-
-# Reload, logout bindings
+# reload the configuration file
 bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
-# Colors
-set $pannel_bg #081112AA
-set $border #555267
-set $menu_nb #070708
-set $menu_nf #e1e8f877
-set $menu_sb #081112BB
-set $menu_sf #ecf2f8
-set $dmenu_nb #151515
-set $dmenu_sb #555267
+# Custom keybinds
+bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/Screenshots/$(date).png"
+bindsym $mod+d exec --no-startup-id dmenu_run -b -fn 'CaskaydiaCove Nerd Font-11' -nb "#303446" -sb "#838ba7"
+bindsym $mod+Shift+d exec --no-startup-id i3lock -i ~/Documents/sos/Wallpapers/lock.png
+bindsym $mod+Shift+b exec --no-startup-id chromium
 
-# Program assignment
-assign [class="Opera"]   workspace number $ws1
-assign [class="discord"] workspace number $ws2
-
-# Keybindings
-bindsym Print 				exec --no-startup-id maim "/home/$USER/Pictures/screenshots/$(date).png"
-bindsym $mod+Shift+Return 	exec --no-startup-id nautilus
-# bindsym $mod+Return 		exec --no-startup-id alacritty -e vim --servername server -c ":term ++curwin"
-bindsym $mod+Return 		exec --no-startup-id alacritty
-bindsym $mod+Shift+b 		exec --no-startup-id opera
-bindsym $mod+d 				exec --no-startup-id dmenu_run -c -l 10 -h 21 -fn 'RandyGG-15' -nb '$dmenu_nb' -sb '$dmenu_sb'
-bindsym $mod+Shift+d        exec --no-startup-id i3lock -i ~/Pictures/Wallpapers/lock.png
-bindsym $mod+Shift+n        exec --no-startup-id neovide
-
-# Auto start
+# Startups
 exec --no-startup-id nitrogen --restore
-# exec --no-startup-id saw -r
-exec --no-startup-id synclient TapButton1=1
-exec --no-startup-id picom
+exec --no-startup-id picom --config $HOME/.config/picom/picom.conf
 exec --no-startup-id dunst
-exec --no-startup-id syndaemon -d -i 0.5
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
         bindsym j resize shrink width 10 px or 10 ppt
         bindsym k resize grow height 10 px or 10 ppt
         bindsym l resize shrink height 10 px or 10 ppt
@@ -183,43 +170,19 @@ mode "resize" {
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
 }
+
 bindsym $mod+r mode "resize"
 
-# Colors
+# Program workspace assignment
+assign [class="Chromium"] workspace number $ws1
+assign [class="discord"] workspace number $ws2
 
-#-- Purple
-# client.focused   #000000 #000000 #00000 #bd93f9 #bd93f9
+for_window [class="^.*"] border pixel 0
+gaps inner 5
+gaps outer 2
+gaps bottom 23
 
-client.focused  	 	$menu_sb $menu_sb $menu_sf $border $border
-client.unfocused	 	$menu_nb $menu_nb $menu_nf $border $border
-client.focused_inactive	$border #000000 #00000 $border $border
 # I3 bar
 # bar {
-# 	status_command i3blocks
-# 	position bottom
-# 
-# 	# Hiding bar
-# 	# mode hide
-# 	# hidden_state hide
-# 	modifier Mod1
-# 	# i3bar_command ~/Documents/c_projects/cinnabar/cinnabar
-# 	i3bar_command i3bar --transparency
-# 
-# 	# status_command ~/.config/bumblebee-status/bumblebee-status\
-# 	# -t onedark-powerline \
-# 	# -m nic cpu memory amixer battery datetime\
-# 	# -p datetime.format="%a %e %b %Y - %I:%M %p"  memory.format="{used}" nic.format="{intf} {state}"
-# 
-# 	colors {
-# 		background $pannel_bg
-# 		focused_workspace	 $menu_sb $menu_sb $menu_sf
-# 		inactive_workspace	 $pannel_bg $pannel_bg $menu_nf
-# 	}
+#         status_command i3blocks
 # }
-
-# Adding gaps
-for_window [class="^.*"] border pixel 1
-gaps inner 0
-gaps outer 0
-border_radius 0
-
