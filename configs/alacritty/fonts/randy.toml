@@ -1,0 +1,27 @@
+[font.bold]
+family = "RandyGG"
+style = "Medium"
+
+[font.bold_italic]
+family = "RandyGG"
+style = "Bold Italic"
+
+[font.glyph_offset]
+x = 0
+y = 0
+
+[font.italic]
+family = "RandyGG"
+style = "Italic"
+
+[font.normal]
+family = "RandyGG"
+style = "Medium"
+
+[font.offset]
+x = 0
+y = 0
+
+[font]
+size = 9
+

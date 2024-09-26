@@ -108,7 +108,7 @@ window:
 font:
   # Normal (roman) font face
   normal:
-    family: RandyGG
+    # family: RandyGG
     # family: Perfect DOS VGA 437 
     # family: Terminess Nerd Font Mono
     # family: JetBrainsMono Nerd Font Mono
@@ -127,7 +127,7 @@ font:
 
   # Bold font face
   bold:  
-    family: RandyGG
+    # family: RandyGG
     # family: Perfect DOS VGA 437
     # family: Terminess Nerd Font Mono
     # family: JetBrainsMono Nerd Font Mono
@@ -146,7 +146,7 @@ font:
 
   # Italic font face
   italic:    
-    family: RandyGG
+    # family: RandyGG
     # family: Perfect DOS VGA 437
     # family: Terminess Nerd Font Mono
     # family: JetBrainsMono Nerd Font Mono
@@ -165,7 +165,7 @@ font:
 
   # Bold italic font face
   bold_italic:
-    family: RandyGG
+    # family: RandyGG
     # family: Perfect DOS VGA 437
     # family: Terminess Nerd Font Mono
     # family: JetBrainsMono Nerd Font Mono

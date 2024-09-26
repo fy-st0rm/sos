@@ -1,0 +1,26 @@
+[font.bold]
+family = "Ac437 IBM EGA 8x8"
+style = "Medium"
+
+[font.bold_italic]
+family = "Ac437 IBM EGA 8x8"
+style = "Bold Italic"
+
+[font.glyph_offset]
+x = 0
+y = 0
+
+[font.italic]
+family = "Ac437 IBM EGA 8x8"
+style = "Italic"
+
+[font.normal]
+family = "Ac437 IBM EGA 8x8"
+style = "Medium"
+
+[font.offset]
+x = 0
+y = 1
+
+[font]
+size = 8
