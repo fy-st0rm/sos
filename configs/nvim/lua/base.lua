@@ -2,6 +2,8 @@ local g = vim.g
 local o = vim.o
 local opt = vim.opt
 
+vim.env.NVIM_LISTEN_ADDRESS = vim.fn.stdpath("run") .. "/nvim.sock"
+
 -- cmd('syntax on')
 -- vim.api.nvim_command('filetype plugin indent on')
 
@@ -28,7 +30,7 @@ o.scrolloff = 8
 o.number         = false
 o.numberwidth    = 2
 o.relativenumber = false
-o.signcolumn     = "yes"
+o.signcolumn     = "no"
 o.cursorline     = true
 o.showtabline    = 0
 
@@ -50,6 +52,7 @@ o.shiftwidth  = 2
 vim.bo.softtabstop = 2 -- If negative, shiftwidth value is used
 o.list        = true
 o.listchars   = "trail:·,nbsp:◇,tab:┊ ,extends:▸,precedes:◂"
+-- ┊ »
 
 -- Makes neovim and host OS clipboard play nicely with each other
 o.clipboard = "unnamedplus"

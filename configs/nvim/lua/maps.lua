@@ -3,11 +3,11 @@
 -------------------------------------------------
 
 local function map(mode, lhs, rhs, opts)
-  local options = { noremap=true, silent=true }
-  if opts then
-    options = vim.tbl_extend('force', options, opts)
-  end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+	local options = { noremap=true, silent=true }
+	if opts then
+		options = vim.tbl_extend('force', options, opts)
+	end
+	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
 -- Mimic shell movements
@@ -21,10 +21,22 @@ map("n", "<leader>sl", "<CMD>SessionLoad<CR>")
 map("n", "tt", "<CMD>term<CR>")
 map("t", "<Esc>", "<C-\\><C-n>")
 
--- Startify maps
-map("n", "<C-n>", "<CMD>Startify<CR>")
+-- Startify and mini.nvim maps
+
+function OpenMiniStarterClean()
+	-- Close all open buffers
+	vim.cmd('%bd!')
+
+	-- Close all open tabs
+	vim.cmd('tabonly')
+
+	-- Open MiniStarter
+	MiniStarter.open()
+end
+
 map("n", "<C-s>", "<CMD>SSave<CR>")
-map("n", "<C-c>", "<CMD>SClose<CR>")
+map('n', '<C-b>', '<CMD>Telescope sessions_picker<CR>')
+-- map("n", "<C-c>", "<CMD>lua OpenMiniStarterClean()<CR>")
 
 -- Treetoggle
 map("n", "<C-o>", "<CMD>NvimTreeToggle<CR>")
@@ -54,22 +66,23 @@ map("n", "n9", "<CMD>tabnext 9<CR>")
 map("n", "<C-p>", "<CMD>Telescope find_files hidden=true<CR>")
 
 -- Keybindings for CMake
-map("n", "<C-g>", "<CMD>CMakeGenerate<CR>")
-map("n", "<C-b>", "<CMD>CMakeBuild<CR>")
-map("n", "<C-x>", "<CMD>CMakeClose<CR>")
+-- map("n", "<C-g>", "<CMD>CMakeGenerate<CR>")
+-- map("n", "<C-b>", "<CMD>CMakeBuild<CR>")
+-- map("n", "<C-x>", "<CMD>CMakeClose<CR>")
 
 -- Keybinding to c builder
 -- map("n", "<C-b>", "<CMD>sp | term ipm run<CR>")
 -- map("n", "<C-b>", "<CMD>sp | term cargo run<CR>")
-map("n", "<C-b>", "<CMD>sp | term make<CR>")
+-- map("n", "<C-n>", ":cn<CR>")
+
 
 -- Adding extra paths to python lsp analyzer
 --require("lspconfig").pyright.setup {
---  settings = {
---    python = {
---      analysis = {
---        extraPaths = {"/usr/lib/python3.10/site-packages"}
---      }
---    }
---  }
+--	settings = {
+--		python = {
+--			analysis = {
+--				extraPaths = {"/usr/lib/python3.10/site-packages"}
+--			}
+--		}
+--	}
 --}

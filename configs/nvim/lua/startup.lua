@@ -1,15 +1,59 @@
-
 -- Startup of plugins
 
+require('mini.indentscope').setup()
+require("battery").setup({})
+
+local nvimbattery = {
+	function()
+		return require("battery").get_status_line()
+	end,
+}
+
 ------------------------
 -- Lua Line
 ------------------------
 
-require('lualine').setup()
+require('lualine').setup({
+	options = {
+		theme = bubbles_theme,
+		component_separators = '',
+		section_separators = { left = '', right = '' },
+		globalstatus = true,
+	},
+	sections = {
+		lualine_a = { { 'mode', separator = { left = '', right = '' }, right_padding = 2 } },
+		lualine_b = { 'filename', 'branch' },
+		lualine_c = {
+			'%=', --[[ add your center compoentnts here in place of this comment ]]
+		},
+		lualine_x = {},
+		lualine_y = {
+			'filetype',
+			{
+				'datetime',
+				style = '%I:%M %p', -- 12-hour format with AM/PM
+			},
+			-- nvimbattery
+		},
+		lualine_z = {
+			{ 'location', separator = { left = '', right = '' }, left_padding = 2 },
+		},
+	},
+	inactive_sections = {
+		lualine_a = { 'filename' },
+		lualine_b = {},
+		lualine_c = {},
+		lualine_x = {},
+		lualine_y = {},
+		lualine_z = { 'location' },
+	},
+	tabline = {},
+	extensions = {},
+})
 
 
 ------------------------
--- Lua Line
+-- Telescope
 ------------------------
 
 require('telescope').setup{ 
@@ -17,10 +61,18 @@ require('telescope').setup{
 		file_ignore_patterns = { 
 			"node_modules",
 			".git",
-			"target"
+			"target",
+			".venv",
+			"venv"
 		}
-	}
+	},
+	extensions = {
+		sessions_picker = {
+			sessions_dir = vim.fn.stdpath('data') ..'/session/',
+		}
+	},
 }
+require('telescope').load_extension('sessions_picker')
 
 
 ------------------------
@@ -106,36 +158,70 @@ require("nvim-tree").setup({
 	},
 })
 
-
-------------------------
--- Transparency
-------------------------
-
-require('transparent').setup({
-	enable=false
-})
-
 vim.g.python_highlight_all=1
-
 
 ------------------------
 -- Startify
 ------------------------
 
-vim.cmd([[
-let g:startify_bookmarks = [
-	\ {'v': '~/.vimrc'},
-	\ {'n': '~/.config/nvim/init.lua'},
-	\ {'i': '~/.config/i3/config'},
-	\ {'b': '~/.bashrc'},
-	\ {'a': '~/.config/alacritty/alacritty.yml'}
-	\]
+-- vim.cmd([[
+-- let g:startify_bookmarks = [
+--	\ {'v': '~/.vimrc'},
+--	\ {'n': '~/.config/nvim/init.lua'},
+--	\ {'i': '~/.config/i3/config'},
+--	\ {'b': '~/.bashrc'},
+--	\ {'a': '~/.config/alacritty/alacritty.toml'}
+--	\]
+-- 
+-- let g:startify_lists = [
+--	\ { 'header': ['	 Bookmarks:'], 'type':'bookmarks'},
+--	\ { 'header': ['	 Sessons:'], 'type':'sessions'}
+--	\]
+-- ]])
 
-let g:startify_lists = [
-	\ { 'header': ['	 Bookmarks:'], 'type':'bookmarks'},
-	\ { 'header': ['	 Sessons:'], 'type':'sessions'}
-	\]
-]])
+
+------------------------
+-- Mini Neovim
+------------------------
+
+local header_art = 
+[[
+ ╭╮╭┬─╮╭─╮┬  ┬┬╭┬╮
+ │││├┤ │ │╰┐┌╯││││
+ ╯╰╯╰─╯╰─╯ ╰╯ ┴┴ ┴
+]]
+
+-- using the mini plugins
+require('mini.sessions').setup({
+	autoread = false,
+	autowrite = true,
+	directory =  '~/.local/share/nvim/session',
+	file = ''
+})
+
+local starter = require('mini.starter')
+starter.setup({
+	-- evaluate_single = true,
+	items = {
+		starter.sections.sessions(77, true),
+		starter.sections.builtin_actions(),
+	},
+	content_hooks = {
+		function(content)
+			local blank_content_line = { { type = 'empty', string = '' } }
+			local section_coords = starter.content_coords(content, 'section')
+			-- Insert backwards to not affect coordinates
+			for i = #section_coords, 1, -1 do
+				table.insert(content, section_coords[i].line + 1, blank_content_line)
+			end
+			return content
+		end,
+		starter.gen_hook.adding_bullet("» "),
+		starter.gen_hook.aligning('center', 'center'),
+	},
+	header = header_art,
+	footer = '',
+})
 
 
 ------------------------
@@ -144,7 +230,7 @@ let g:startify_lists = [
 
 require('nvim-treesitter.configs').setup {
 	-- Languages for syntax highlight
-	ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'help', 'vim' },
+	ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'vim', 'odin', 'javascript', 'dart' },
 
 	-- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
 	auto_install = false,
@@ -206,13 +292,13 @@ require('nvim-treesitter.configs').setup {
 	},
 }
 
-require("mason").setup({
-	ui = {
-		icons = {
-			package_installed = "",
-			package_pending = "",
-			package_uninstalled = "",
-		},
-	}
-})
-require("mason-lspconfig").setup()
+-- require("mason").setup({
+--	ui = {
+--		icons = {
+--			package_installed = "",
+--			package_pending = "",
+--			package_uninstalled = "",
+--		},
+--	}
+-- })
+-- require("mason-lspconfig").setup()

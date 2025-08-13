@@ -24,13 +24,18 @@ packer.startup(function(use)
 	-- Telescope
 	use({
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.1",
 		requires = { { "nvim-lua/plenary.nvim" } },
 	})
 	use("nvim-telescope/telescope-file-browser.nvim")
 
 	-- Startify
 	use("mhinz/vim-startify")
+
+	-- Session picker
+	use('JoseConseco/telescope_sessions_picker.nvim')
+
+	-- Mini nvim
+	use('echasnovski/mini.nvim')
 
 	-- Language server
 	use("neovim/nvim-lspconfig")
@@ -49,6 +54,7 @@ packer.startup(function(use)
 
 	-- Treesitter Syntax Highlighting
 	use("nvim-treesitter/nvim-treesitter")
+	use("echasnovski/mini.indentscope")
 
 	-- Tab line
 	use("kyazdani42/nvim-web-devicons")
@@ -57,15 +63,20 @@ packer.startup(function(use)
 	-- A better statusline
 	use("nvim-lualine/lualine.nvim") 
 
+	-- Battery
+	use { 'justinhj/battery.nvim', requires = {{'nvim-tree/nvim-web-devicons'}, {'nvim-lua/plenary.nvim'}}}
+
 	-- File management --
 	use({
 		'nvim-tree/nvim-tree.lua',
 		requires = {
 			'nvim-tree/nvim-web-devicons', -- optional, for file icons
 		},
-		tag = 'nightly' -- optional, updated every week. (see issue #1193)
 	})
 	use("ryanoasis/vim-devicons")
+
+	-- EditorConfig --
+	use("gpanders/editorconfig.nvim")
 
 	-- Syntax Highlighting and Colors --
 	use("PotatoesMaster/i3-vim-syntax")
@@ -110,6 +121,7 @@ packer.startup(function(use)
 	use('andreypopp/vim-colors-plain')
 	use("Shatur/neovim-ayu")
 	use("rebelot/kanagawa.nvim")
+	use("bartekprtc/gruv-vsassist.nvim")
 
 	-- Transparent background
 	use("xiyaowong/nvim-transparent")

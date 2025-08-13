@@ -15,7 +15,7 @@ require('nightfox').setup({
 })
 
 require('nordic').setup({
-	transparent_bg = false,
+	transparent = true,
 	telescope = {
 		style = 'classic',
 	},
@@ -34,10 +34,31 @@ require('noirbuddy').setup {
 }
 
 require('onedark').setup {
-    style = 'darker'
+	style = 'dark',
+	transparent = true
 }
 
+require("catppuccin").setup({
+	transparent_background = true
+})
+
+require("kanagawa").setup({
+	transparent = true
+})
+
+require("gruv-vsassist").setup({
+	transparent = true,
+	italic_comments = true,
+	disable_nvimtree_bg = true,
+})
+
 vim.g.miramare_transparent_background = 1
+vim.g.gruvbox_material_transparent_background = 2
+vim.g.kanagawabones_transparent_background = true
+
+vim.g.nord_disable_background = true
+vim.g.nord_italic = false
+vim.g.nord_bold = false
 
 
 -- Uncomment just ONE of the following colorschemes!
@@ -53,7 +74,7 @@ vim.g.miramare_transparent_background = 1
 -- local ok, _ = pcall(vim.cmd, 'colorscheme base16-tomorrow-night')
 -- local ok, _ = pcall(vim.cmd, 'colorscheme github_dimmed')
 -- local ok, _ = pcall(vim.cmd, 'colorscheme catppuccin-frappe')
--- local ok, _ = pcall(vim.cmd, 'colorscheme miramare')
+local ok, _ = pcall(vim.cmd, 'colorscheme miramare')
 -- local ok, _ = pcall(vim.cmd, 'colorscheme juliana')
 -- local ok, _ = pcall(vim.cmd, 'colorscheme terafox')
 -- vim.g.sonokai_style="maia"
@@ -72,7 +93,12 @@ vim.g.miramare_transparent_background = 1
 -- local ok, _ = pcall(vim.cmd, 'colorscheme onedark')
 -- local ok, _ = pcall(vim.cmd, 'colorscheme plain')
 -- local ok, _ = pcall(vim.cmd, 'colorscheme ayu')
--- local ok, _ = pcall(vim.cmd, 'colorscheme kanagawa')
+-- local ok, _ = pcall(vim.cmd, 'colorscheme kanagawabones')
+-- local ok, _ = pcall(vim.cmd, 'colorscheme kanagawa-dragon')
+-- local ok, _ = pcall(vim.cmd, 'colorscheme neobones')
+-- local ok, _ = pcall(vim.cmd, 'colorscheme tokyobones')
+-- local ok, _ = pcall(vim.cmd, 'colorscheme plain')
+-- local ok, _ = pcall(vim.cmd, 'colorscheme gruv-vsassist')
 
 -- Highlight the region on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
