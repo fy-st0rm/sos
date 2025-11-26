@@ -24,8 +24,8 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Brightness management
-bindsym XF86MonBrightnessUp exec brightnessctl s +10
-bindsym XF86MonBrightnessDown exec brightnessctl s 10-
+bindsym XF86MonBrightnessUp exec brightnessctl s +50
+bindsym XF86MonBrightnessDown exec brightnessctl s 50-
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -33,9 +33,6 @@ floating_modifier $mod
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
 tiling_drag modifier titlebar
-
-# start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -135,10 +132,12 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # Custom keybinds
+bindsym $mod+Return exec --no-startup-id alacritty -e nvim --cmd term
 bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/Screenshots/$(date).png"
-bindsym $mod+d exec --no-startup-id dmenu_run -b -fn 'CaskaydiaCove Nerd Font-11' -nb "#303446" -sb "#838ba7"
+bindsym $mod+d exec --no-startup-id dmenu_run -fn 'CaskaydiaCove Nerd Font-11' -nb "#002b36" -sb "#268bd2"
 bindsym $mod+Shift+d exec --no-startup-id i3lock -i ~/Documents/sos/Wallpapers/lock.png
 bindsym $mod+Shift+b exec --no-startup-id chromium
+bindsym $mod+b exec --no-startup-id polybar-msg cmd toggle
 
 # Startups
 exec --no-startup-id nitrogen --restore
@@ -177,10 +176,17 @@ bindsym $mod+r mode "resize"
 assign [class="Chromium"] workspace number $ws1
 assign [class="discord"] workspace number $ws2
 
-for_window [class="^.*"] border pixel 0
-gaps inner 5
-gaps outer 2
-gaps bottom 23
+for_window [class="^.*"] border pixel 2
+smart_borders yes
+gaps inner 0
+gaps outer 0
+gaps bottom 0
+
+# Color
+client.focused          #002b36 #859900 #ffffff #002b36
+client.unfocused        #002b36 #002b36 #888888 #292d2e
+client.focused_inactive #002b36 #002b36 #ffffff #484e50
+client.urgent           #dc322f #dc322f #ffffff #900000
 
 # I3 bar
 # bar {
