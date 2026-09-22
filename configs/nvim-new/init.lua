@@ -1,4 +1,3 @@
-
 -- Neovim config
 require("plugin")
 require("startup")

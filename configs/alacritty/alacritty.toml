@@ -1,18 +1,19 @@
+[general]
 import = [
-	"~/.config/alacritty/themes/catppuccin_frappe.toml",
-	"~/.config/alacritty/fonts/jetbrains.toml",
+  "~/.config/alacritty/themes/doom-one.toml",
+  "~/.config/alacritty/fonts/jetbrains.toml",
 ]
 
 [cursor]
 thickness = 0.2
-smooth_motion = true
-smooth_motion_factor = 0.8
-smooth_motion_spring = 0.5
-smooth_motion_max_stretch_x = 3.0
-smooth_motion_max_stretch_y = 3.0
+# smooth_motion = false
+# smooth_motion_factor = 0.8
+# smooth_motion_spring = 0.5
+# smooth_motion_max_stretch_x = 3.0
+# smooth_motion_max_stretch_y = 3.0
 
 [cursor.style]
-blinking = "Off"
+blinking = "On"
 shape = "Block"
 
 [env]
@@ -21,14 +22,14 @@ TERM = "xterm-256color"
 [selection]
 save_to_clipboard = true
 
-[shell]
-program = "/bin/bash"
+[terminal]
+shell = "/bin/bash"
 
 [window]
-opacity = 0.85
+opacity = 0.8
 title = "Alacritty"
 
 [window.padding]
-x = 5
-y = 5
+x = 10
+y = 10
 

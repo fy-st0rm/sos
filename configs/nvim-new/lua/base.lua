@@ -12,7 +12,8 @@ g.loaded_netrwPlugin = 1
 g.rust_recommended_style = false
 
 -- Shell
-o.shell = '"C:\\Program Files\\PowerShell\\7\\pwsh.exe"'
+o.shell = "bash"
+--o.shell = '"C:\\Program Files\\PowerShell\\7\\pwsh.exe"'
 
 o.termguicolors = true
 -- o.background = 'dark'

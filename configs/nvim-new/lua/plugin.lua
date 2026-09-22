@@ -37,12 +37,15 @@ packer.startup(function(use)
     },
   })
   use("gpanders/editorconfig.nvim")
+  use { 'justinhj/battery.nvim', requires = {{'nvim-tree/nvim-web-devicons'}, {'nvim-lua/plenary.nvim'}}}
 
   -- Colorschemes
   use("ellisonleao/gruvbox.nvim")
   use("RRethy/base16-nvim")
   use('RostislavArts/naysayer.nvim')
   use('andreypopp/vim-colors-plain')
+	use("fcpg/vim-farout")
+  use("navarasu/onedark.nvim")
 
   if packer_bootstrap then
     packer.sync()

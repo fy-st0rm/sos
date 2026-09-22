@@ -1,9 +1,9 @@
 [font.bold]
-family = "CaskaydiaCove Nerd Font"
+family = "GohuFont uni11 Nerd Font"
 style = "Medium"
 
 [font.bold_italic]
-family = "CaskaydiaCove Nerd Font"
+family = "GohuFont uni11 Nerd Font"
 style = "Bold Italic"
 
 [font.glyph_offset]
@@ -11,11 +11,11 @@ x = 0
 y = 0
 
 [font.italic]
-family = "CaskaydiaCove Nerd Font"
+family = "GohuFont uni11 Nerd Font"
 style = "Italic"
 
 [font.normal]
-family = "CaskaydiaCove Nerd Font"
+family = "GohuFont uni11 Nerd Font"
 style = "Medium"
 
 [font.offset]
@@ -23,4 +23,4 @@ x = 0
 y = 0
 
 [font]
-size = 9
+size = 10.5
